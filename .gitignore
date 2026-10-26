@@ -1,0 +1,41 @@
+# --- Data & large artifacts (never commit; ~10+ GB) ---
+data/*
+!data/.gitkeep
+models/*
+!models/.gitkeep
+submissions/*.csv
+*.ogg
+*.wav
+*.mp3
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.zip
+
+# --- Secrets ---
+kaggle.json
+.env
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# --- Experiment logs ---
+wandb/
+lightning_logs/
+runs/
+outputs/
+
+# --- OS / editors ---
+.DS_Store
+.vscode/
+.idea/
+
+# --- Word lock files ---
+~$*.docx

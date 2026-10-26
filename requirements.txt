@@ -1,0 +1,21 @@
+# Core
+numpy
+pandas
+scikit-learn
+matplotlib
+tqdm
+pyyaml
+
+# Audio
+librosa
+soundfile
+
+# Deep learning (install the CPU or CUDA build of torch for your machine:
+# https://pytorch.org/get-started/locally/)
+torch
+torchaudio
+timm
+
+# Data access + notebooks
+kaggle
+jupyter
