@@ -1,0 +1,13 @@
+{
+  "id": "jmemei/sc4000-birdclef-eda",
+  "title": "sc4000-birdclef-eda",
+  "code_file": "eda.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": ["birdclef-2025"],
+  "kernel_sources": []
+}

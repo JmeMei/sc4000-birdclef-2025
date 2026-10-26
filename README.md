@@ -37,6 +37,25 @@ pip install -r requirements.txt
 bash scripts/download_data.sh
 ```
 
+## Running on Kaggle (no local data or GPU needed)
+
+Write code in VS Code, then run it on Kaggle where the data is already attached.
+Each notebook lives in its own folder under `notebooks/` with a `kernel-metadata.json`.
+
+```bash
+source .venv/bin/activate
+bash scripts/kaggle_run.sh notebooks/eda
+```
+
+This pushes the notebook as a **private** Kaggle kernel, waits for it to finish, and
+downloads the outputs (figures, CSVs, models) to `outputs/eda/` (gitignored).
+
+To make a new notebook: copy `notebooks/eda/kernel-metadata.json` into a new folder, then change
+`id`, `title` and `code_file`. Set `"enable_gpu": true` for training. Kaggle gives about 30 GPU hours a week.
+The script refuses to push if `"is_private"` is not `true`.
+
+Requires the Kaggle CLI token at `~/.kaggle/access_token`.
+
 ## Experiment log
 
 Record every leaderboard submission here — the report needs baselines and ablations.
