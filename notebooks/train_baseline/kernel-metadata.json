@@ -1,0 +1,14 @@
+{
+  "id": "jmemei/sc4000-birdclef-train-baseline",
+  "title": "sc4000-birdclef-train-baseline",
+  "code_file": "train_baseline.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": ["birdclef-2025"],
+  "kernel_sources": []
+}
