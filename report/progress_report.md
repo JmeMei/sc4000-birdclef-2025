@@ -1,6 +1,6 @@
 # BirdCLEF+ 2025: Identifying Species from Rainforest Soundscapes
 
-*SC4000 Machine Learning — Group project report (DRAFT, findings as of 1 Nov 2026)*
+_SC4000 Machine Learning — Group project report (DRAFT, findings as of 1 Nov 2026)_
 
 > Draft text for the AAAI template in `report/AAAI-word-template.docx`. Sections marked **TODO**
 > are filled in once later experiments finish. Figures live in `report/figures/`.
@@ -28,23 +28,23 @@ one of 206 species. The competition metric is the macro-averaged ROC-AUC across 
 (species with no positive window in the test set are skipped), so every species counts
 equally regardless of how common it is.
 
-It is a *code competition*: the submission is a Kaggle notebook that must run on **CPU only**,
+It is a _code competition_: the submission is a Kaggle notebook that must run on **CPU only**,
 with internet disabled, within **90 minutes**. This constraint shapes the model choices below.
 
 ## 2. Data and exploratory analysis
 
-| Statistic | Value |
-|---|---|
-| Labelled training clips (`train_audio`) | 28,564 |
-| Species (taxonomy) | 206 (Aves ≈146, Amphibia ≈34, Insecta ≈17, Mammalia ≈9) |
-| Species with no training clip | 0 |
-| Species with ≤ 5 clips / ≤ 20 clips | 30 / 55 |
-| Clips per species: min / median / max | 2 / 80 / 990 |
-| Clips with secondary labels | 9.3% (mean 1.48 extra labels when present) |
-| Median clip duration | 20.5 s (8.1% shorter than 5 s) |
-| Audio format | 32 kHz mono `.ogg` |
-| Unlabelled 1-min soundscapes (`train_soundscapes`) | 9,726 |
-| Clips with quality rating 0 (unrated) | ≈ 8,000 |
+| Statistic                                          | Value                                                   |
+| -------------------------------------------------- | ------------------------------------------------------- |
+| Labelled training clips (`train_audio`)            | 28,564                                                  |
+| Species (taxonomy)                                 | 206 (Aves ≈146, Amphibia ≈34, Insecta ≈17, Mammalia ≈9) |
+| Species with no training clip                      | 0                                                       |
+| Species with ≤ 5 clips / ≤ 20 clips                | 30 / 55                                                 |
+| Clips per species: min / median / max              | 2 / 80 / 990                                            |
+| Clips with secondary labels                        | 9.3% (mean 1.48 extra labels when present)              |
+| Median clip duration                               | 20.5 s (8.1% shorter than 5 s)                          |
+| Audio format                                       | 32 kHz mono `.ogg`                                      |
+| Unlabelled 1-min soundscapes (`train_soundscapes`) | 9,726                                                   |
+| Clips with quality rating 0 (unrated)              | ≈ 8,000                                                 |
 
 **Finding 1: severe class imbalance** (Fig. `class_imbalance.png`, `taxonomic_groups.png`).
 The most common species has 990 clips, while 30 species have five or fewer. Birds dominate
@@ -91,7 +91,7 @@ roughly 8,000 clips are unrated (rating 0), so quality filtering has to be done 
 
 1. **Focal loss** in place of BCE, as an ablation targeting class imbalance.
 2. **Sound-event-detection (SED) model on 20 s chunks**: predicts frame-level presence and
-   pools it into a clip score, so the model learns *where* in a clip the species calls. This
+   pools it into a clip score, so the model learns _where_ in a clip the species calls. This
    directly addresses the weak-label problem (Finding 2). Re-implemented from published
    write-ups and cited accordingly.
 3. **Pseudo-labelling (one round of Noisy Student)** on the unlabelled soundscapes to reduce
@@ -102,14 +102,14 @@ roughly 8,000 clips are unrated (rating 0), so quality filtering has to be done 
 
 ### 4.1 Baseline training curve
 
-| Epoch | Train loss | Val loss | Val macro ROC-AUC |
-|---|---|---|---|
-| 1 | 0.1364 | 0.0278 | 0.592 |
-| 2 | 0.0219 | 0.0180 | 0.903 |
-| 4 | 0.0108 | 0.0120 | 0.967 |
+| Epoch | Train loss | Val loss   | Val macro ROC-AUC       |
+| ----- | ---------- | ---------- | ----------------------- |
+| 1     | 0.1364     | 0.0278     | 0.592                   |
+| 2     | 0.0219     | 0.0180     | 0.903                   |
+| 4     | 0.0108     | 0.0120     | 0.967                   |
 | **7** | **0.0047** | **0.0101** | **0.973** (best, saved) |
-| 10 | 0.0007 | 0.0110 | 0.963 |
-| 15 | 0.0001 | 0.0115 | 0.960 |
+| 10    | 0.0007     | 0.0110     | 0.963                   |
+| 15    | 0.0001     | 0.0115     | 0.960                   |
 
 (Fig. `baseline_training.png`.) Validation AUC peaks at epoch 7 and then declines while
 training loss keeps falling towards zero, a clear sign of **overfitting**: with no
@@ -118,13 +118,13 @@ augmentation and a fixed crop, the model memorises the training spectrograms. Au
 
 ### 4.2 Experiment summary
 
-| Experiment | Val macro AUC | Public LB | Notes |
-|---|---|---|---|
-| EfficientNet-B0, BCE, first 5 s, no aug | 0.973 | TODO | Baseline |
-| + Focal loss | TODO | TODO | Ablation |
-| SED on 20 s chunks | TODO | TODO | |
-| + 1 round pseudo-labels | TODO | TODO | |
-| Ensemble | TODO | TODO | |
+| Experiment                              | Val macro AUC | Public LB | Notes    |
+| --------------------------------------- | ------------- | --------- | -------- |
+| EfficientNet-B0, BCE, first 5 s, no aug | 0.973         | TODO      | Baseline |
+| + Focal loss                            | TODO          | TODO      | Ablation |
+| SED on 20 s chunks                      | TODO          | TODO      |          |
+| + 1 round pseudo-labels                 | TODO          | TODO      |          |
+| Ensemble                                | TODO          | TODO      |          |
 
 **Caution on the validation score.** Our hold-out clips come from the same clean,
 focused-recording distribution as training, whereas the test set is noisy soundscapes.
