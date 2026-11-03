@@ -1,21 +1,21 @@
 # Remaining Work and Task Split
 
-SC4000 BirdCLEF+ 2025 group project, 4 members. Written 3 Nov 2026.
+SC4000 BirdCLEF+ 2025 group project, 4 members. Updated 3 Nov 2026.
 
 **Deadline: Fri 13 Nov 2026, 11:59pm.** Hand in on NTULearn: report (AAAI, max 10 pages), video link (.txt), and the submission file.
 
-Rename "Member 3" and "Member 4" to your real names.
+## Already done (Member 1)
 
-## Already done
+| Done |
+|---|
+| Private GitHub repo and VS Code → Kaggle workflow (`scripts/kaggle_run.sh`) |
+| EDA notebook and 7 report figures (`notebooks/eda`, `report/figures`) |
+| Baseline model: EfficientNet-B0 on first-5 s mel spectrograms (local val AUC 0.9732) |
+| CPU/offline inference notebook (about 25 min, under the 90 min limit) |
+| First submission: **public 0.71681**, rank about 1600 / 2032 (top 79%) |
+| Draft report: introduction and data section (`report/progress_report.md`) |
 
-| Done | By |
-|---|---|
-| Private GitHub repo and VS Code → Kaggle workflow (`scripts/kaggle_run.sh`) | Jamie |
-| EDA notebook and 7 report figures (`notebooks/eda`, `report/figures`) | Jamie |
-| Baseline model: EfficientNet-B0 on first-5 s mel spectrograms (local val AUC 0.9732) | Jamie |
-| CPU/offline inference notebook (about 25 min, under the 90 min limit) | Jamie |
-| First submission: **public 0.71681**, rank about 1600 / 2032 (top 79%) | Jamie |
-| Draft report: introduction and data section (`report/progress_report.md`) | Jamie |
+Every task listed under each member below is **still to do**.
 
 ## Team targets
 
@@ -26,79 +26,113 @@ Rename "Member 3" and "Member 4" to your real names.
 | **Main target** | **≥ 0.810** | top 50% |
 | Stretch | ≥ 0.873 | top 30% |
 
-These are targets, not guarantees. Every experiment must be submitted and logged, even if it scores lower, because the ablation results are part of the grade.
+These are targets, not guarantees. Submit and log every experiment, even ones that score lower: the ablation results are part of the grade.
+
+## Can we work at the same time?
+
+**Yes. The four tracks run in parallel**, so nobody needs to wait for anyone to start. There are only three hand-offs:
+
+| Hand-off | From → to | By |
+|---|---|---|
+| Saved-spectrogram Kaggle dataset (optional speed-up; others can start without it) | Member 1 → everyone | 5 Nov |
+| Trained model weights for the ensemble | Members 1, 2, 3 → Member 4 | 8 Nov |
+| Report sections for assembly into the AAAI template | everyone → Member 4 | 11 Nov |
+
+Member 4 can start pseudo-labelling now using the existing baseline model as the teacher, then swap in a better model after 8 Nov.
+
+Only the end is sequential: final ensemble → report results → video → hand-in.
+
+## Time estimates
+
+The times below are hands-on work. Kaggle runs add waiting time on top: about 30 min per training run and about 40 min for each submission to be scored. Plan to start runs and work on writing while they finish.
+
+| Member | Hands-on hours |
+|---|---|
+| Member 1 | about 15 h (lighter, since Member 1 already did the setup and baseline) |
+| Member 2 | about 18 h |
+| Member 3 | about 18 h |
+| Member 4 | about 19 h |
 
 ## The split
 
-Each person owns **one modelling track** and **one share of the report and video**, so the work is roughly equal.
+Each person owns **one modelling track** and **one share of the report and video**.
 
-### Jamie: improve the baseline (ablations)
-Branch: `jamie/baseline-ablations`. Notebooks go in `notebooks/jamie_*`.
+### Member 1: improve the baseline (ablations)
+Branch: `member1/baseline-ablations`. Notebooks go in `notebooks/member1_*`.
 
-1. Save the mel spectrograms as a private Kaggle dataset, so every training run is about twice as fast. Share it with the team.
-2. Ablation: random 5 s crops from the whole clip instead of the first 5 s.
-3. Ablation: background noise from the unlabelled soundscapes, plus mixup.
-4. Ablation: use secondary labels and Focal loss.
-5. Combine the ideas that helped into "baseline v2" and submit it.
-6. Admin: add teammates as GitHub collaborators; screenshot the baseline score.
-7. Report: **Experiments and results** section, with the ablation table and discussion.
+| # | Task | Time |
+|---|---|---|
+| 1 | Add teammates as GitHub collaborators (Settings → Collaborators) | 10 min |
+| 2 | Screenshot the baseline score (Kaggle → Submissions tab) and its leaderboard position | 10 min |
+| 3 | Save mel spectrograms of the **whole** clip (not just the first 5 s) as a private Kaggle dataset and share it with the team | 1.5 h |
+| 4 | Ablation: random 5 s crops from the whole clip instead of the first 5 s | 2 h |
+| 5 | Ablation: background noise from the unlabelled soundscapes, plus mixup | 3 h |
+| 6 | Ablation: secondary labels and Focal loss | 2 h |
+| 7 | Combine the ideas that helped into "baseline v2" and submit it | 2 h |
+| 8 | Report: **Experiments and results** section, with the ablation table and discussion | 4 h |
 
 **Expected results**
-- A Kaggle dataset of saved spectrograms that the whole team uses.
-- 4 or more leaderboard submissions, each one logged in the README.
+- A shared Kaggle dataset of spectrograms.
+- 4 or more leaderboard submissions, each logged in the README.
 - An ablation table: baseline vs. each change on its own vs. v2.
 - A v2 model scoring **≥ 0.776** public (target).
 - The Experiments section, about 1.5 pages.
 
-### Arsh: SED model
-Branch: `arsh/sed-model`. Notebooks go in `notebooks/arsh_*`.
+### Member 2: SED model
+Branch: `member2/sed-model`. Notebooks go in `notebooks/member2_*`.
 
-1. Build a sound event detection (SED) model on 20 s chunks. It predicts when a call happens inside the clip.
-2. Re-implement it from the 1st-place *write-up* only. Never copy their code. Cite it in the report.
-3. Write a CPU inference notebook for it that finishes in under 90 min, and submit it.
-4. Hand trained model weights to Member 4 for the ensemble by **8 Nov**.
-5. Report: **Methodology** section (preprocessing, CNN baseline, SED model), with the reason for each choice.
-6. Video: make the slide deck that everyone presents from.
+| # | Task | Time |
+|---|---|---|
+| 1 | Build a sound event detection (SED) model on 20 s chunks; it predicts when a call happens inside the clip. Re-implement it from the 1st-place *write-up* only, never their code, and cite it. | 6 h |
+| 2 | Train it on Kaggle and tune it | 2 h |
+| 3 | Write a CPU inference notebook that finishes in under 90 min, and submit it | 3 h |
+| 4 | Hand the trained model weights to Member 4 by **8 Nov** | 15 min |
+| 5 | Report: **Methodology** section (preprocessing, CNN baseline, SED model), with the reason for each choice | 4 h |
+| 6 | Video: make the slide deck everyone presents from | 3 h |
 
 **Expected results**
 - A working SED training and inference notebook pair.
-- A leaderboard score, compared against the baseline (target: **beat baseline v2**).
-- A diagram or short description of the SED architecture for the report.
-- The Methodology section, about 1.5 pages, and the slide deck.
+- A leaderboard score compared against the baseline (target: **beat baseline v2**).
+- A diagram or short description of the SED architecture.
+- The Methodology section (about 1.5 pages) and the slide deck.
 
 ### Member 3: pretrained audio model and inference speed
 Branch: `member3/birdmae-speed`. Notebooks go in `notebooks/member3_*`.
 
-1. Run a Bird-MAE pilot on 1 fold. Check that it fits the 90 min CPU limit before scaling up.
-2. Measure CPU inference time for every model (baseline, SED, Bird-MAE). This tells the team how many models fit in the final ensemble.
-3. Speed up inference (for example, an ONNX or OpenVINO export) so that more models fit in 90 min.
-4. Report: **Introduction** (competition, challenges, related work) and the **References** list.
-5. Video: edit the recorded clips together, upload to YouTube as private, and write the link .txt file.
+| # | Task | Time |
+|---|---|---|
+| 1 | Bird-MAE pilot on 1 fold; check it fits the 90 min CPU limit before scaling up | 6 h |
+| 2 | Measure CPU inference time for every model (baseline, SED, Bird-MAE), so the team knows how many fit in the ensemble | 2 h |
+| 3 | Speed up inference (for example an ONNX or OpenVINO export) so more models fit in 90 min | 4 h |
+| 4 | Report: **Introduction** (competition, challenges, related work) and the **References** list | 3 h |
+| 5 | Video: edit the recorded clips together, upload to YouTube as private, and write the link .txt file | 3 h |
 
 **Expected results**
 - A go/no-go decision on Bird-MAE, with its leaderboard score.
 - A timing table: model vs. CPU minutes for the full test set.
-- A faster inference notebook (target: **at least 2× faster** than now).
+- A faster inference notebook (target: **at least 2× faster**).
 - The Introduction and References, and the finished video uploaded.
 
 ### Member 4: pseudo-labelling, ensemble and final submission
 Branch: `member4/pseudolabel-ensemble`. Notebooks go in `notebooks/member4_*`.
 
-1. Build the pseudo-labelling pipeline: predict on the 9,726 unlabelled soundscapes. Start with the baseline model as the teacher now, and swap in the best model later.
-2. Retrain using the confident pseudo-labels (1 round) and submit.
-3. Build the ensemble notebook that blends the best models from everyone, within 90 min on CPU.
-4. Lock in the final submission by **10 Nov**. Take leaderboard screenshots and compute the relative ranking.
-5. Report: **Abstract**, **Conclusion**, **team contributions**, and the final **AAAI format check** (max 10 pages incl. references; breaking it costs a 50% penalty).
-6. Hand in on NTULearn on 13 Nov.
+| # | Task | Time |
+|---|---|---|
+| 1 | Pseudo-labelling pipeline: predict on the 9,726 unlabelled soundscapes, starting with the baseline model as teacher | 5 h |
+| 2 | Retrain using the confident pseudo-labels (1 round) and submit | 3 h |
+| 3 | Ensemble notebook that blends the best models from everyone, within 90 min on CPU | 4 h |
+| 4 | Lock in the final submission by **10 Nov**; take leaderboard screenshots and compute the relative ranking | 1.5 h |
+| 5 | Report: **Abstract**, **Conclusion**, **team contributions**, and the final **AAAI format check** (max 10 pages incl. references; breaking it costs a 50% penalty) | 5 h |
+| 6 | Hand in on NTULearn on 13 Nov | 30 min |
 
 **Expected results**
-- Pseudo-labelled data, and a model retrained on it, with its leaderboard score.
-- The final ensemble notebook and its submission (team target **≥ 0.810**).
-- Screenshots and the relative-ranking calculation for the report.
+- Pseudo-labelled data and a model retrained on it, with its leaderboard score.
+- The final ensemble notebook and submission (team target **≥ 0.810**).
+- Screenshots and the relative-ranking calculation.
 - Abstract, Conclusion and contributions written; the report formatted and submitted.
 
 ### Everyone
-- Record your own part of the video (max 10 min total; every member must present).
+- Record your own part of the video (max 10 min total; every member presents).
 - Add every experiment to the **Experiment log** in `README.md`.
 - Write 2–3 sentences about your own contribution for the report.
 
@@ -106,11 +140,12 @@ Branch: `member4/pseudolabel-ensemble`. Notebooks go in `notebooks/member4_*`.
 
 | Date | Milestone |
 |---|---|
-| 3–4 Nov | Create branches. Jamie shares the saved-spectrogram dataset. |
-| 5–7 Nov | Run the modelling tracks in parallel and submit each experiment. |
+| 3–4 Nov | Switch to your branch and start. Member 1 adds collaborators. |
+| 5 Nov | Member 1 shares the saved-spectrogram dataset. |
+| 5–7 Nov | Modelling tracks run in parallel; submit each experiment. |
 | **8 Nov** | **Merge all model branches into `main`.** Hand weights to Member 4. |
 | 9–10 Nov | Pseudo-labelling round and ensemble. **Final submission locked on 10 Nov.** |
-| 10–11 Nov | Report sections merged into `main`. Assemble the full draft in the AAAI template. |
+| 10–11 Nov | Report sections merged into `main`; Member 4 assembles the AAAI draft. |
 | 12 Nov | Record and upload the video. Final read-through and format check. |
 | **13 Nov** | **Submit on NTULearn before 11:59pm.** |
 
@@ -118,22 +153,19 @@ Branch: `member4/pseudolabel-ensemble`. Notebooks go in `notebooks/member4_*`.
 
 Each person works on their own branch and merges into `main` through a pull request when finished.
 
-**Branches**
-
 | Person | Branch |
 |---|---|
-| Jamie | `jamie/baseline-ablations` |
-| Arsh | `arsh/sed-model` |
+| Member 1 | `member1/baseline-ablations` |
+| Member 2 | `member2/sed-model` |
 | Member 3 | `member3/birdmae-speed` |
 | Member 4 | `member4/pseudolabel-ensemble` |
 
-**First time: create your branch**
+**First time: get the repo and switch to your branch**
 
 ```bash
-git checkout main
-git pull
-git checkout -b arsh/sed-model
-git push -u origin arsh/sed-model
+git clone https://github.com/JmeMei/sc4000-birdclef-2025.git
+cd sc4000-birdclef-2025
+git checkout member2/sed-model
 ```
 
 **Each day: save your work**
@@ -145,14 +177,14 @@ git push
 ```
 
 **When you're done: merge into `main`**
-1. Get the latest `main` into your branch first: `git checkout main && git pull && git checkout <your-branch> && git merge main`.
+1. Bring the latest `main` into your branch: `git checkout main && git pull && git checkout <your-branch> && git merge main`.
 2. On GitHub, open a **Pull request** from your branch into `main`.
 3. Ask one teammate to look it over, then click **Merge**.
 
 **Avoiding merge conflicts**
-- Only edit files in your own `notebooks/<name>_*` folders.
-- Write your report sections as separate files in `report/sections/`: `01-introduction.md`, `02-methodology.md`, `03-experiments.md`, `04-conclusion.md`. Member 4 assembles them into the AAAI template at the end.
-- In the README experiment log, only **add rows at the bottom**. Never edit other people's rows.
+- Only edit files in your own `notebooks/member<N>_*` folders.
+- Write report sections as separate files in `report/sections/`: `01-introduction.md`, `02-methodology.md`, `03-experiments.md`, `04-conclusion.md`. Member 4 assembles them into the AAAI template.
+- In the README experiment log, only **add rows at the bottom**.
 - Never commit data, model weights or `kaggle.json`; the `.gitignore` already blocks them.
 
 ## Rules (from the course brief)
