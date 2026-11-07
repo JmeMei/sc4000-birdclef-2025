@@ -39,3 +39,4 @@ outputs/
 
 # --- Word lock files ---
 ~$*.docx
+~$*.pptx
