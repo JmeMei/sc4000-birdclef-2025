@@ -66,6 +66,48 @@ Record every leaderboard submission here — the report needs baselines and abla
 
 Leaderboard band cut-offs (public): top 10% ≥ 0.8808, top 30% ≥ 0.8731, top 50% ≥ 0.8102, top 70% ≥ 0.7764. Best: 0.9338.
 
+### Member 1 ablations (baseline improvements)
+
+Each experiment is the baseline with **one** switch turned on, so a change in score comes from
+that switch alone. Everything else is identical: EfficientNet-B0, AdamW 1e-3 + one-cycle,
+batch 64, 15 epochs, best epoch kept, same 80/20 split (seed 42). Local CV is always scored
+on the first 5 s of each hold-out clip with the primary label only, so the numbers are comparable.
+
+**Shared input:** `jmemei/sc4000-birdclef-m1-make-mels`, whole-clip log-mels (≤ 30 s,
+stored as uint8 over 120 dB) plus 1,000 unlabelled soundscapes for noise.
+Code: `notebooks/member1_train/train.ipynb` (master), copied into the per-experiment folders by
+`python3 scripts/m1_experiments.py`.
+
+| Experiment | Switch (vs baseline) | Problem targeted | Training kernel | Inference kernel |
+|---|---|---|---|---|
+| `base` | none: new data pipeline only; should match baseline CV ≈ 0.973 | (sanity check) | `m1-train-base` | `m1-infer-base` |
+| `crop` | random 5 s crop from the whole clip instead of the first 5 s | weak labels | `m1-train-crop` | `m1-infer-crop` |
+| `noise` | add soundscape noise (p = 0.5, −20 to −3 dB) + mixup (p = 0.5, Beta(0.4, 0.4), targets = max) | domain shift, overfitting | `m1-train-noise` | `m1-infer-noise` |
+| `seclabel` | secondary labels as soft targets (0.5) | label noise | `m1-train-seclabel` | `m1-infer-seclabel` |
+| `focal` | focal loss (γ = 2) instead of BCE | class imbalance | `m1-train-focal` | `m1-infer-focal` |
+| `v2` | the switches above that improved the public LB, combined | all | `m1-train-v2` | `m1-infer-v2` |
+
+Kernel names are short for `jmemei/sc4000-birdclef-<name>`.
+
+**Running one experiment** (e.g. `crop`):
+
+```bash
+bash scripts/kaggle_run.sh notebooks/member1_train_crop    # GPU training, ~20 min
+bash scripts/kaggle_run.sh notebooks/member1_infer_crop    # CPU inference dry run
+kaggle competitions submit birdclef-2025 -k jmemei/sc4000-birdclef-m1-infer-crop -v <version> \
+  -f submission.csv -m "M1 crop" --wait
+```
+
+The local CV is printed at the end of the training log
+(`[crop] best val macro ROC-AUC: ...`) and saved in `outputs/member1_train_crop/cfg.json`
+as `best_val_auc`.
+
+**Row template** to append to the experiment log above after each submission:
+
+```
+| YYYY-MM-DD | Member 1 | Ablation `crop`: baseline + random 5 s crops (kernel m1-train-crop vN) | 0.9xxx (epoch N) | 0.xxxxx (private 0.xxxxx) | Δ vs baseline LB: +0.0xxx |
+```
+
 ## Team & contributions
 
 | Member | Role |
