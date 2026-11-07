@@ -62,20 +62,20 @@ Record every leaderboard submission here — the report needs baselines and abla
 
 | Date | Who | Experiment | Local CV AUC | Public LB | Notes |
 |------|-----|------------|--------------|-----------|-------|
-| 2026-11-01 | Member 1 | Baseline: EfficientNet-B0 (ImageNet), first 5 s log-mel, primary label only, BCE, no augmentation, 15 epochs (best = epoch 7) | 0.9732 | 0.71681 (private 0.69908) | Rank ~1600/2032 (top 79%). Overfits after epoch 7; large gap between local CV and LB because training clips differ from soundscapes |
-| 2026-11-07 | Member 1 | Ablation `crop`: baseline + random 5 s crops from whole clip (m1-train-crop v1, m1-infer-crop v1) | 0.9818 (epoch 15) | 0.75169 (private 0.75384) | Δ vs baseline LB: +0.0349. No overfitting; still improving at epoch 15 |
-| 2026-11-07 | Member 1 | Ablation `noise`: baseline + soundscape noise (p 0.5, −20 to −3 dB) + mixup (p 0.5) (m1-train-noise v1, m1-infer-noise v1) | 0.9748 (epoch 14) | 0.73232 (private 0.73318) | Δ vs baseline LB: +0.0155. Small local gain, larger LB gain (domain shift) |
-| 2026-11-07 | Member 1 | Ablation `seclabel`: baseline + secondary labels as soft targets 0.5 (m1-train-seclabel v1, m1-infer-seclabel v1) | 0.9692 (epoch 6) | 0.72916 (private 0.73318) | Δ vs baseline LB: +0.0124. No local gain (val scores primary label only), but helps on LB; still overfits after epoch 6 |
-| 2026-11-07 | Member 1 | Ablation `focal`: baseline + focal loss γ = 2 instead of BCE (m1-train-focal v1, m1-infer-focal v1) | 0.9733 (epoch 5) | 0.70528 (private 0.70984) | Δ vs baseline LB: −0.0115 (private +0.0108), i.e. no clear effect. Learns faster but peaks at epoch 5 and overfits |
-| 2026-11-07 | Member 1 | **Baseline v2**: crop + noise/mixup + secondary labels, BCE (m1-train-v2 v1, m1-infer-v2 v1) | 0.9766 (epoch 14) | **0.76299 (private 0.78864)** | Δ vs baseline LB: +0.0462 (private +0.0896). Best private score; 0.014 below top-70% cut-off |
-| 2026-11-07 | Member 1 | Remove-one `v2-nocrop`: v2 without random crop (m1-train-v2-nocrop v1) | 0.9735 (epoch 12) | 0.75280 (private 0.77176) | Δ vs v2: −0.0102 (private −0.0169) |
-| 2026-11-07 | Member 1 | Remove-one `v2-nonoise`: v2 without noise + mixup (m1-train-v2-nonoise v1) | 0.9809 (epoch 10) | 0.76740 (private 0.76030) | Δ vs v2: +0.0044 (private −0.0283). Public and private disagree; noise helps on private |
-| 2026-11-07 | Member 1 | Remove-one `v2-nosec`: v2 without secondary labels (m1-train-v2-nosec v1) | 0.9791 (epoch 15) | 0.73731 (private 0.77243) | Δ vs v2: −0.0257 (private −0.0162). Largest drop |
-| 2026-11-07 | Member 1 | Add-one `v2-focal`: v2 with focal loss γ = 2 instead of BCE (m1-train-v2-focal v1) | 0.9782 (epoch 15) | 0.74281 (private 0.78241) | Δ vs v2: −0.0202 (private −0.0062). Focal still does not help |
+| 2026-11-01 | Jamie | Baseline: EfficientNet-B0 (ImageNet), first 5 s log-mel, primary label only, BCE, no augmentation, 15 epochs (best = epoch 7) | 0.9732 | 0.71681 (private 0.69908) | Rank ~1600/2032 (top 79%). Overfits after epoch 7; large gap between local CV and LB because training clips differ from soundscapes |
+| 2026-11-07 | Jamie | Ablation `crop`: baseline + random 5 s crops from whole clip (m1-train-crop v1, m1-infer-crop v1) | 0.9818 (epoch 15) | 0.75169 (private 0.75384) | Δ vs baseline LB: +0.0349. No overfitting; still improving at epoch 15 |
+| 2026-11-07 | Jamie | Ablation `noise`: baseline + soundscape noise (p 0.5, −20 to −3 dB) + mixup (p 0.5) (m1-train-noise v1, m1-infer-noise v1) | 0.9748 (epoch 14) | 0.73232 (private 0.73318) | Δ vs baseline LB: +0.0155. Small local gain, larger LB gain (domain shift) |
+| 2026-11-07 | Jamie | Ablation `seclabel`: baseline + secondary labels as soft targets 0.5 (m1-train-seclabel v1, m1-infer-seclabel v1) | 0.9692 (epoch 6) | 0.72916 (private 0.73318) | Δ vs baseline LB: +0.0124. No local gain (val scores primary label only), but helps on LB; still overfits after epoch 6 |
+| 2026-11-07 | Jamie | Ablation `focal`: baseline + focal loss γ = 2 instead of BCE (m1-train-focal v1, m1-infer-focal v1) | 0.9733 (epoch 5) | 0.70528 (private 0.70984) | Δ vs baseline LB: −0.0115 (private +0.0108), i.e. no clear effect. Learns faster but peaks at epoch 5 and overfits |
+| 2026-11-07 | Jamie | **Baseline v2**: crop + noise/mixup + secondary labels, BCE (m1-train-v2 v1, m1-infer-v2 v1) | 0.9766 (epoch 14) | **0.76299 (private 0.78864)** | Δ vs baseline LB: +0.0462 (private +0.0896). Best private score; 0.014 below top-70% cut-off |
+| 2026-11-07 | Jamie | Remove-one `v2-nocrop`: v2 without random crop (m1-train-v2-nocrop v1) | 0.9735 (epoch 12) | 0.75280 (private 0.77176) | Δ vs v2: −0.0102 (private −0.0169) |
+| 2026-11-07 | Jamie | Remove-one `v2-nonoise`: v2 without noise + mixup (m1-train-v2-nonoise v1) | 0.9809 (epoch 10) | 0.76740 (private 0.76030) | Δ vs v2: +0.0044 (private −0.0283). Public and private disagree; noise helps on private |
+| 2026-11-07 | Jamie | Remove-one `v2-nosec`: v2 without secondary labels (m1-train-v2-nosec v1) | 0.9791 (epoch 15) | 0.73731 (private 0.77243) | Δ vs v2: −0.0257 (private −0.0162). Largest drop |
+| 2026-11-07 | Jamie | Add-one `v2-focal`: v2 with focal loss γ = 2 instead of BCE (m1-train-v2-focal v1) | 0.9782 (epoch 15) | 0.74281 (private 0.78241) | Δ vs v2: −0.0202 (private −0.0062). Focal still does not help |
 
 Leaderboard band cut-offs (public): top 10% ≥ 0.8808, top 30% ≥ 0.8731, top 50% ≥ 0.8102, top 70% ≥ 0.7764. Best: 0.9338.
 
-### Member 1 ablations (baseline improvements)
+### Jamie's ablations (baseline improvements)
 
 Each experiment is the baseline with **one** switch turned on, so a change in score comes from
 that switch alone. Everything else is identical: EfficientNet-B0, AdamW 1e-3 + one-cycle,
@@ -116,7 +116,7 @@ as `best_val_auc`.
 **Row template** to append to the experiment log above after each submission:
 
 ```
-| YYYY-MM-DD | Member 1 | Ablation `crop`: baseline + random 5 s crops (kernel m1-train-crop vN) | 0.9xxx (epoch N) | 0.xxxxx (private 0.xxxxx) | Δ vs baseline LB: +0.0xxx |
+| YYYY-MM-DD | Jamie | Ablation `crop`: baseline + random 5 s crops (kernel m1-train-crop vN) | 0.9xxx (epoch N) | 0.xxxxx (private 0.xxxxx) | Δ vs baseline LB: +0.0xxx |
 ```
 
 ## Team & contributions
