@@ -21,7 +21,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 MASTER = ROOT / "notebooks/member1_train/train.ipynb"
 INFER_MASTER = ROOT / "notebooks/infer_baseline/infer_baseline.ipynb"
-EXPERIMENTS = ["base", "crop", "noise", "seclabel", "focal", "v2"]
+EXPERIMENTS = ["base", "crop", "noise", "seclabel", "focal",
+               "v2", "v2-nocrop", "v2-nonoise", "v2-nosec", "v2-focal"]
 MELS_KERNEL = "jmemei/sc4000-birdclef-m1-make-mels"
 
 

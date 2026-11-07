@@ -67,6 +67,11 @@ Record every leaderboard submission here — the report needs baselines and abla
 | 2026-11-07 | Member 1 | Ablation `noise`: baseline + soundscape noise (p 0.5, −20 to −3 dB) + mixup (p 0.5) (m1-train-noise v1, m1-infer-noise v1) | 0.9748 (epoch 14) | 0.73232 (private 0.73318) | Δ vs baseline LB: +0.0155. Small local gain, larger LB gain (domain shift) |
 | 2026-11-07 | Member 1 | Ablation `seclabel`: baseline + secondary labels as soft targets 0.5 (m1-train-seclabel v1, m1-infer-seclabel v1) | 0.9692 (epoch 6) | 0.72916 (private 0.73318) | Δ vs baseline LB: +0.0124. No local gain (val scores primary label only), but helps on LB; still overfits after epoch 6 |
 | 2026-11-07 | Member 1 | Ablation `focal`: baseline + focal loss γ = 2 instead of BCE (m1-train-focal v1, m1-infer-focal v1) | 0.9733 (epoch 5) | 0.70528 (private 0.70984) | Δ vs baseline LB: −0.0115 (private +0.0108), i.e. no clear effect. Learns faster but peaks at epoch 5 and overfits |
+| 2026-11-07 | Member 1 | **Baseline v2**: crop + noise/mixup + secondary labels, BCE (m1-train-v2 v1, m1-infer-v2 v1) | 0.9766 (epoch 14) | **0.76299 (private 0.78864)** | Δ vs baseline LB: +0.0462 (private +0.0896). Best private score; 0.014 below top-70% cut-off |
+| 2026-11-07 | Member 1 | Remove-one `v2-nocrop`: v2 without random crop (m1-train-v2-nocrop v1) | 0.9735 (epoch 12) | 0.75280 (private 0.77176) | Δ vs v2: −0.0102 (private −0.0169) |
+| 2026-11-07 | Member 1 | Remove-one `v2-nonoise`: v2 without noise + mixup (m1-train-v2-nonoise v1) | 0.9809 (epoch 10) | 0.76740 (private 0.76030) | Δ vs v2: +0.0044 (private −0.0283). Public and private disagree; noise helps on private |
+| 2026-11-07 | Member 1 | Remove-one `v2-nosec`: v2 without secondary labels (m1-train-v2-nosec v1) | 0.9791 (epoch 15) | 0.73731 (private 0.77243) | Δ vs v2: −0.0257 (private −0.0162). Largest drop |
+| 2026-11-07 | Member 1 | Add-one `v2-focal`: v2 with focal loss γ = 2 instead of BCE (m1-train-v2-focal v1) | 0.9782 (epoch 15) | 0.74281 (private 0.78241) | Δ vs v2: −0.0202 (private −0.0062). Focal still does not help |
 
 Leaderboard band cut-offs (public): top 10% ≥ 0.8808, top 30% ≥ 0.8731, top 50% ≥ 0.8102, top 70% ≥ 0.7764. Best: 0.9338.
 
@@ -89,7 +94,9 @@ Code: `notebooks/member1_train/train.ipynb` (master), copied into the per-experi
 | `noise` | add soundscape noise (p = 0.5, −20 to −3 dB) + mixup (p = 0.5, Beta(0.4, 0.4), targets = max) | domain shift, overfitting | `m1-train-noise` | `m1-infer-noise` |
 | `seclabel` | secondary labels as soft targets (0.5) | label noise | `m1-train-seclabel` | `m1-infer-seclabel` |
 | `focal` | focal loss (γ = 2) instead of BCE | class imbalance | `m1-train-focal` | `m1-infer-focal` |
-| `v2` | the switches above that improved the public LB, combined | all | `m1-train-v2` | `m1-infer-v2` |
+| `v2` | crop + noise/mixup + seclabel (the switches that improved the public LB), BCE | all | `m1-train-v2` | `m1-infer-v2` |
+| `v2-nocrop` / `v2-nonoise` / `v2-nosec` | v2 with one switch removed (remove-one ablation) | — | `m1-train-v2-…` | `m1-infer-v2-…` |
+| `v2-focal` | v2 with focal loss instead of BCE | — | `m1-train-v2-focal` | `m1-infer-v2-focal` |
 
 Kernel names are short for `jmemei/sc4000-birdclef-<name>`.
 
