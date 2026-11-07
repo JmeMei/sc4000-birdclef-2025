@@ -63,6 +63,10 @@ Record every leaderboard submission here — the report needs baselines and abla
 | Date | Who | Experiment | Local CV AUC | Public LB | Notes |
 |------|-----|------------|--------------|-----------|-------|
 | 2026-11-01 | Member 1 | Baseline: EfficientNet-B0 (ImageNet), first 5 s log-mel, primary label only, BCE, no augmentation, 15 epochs (best = epoch 7) | 0.9732 | 0.71681 (private 0.69908) | Rank ~1600/2032 (top 79%). Overfits after epoch 7; large gap between local CV and LB because training clips differ from soundscapes |
+| 2026-11-07 | Member 1 | Ablation `crop`: baseline + random 5 s crops from whole clip (m1-train-crop v1, m1-infer-crop v1) | 0.9818 (epoch 15) | 0.75169 (private 0.75384) | Δ vs baseline LB: +0.0349. No overfitting; still improving at epoch 15 |
+| 2026-11-07 | Member 1 | Ablation `noise`: baseline + soundscape noise (p 0.5, −20 to −3 dB) + mixup (p 0.5) (m1-train-noise v1, m1-infer-noise v1) | 0.9748 (epoch 14) | 0.73232 (private 0.73318) | Δ vs baseline LB: +0.0155. Small local gain, larger LB gain (domain shift) |
+| 2026-11-07 | Member 1 | Ablation `seclabel`: baseline + secondary labels as soft targets 0.5 (m1-train-seclabel v1, m1-infer-seclabel v1) | 0.9692 (epoch 6) | 0.72916 (private 0.73318) | Δ vs baseline LB: +0.0124. No local gain (val scores primary label only), but helps on LB; still overfits after epoch 6 |
+| 2026-11-07 | Member 1 | Ablation `focal`: baseline + focal loss γ = 2 instead of BCE (m1-train-focal v1, m1-infer-focal v1) | 0.9733 (epoch 5) | 0.70528 (private 0.70984) | Δ vs baseline LB: −0.0115 (private +0.0108), i.e. no clear effect. Learns faster but peaks at epoch 5 and overfits |
 
 Leaderboard band cut-offs (public): top 10% ≥ 0.8808, top 30% ≥ 0.8731, top 50% ≥ 0.8102, top 70% ≥ 0.7764. Best: 0.9338.
 
