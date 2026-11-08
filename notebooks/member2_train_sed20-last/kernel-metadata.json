@@ -1,0 +1,18 @@
+{
+  "id": "sudhishnajanavi/sc4000-birdclef-m2-train-sed20-last",
+  "title": "sc4000-birdclef-m2-train-sed20-last",
+  "code_file": "train.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [
+    "birdclef-2025"
+  ],
+  "kernel_sources": [
+    "jmemei/sc4000-birdclef-m1-make-mels"
+  ],
+  "machine_shape": "NvidiaTeslaT4"
+}
