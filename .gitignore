@@ -21,6 +21,7 @@ submissions/*.csv
 # --- Local-only notes ---
 docs/_archive/
 notes/session_history.md
+datasets/birdmae-base/
 
 # --- Secrets ---
 kaggle.json
