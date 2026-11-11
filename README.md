@@ -21,8 +21,8 @@ the time limit.
 |--------|------|---------------|
 | Member 1 | EDA, baseline (EfficientNet-B0), baseline ablations → baseline v2 | Experiment log; [Member 1: baseline ablations](#member-1-baseline-ablations); `notebooks/member1_*`, `report/` |
 | Member 2 | SED model (frame + attention heads, chunk length, overlap, spectrogram settings) | Experiment log; `notebooks/member2_*`, `report/sections/` |
-| Member 3 | Pretrained models (A1–A3), CPU inference speed, adaptation, distillation, noisy student | [Members 3 & 4](#members-3--4-pretrained-models-adaptation-and-the-final-ensemble); `docs/`, `reports/` |
-| Member 4 | Pseudo-labelling, final ensemble (E1–E4) and final submission | [Members 3 & 4](#members-3--4-pretrained-models-adaptation-and-the-final-ensemble); `reports/ensemble_handoff.md` |
+| Member 3 | Pretrained models (A1–A3), CPU inference speed, adaptation, distillation, noisy student | [Members 3 & 4](#members-3--4-pretrained-models-adaptation-and-the-final-ensemble); `report/member3-4_pretrained_ensemble/` |
+| Member 4 | Pseudo-labelling, final ensemble (E1–E4) and final submission | [Members 3 & 4](#members-3--4-pretrained-models-adaptation-and-the-final-ensemble); `report/member3-4_pretrained_ensemble/results/ensemble_handoff.md` |
 
 **Final submission:** E4 (noisy-student CNN 0.4 + Perch head A2d 0.6, temporally smoothed), public 0.88749 / private 0.88029, against 0.763 / 0.789 for baseline v2. How to run it: [Shortest path to the final submission](#shortest-path-to-the-final-submission-e4).
 
@@ -32,13 +32,14 @@ the time limit.
 configs/       experiment configs (yaml)
 data/          competition data (gitignored — download with scripts/download_data.sh)
 datasets/      metadata and small files for the private Kaggle datasets (large files are on Kaggle)
-docs/          Members 3 & 4: NOTEBOOKS.md, DOCUMENTATION.md, LOG.md, paper/, presentations, _kaggle_logs/
 m1/            copies of the baseline v2 notebooks used as the starting point by Members 3 & 4
 models/        trained weights (gitignored)
 notebooks/     one folder per Kaggle notebook (notebook + kernel-metadata.json)
 notes/         research notes (papers, model formats, licences, CLI, citations)
-report/        AAAI report drafts, sections, figures and slides (Members 1 & 2)
-reports/       results_table.md, timing_table.md, ensemble_handoff.md, pretrained_models_section.md
+report/        everything for the written report and the video
+  AAAI_*.docx, figures/, sections/, slides/      Members 1 & 2: report drafts, figures and slides
+  member3-4_pretrained_ensemble/                 Members 3 & 4: paper, presentations, documentation, run logs
+    results/                                     results_table, timing_table, ensemble_handoff, pretrained_models_section
 scripts/       helper scripts (kaggle_run.sh, m1_experiments.py, m2_experiments.py)
 src/           reusable code (dataset, features, models, training)
 submissions/   generated submission CSVs (gitignored)
@@ -98,7 +99,7 @@ Record every leaderboard submission here — the report needs baselines and abla
 
 Leaderboard band cut-offs (public): top 10% ≥ 0.8808, top 30% ≥ 0.8731, top 50% ≥ 0.8102, top 70% ≥ 0.7764. Best: 0.9338.
 
-Members 3 & 4 logged their 19 submissions separately: see [Results summary](#results-summary) below and `docs/DOCUMENTATION.md`, section 16.
+Members 3 & 4 logged their 19 submissions separately: see [Results summary](#results-summary) below and `report/member3-4_pretrained_ensemble/DOCUMENTATION.md`, section 16.
 
 ## Member 1: baseline ablations
 
@@ -164,12 +165,12 @@ Everything builds on our team's baseline model (v2): [`sc4000-birdclef-m1-make-m
 
 **Deliverables:**
 
-- `docs/NOTEBOOKS.md`: catalogue of the 40 notebooks, 2 private datasets and the upstream inputs.
-- `docs/DOCUMENTATION.md`: technical documentation (17 sections; section 16 lists all submissions, section 17 the compute and limitations).
-- `docs/paper/`: AAAI-27 paper (`main.tex`, `references.bib`, `paper.docx`, `figures/`), plus `docs/paper_overleaf.zip` for Overleaf.
-- `reports/`: `results_table.md`, `timing_table.md`, `ensemble_handoff.md`, `pretrained_models_section.md`.
+- `report/member3-4_pretrained_ensemble/NOTEBOOKS.md`: catalogue of the 40 notebooks, 2 private datasets and the upstream inputs.
+- `report/member3-4_pretrained_ensemble/DOCUMENTATION.md`: technical documentation (17 sections; section 16 lists all submissions, section 17 the compute and limitations).
+- `report/member3-4_pretrained_ensemble/paper/`: AAAI-27 paper (`main.tex`, `references.bib`, `paper.docx`, `figures/`), plus `report/member3-4_pretrained_ensemble/paper_overleaf.zip` for Overleaf.
+- `report/member3-4_pretrained_ensemble/results/`: `results_table.md`, `timing_table.md`, `ensemble_handoff.md`, `pretrained_models_section.md`.
 
-**Not done.** We did not export the CNN to ONNX/OpenVINO (the submitted CNNs run with torch on CPU; E4 takes 32.3 min measured). The paper has not been compiled locally (no LaTeX on the laptop), so it should be compiled on Overleaf. Sharing the private Kaggle notebooks and datasets with teammates has to be done by hand in the Kaggle UI (steps in `reports/ensemble_handoff.md`).
+**Not done.** We did not export the CNN to ONNX/OpenVINO (the submitted CNNs run with torch on CPU; E4 takes 32.3 min measured). The paper has not been compiled locally (no LaTeX on the laptop), so it should be compiled on Overleaf. Sharing the private Kaggle notebooks and datasets with teammates has to be done by hand in the Kaggle UI (steps in `report/member3-4_pretrained_ensemble/results/ensemble_handoff.md`).
 
 ### Results summary
 
@@ -190,7 +191,7 @@ Reference: v2 public 0.763 / private 0.789; grading cut-off 0.776 public; team g
 | E3 = E2 + ABLATION, 1/3 each | 58198886 | 0.88058 | 0.87522 | +0.1176 | 39.9 measured |
 | **E4 = MAIN 0.4 + A2d 0.6, smoothed (selected by public LB; E2 is within noise)** | 58198889 | **0.88749** | **0.88029** | **+0.1245** | **32.3 measured** |
 
-All 19 submissions (including the AdaBN and CORAL variants, which all scored below their unadapted parents) are in `docs/DOCUMENTATION.md`, section 16. Public differences below 0.01 are treated as noise.
+All 19 submissions (including the AdaBN and CORAL variants, which all scored below their unadapted parents) are in `report/member3-4_pretrained_ensemble/DOCUMENTATION.md`, section 16. Public differences below 0.01 are treated as noise.
 
 ### Folder structure
 
@@ -198,7 +199,7 @@ All 19 submissions (including the AdaBN and CORAL variants, which all scored bel
 README.md
 datasets/            metadata and small files for the private Kaggle datasets (large files are on Kaggle)
   perch-onnx/  ns-pseudo-labels/
-docs/
+report/member3-4_pretrained_ensemble/
   NOTEBOOKS.md             catalogue of the 40 Kaggle notebooks, datasets, upstream inputs
   DOCUMENTATION.md         technical documentation, sections 1-17
   IMPLEMENTATION_GUIDE.md  earlier guide (8 Nov), superseded by DOCUMENTATION.md
@@ -208,15 +209,15 @@ docs/
   paper_v2/, paper_v2_overleaf.zip   earlier Bird-MAE-centred paper version
   presentation/, presentation_v2/    Beamer slides and speaker scripts (earlier versions)
   _kaggle_logs/            downloaded run logs and CLI output used as evidence
+  results/                 results_table.md, timing_table.md, ensemble_handoff.md, pretrained_models_section.md
 m1/                  our team's baseline v2 notebooks
 notebooks/           40 folders, one per Kaggle notebook (notebook + kernel-metadata.json)
 notes/               research notes (papers, model formats, licences, CLI, citations)
-reports/             results_table.md, timing_table.md, ensemble_handoff.md, pretrained_models_section.md
 ```
 
 ### How to reproduce
 
-Requirements: a Kaggle account that has accepted the BirdCLEF+ 2025 competition rules, and read access to the private items under `strippedbanana` (all notebooks and datasets are private). Each notebook's inputs are listed in `docs/NOTEBOOKS.md` and in its `kernel-metadata.json` under `notebooks/<folder>/`. GPU notebooks need a T4 and print or raise a GPU guard if none is available. All inference notebooks are CPU-only with internet off.
+Requirements: a Kaggle account that has accepted the BirdCLEF+ 2025 competition rules, and read access to the private items under `strippedbanana` (all notebooks and datasets are private). Each notebook's inputs are listed in `report/member3-4_pretrained_ensemble/NOTEBOOKS.md` and in its `kernel-metadata.json` under `notebooks/<folder>/`. GPU notebooks need a T4 and print or raise a GPU guard if none is available. All inference notebooks are CPU-only with internet off.
 
 Private datasets to attach (both under `strippedbanana`):
 
@@ -241,14 +242,14 @@ Run order by phase (notebook names omit the prefix `sc4000-birdclef-m3-`; the ac
 | 4. Noisy student | [`ns-perch-all`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-perch-all) (T4); [`ns-a1-all`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-a1-all) (T4); [`ns-pseudo-labels`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-pseudo-labels) (CPU); [`ns-mel-check`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-mel-check) (T4); [`ns-student-main`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-student-main) (T4); [`ns-student-ablation`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-student-ablation) (T4); [`ns-student-main-infer`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-student-main-infer) (CPU); [`ns-student-ablation-infer`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-student-ablation-infer) (CPU); [`ns-head-seeds`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-head-seeds) (CPU) |
 | 5. Final ensemble | [`ens-e1`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e1) (CPU); [`ens-e2`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e2) (CPU); [`ens-e3`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e3) (CPU); [`ens-e4`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e4) (CPU) |
 
-Approximate GPU use (all on a T4, from `docs/DOCUMENTATION.md` section 17): about 5.6 h in total against a 30 h weekly quota. The largest runs are `ns-student-main` (1.18 h), `ns-student-ablation` (1.10 h), `ns-perch-all` (0.91 h) and `a2-perch-embed` (about 0.9 h); `a1-v2s-train` took about 0.5 h and `a3-birdmae-embed` about 0.3 h. Everything else ran on Kaggle CPU.
+Approximate GPU use (all on a T4, from `report/member3-4_pretrained_ensemble/DOCUMENTATION.md` section 17): about 5.6 h in total against a 30 h weekly quota. The largest runs are `ns-student-main` (1.18 h), `ns-student-ablation` (1.10 h), `ns-perch-all` (0.91 h) and `a2-perch-embed` (about 0.9 h); `a1-v2s-train` took about 0.5 h and `a3-birdmae-embed` about 0.3 h. Everything else ran on Kaggle CPU.
 
 
 #### Shortest path to the final submission (E4)
 
 Retraining is not needed: the weights that scored are the kernel outputs listed below.
 
-1. Open [`ens-e4`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e4), choose Copy & Edit, and attach the inputs listed in `reports/ensemble_handoff.md`:
+1. Open [`ens-e4`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e4), choose Copy & Edit, and attach the inputs listed in `report/member3-4_pretrained_ensemble/results/ensemble_handoff.md`:
    - competition data `birdclef-2025`;
    - kernel output `ns-student-main` (CNN weights);
    - kernel output `a2-a1distill` (Perch head);
@@ -275,17 +276,17 @@ The four ensemble notebooks differ only in the line `VARIANT = "E..."`.
 - "Projected" CPU times scale a 20-file dry run and may be pessimistic; the scored runtime is not available from the Kaggle CLI.
 - A1 is a backbone change from B0 to EfficientNetV2-S, not a weights-only swap.
 - ONNX Runtime / OpenVINO export of the CNN was not done.
-- Some references could be only partly verified; see `docs/paper/UNVERIFIED_REFS.md`.
+- Some references could be only partly verified; see `report/member3-4_pretrained_ensemble/paper/UNVERIFIED_REFS.md`.
 
 ### Other docs
 
-- [`docs/NOTEBOOKS.md`](docs/NOTEBOOKS.md): the 40 notebooks, with links, inputs, results and paste-ready descriptions.
-- [`docs/DOCUMENTATION.md`](docs/DOCUMENTATION.md): full technical documentation.
-- [`docs/paper/`](docs/paper/): AAAI-27 paper source, `paper.docx`, figures and [`UNVERIFIED_REFS.md`](docs/paper/UNVERIFIED_REFS.md); [`docs/paper_overleaf.zip`](docs/paper_overleaf.zip) for Overleaf.
-- [`docs/IMPLEMENTATION_GUIDE.md`](docs/IMPLEMENTATION_GUIDE.md): the earlier 8 Nov guide, superseded by `DOCUMENTATION.md`.
-- [`docs/LOG.md`](docs/LOG.md): chronological log.
-- [`reports/results_table.md`](reports/results_table.md), [`reports/timing_table.md`](reports/timing_table.md), [`reports/ensemble_handoff.md`](reports/ensemble_handoff.md), [`reports/pretrained_models_section.md`](reports/pretrained_models_section.md).
-- Earlier versions: `docs/paper_v2/` (a Bird-MAE-centred reframing of the same results), `docs/presentation/`, `docs/presentation_v2/`.
+- [`report/member3-4_pretrained_ensemble/NOTEBOOKS.md`](report/member3-4_pretrained_ensemble/NOTEBOOKS.md): the 40 notebooks, with links, inputs, results and paste-ready descriptions.
+- [`report/member3-4_pretrained_ensemble/DOCUMENTATION.md`](report/member3-4_pretrained_ensemble/DOCUMENTATION.md): full technical documentation.
+- [`report/member3-4_pretrained_ensemble/paper/`](report/member3-4_pretrained_ensemble/paper/): AAAI-27 paper source, `paper.docx`, figures and [`UNVERIFIED_REFS.md`](report/member3-4_pretrained_ensemble/paper/UNVERIFIED_REFS.md); [`report/member3-4_pretrained_ensemble/paper_overleaf.zip`](report/member3-4_pretrained_ensemble/paper_overleaf.zip) for Overleaf.
+- [`report/member3-4_pretrained_ensemble/IMPLEMENTATION_GUIDE.md`](report/member3-4_pretrained_ensemble/IMPLEMENTATION_GUIDE.md): the earlier 8 Nov guide, superseded by `DOCUMENTATION.md`.
+- [`report/member3-4_pretrained_ensemble/LOG.md`](report/member3-4_pretrained_ensemble/LOG.md): chronological log.
+- [`report/member3-4_pretrained_ensemble/results/results_table.md`](report/member3-4_pretrained_ensemble/results/results_table.md), [`report/member3-4_pretrained_ensemble/results/timing_table.md`](report/member3-4_pretrained_ensemble/results/timing_table.md), [`report/member3-4_pretrained_ensemble/results/ensemble_handoff.md`](report/member3-4_pretrained_ensemble/results/ensemble_handoff.md), [`report/member3-4_pretrained_ensemble/results/pretrained_models_section.md`](report/member3-4_pretrained_ensemble/results/pretrained_models_section.md).
+- Earlier versions: `report/member3-4_pretrained_ensemble/paper_v2/` (a Bird-MAE-centred reframing of the same results), `report/member3-4_pretrained_ensemble/presentation/`, `report/member3-4_pretrained_ensemble/presentation_v2/`.
 
 ## References / acknowledgements
 

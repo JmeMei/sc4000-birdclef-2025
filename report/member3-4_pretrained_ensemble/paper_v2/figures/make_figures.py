@@ -1,10 +1,10 @@
 """Build the three paper_v2 figures.
 
 Real files read where possible:
-  docs/_kaggle_logs/a3-probe-retry/probe_retry_results.json (latest version, v2)
-  docs/_kaggle_logs/a3-mlp-head/head_cfg.json
+  report/member3-4_pretrained_ensemble/_kaggle_logs/a3-probe-retry/probe_retry_results.json (latest version, v2)
+  report/member3-4_pretrained_ensemble/_kaggle_logs/a3-mlp-head/head_cfg.json
 Other values are copied from STATE.md (sweep table, probe-retry v1) and
-reports/results_table.md (leaderboard, val AUC); see the constants below.
+report/member3-4_pretrained_ensemble/results/results_table.md (leaderboard, val AUC); see the constants below.
 Grayscale only, vector PDF, Type 42 fonts, single-column size, no titles.
 Optional argument: directory for 110-dpi PNG previews.
 """
@@ -53,7 +53,7 @@ ARC = [  # label, value, hatch ('' default bias, '//' log-prior bias)
     ("MLP 30 ep, log-prior", mlp30_prior, "///"),
 ]
 
-# reports/results_table.md (val AUC first-5s, public, private)
+# report/member3-4_pretrained_ensemble/results/results_table.md (val AUC first-5s, public, private)
 LB = [("v2", 0.763, 0.789), ("A1", 0.82822, 0.81642),
       ("A2", 0.84774, 0.85226), ("A3", 0.77640, 0.78016)]
 CUTOFF, GOAL = 0.776, 0.810

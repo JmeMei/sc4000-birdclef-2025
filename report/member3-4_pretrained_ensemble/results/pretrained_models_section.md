@@ -53,7 +53,7 @@ Ensemble variants (pre-registered; Δ is against the best single model, A2 + A1-
 
 We also repeated head training on CPU with seeds 42/43/44 on the fixed split. Val AUC (mean ± std) is 0.99133 ± 0.00047 for A2 + A1-distilled and 0.97506 ± 0.00012 for A3 Perch-distilled. Seed noise on validation is therefore at least ten times smaller than the leaderboard noise level.
 
-**Inference speed.** File-level multiprocessing (4 workers × 1 thread), one mel call per file, and batching the 12 windows per file cut v2's whole notebook from 11.1 to 5.5 CPU min on 700 `train_soundscapes`. A1 in the same pipeline takes 8.0 min. Details are in `reports/timing_table.md`.
+**Inference speed.** File-level multiprocessing (4 workers × 1 thread), one mel call per file, and batching the 12 windows per file cut v2's whole notebook from 11.1 to 5.5 CPU min on 700 `train_soundscapes`. A1 in the same pipeline takes 8.0 min. Details are in `report/member3-4_pretrained_ensemble/results/timing_table.md`.
 
 ## Discussion
 
