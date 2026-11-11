@@ -1,0 +1,23 @@
+{
+  "id": "strippedbanana/sc4000-birdclef-m3-a1-v2s-train",
+  "title": "sc4000-birdclef-m3-a1-v2s-train",
+  "code_file": "sc4000-birdclef-m3-a1-v2s-train.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "vladimirsydor/bird-clef-2025-all-pretrained-models"
+  ],
+  "kernel_sources": [
+    "jmemei/sc4000-birdclef-m1-make-mels"
+  ],
+  "competition_sources": [
+    "birdclef-2025"
+  ],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}
