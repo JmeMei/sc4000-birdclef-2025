@@ -1,0 +1,211 @@
+{
+ "teacher": "main",
+ "pseudo_file": "pseudo_main.npy",
+ "pseudo_kernel": "sc4000-birdclef-m3-ns-pseudo-labels",
+ "pseudo_kernel_version": 1,
+ "sha256_pinned": {
+  "pseudo_main.npy": "0e4fbd0d56ae9456804f32adaef5d80b77666d4629beae999ce4550d0fe8e3f9",
+  "pseudo_ablation.npy": "63ddec4fc870b1c7ad6562f25b487ffba309071a3bd193076d70fb572ce69779",
+  "soundscape_all_windows.csv": "43d1fbc5cafdda81e01add98f27d4549b1014559bc592155f442a81ebb14c04a",
+  "species.json": "6c7d634689e19515c905dbcfd214abdac1e81943c6f95601846b731c2fb60924"
+ },
+ "sha256_found": {
+  "pseudo_main.npy": "0e4fbd0d56ae9456804f32adaef5d80b77666d4629beae999ce4550d0fe8e3f9",
+  "pseudo_ablation.npy": "63ddec4fc870b1c7ad6562f25b487ffba309071a3bd193076d70fb572ce69779",
+  "soundscape_all_windows.csv": "43d1fbc5cafdda81e01add98f27d4549b1014559bc592155f442a81ebb14c04a",
+  "species.json": "6c7d634689e19515c905dbcfd214abdac1e81943c6f95601846b731c2fb60924"
+ },
+ "sha256_all_match": true,
+ "init": {
+  "backbone_ckpt": "models_2025/tf_efficientnetv2_s_in21k_pretrain_from_bigXCV2Ext_swa.ckpt",
+  "path": "/kaggle/input/datasets/vladimirsydor/bird-clef-2025-all-pretrained-models/models_2025/tf_efficientnetv2_s_in21k_pretrain_from_bigXCV2Ext_swa.ckpt",
+  "load": {
+   "prefix": "",
+   "loaded": 774,
+   "backbone_keys": 780,
+   "missing": 5,
+   "unexpected": 0
+  },
+  "teacher_weights_used": false
+ },
+ "sampling": {
+  "teacher": "main",
+  "pseudo_file": "pseudo_main.npy",
+  "files_per_epoch": 2500,
+  "windows_per_file": 12,
+  "sampling": "whole files, rng = np.random.default_rng(seed + epoch), without replacement within an epoch",
+  "focal_weight": 1.0,
+  "sound_weight": 0.5,
+  "mixed_row_weight": "lambda-weighted mean: w = lam * w_i + (1 - lam) * w_perm(i)",
+  "loss": "soft-target BCEWithLogits, mean over classes per row, then sum(w * row_loss) / sum(w) over the batch",
+  "pool_files": 64,
+  "sound_workers": 4,
+  "noise_aug": "focal rows only (M1 soundscape noise, as A1); soundscape rows are not augmented apart from mixup",
+  "windows_per_epoch": 30000,
+  "focal_train_clips": 22851,
+  "steps_per_epoch": 825,
+  "batch_size": 64,
+  "pool_target_windows": 768,
+  "files_total": 9726,
+  "epoch_files": {
+   "1": {
+    "n": 2500,
+    "first": [
+     "H19_20230508_111500.ogg",
+     "H90_20230522_020500.ogg",
+     "H8749_20230503_101500.ogg"
+    ],
+    "sha256": "a212e340c66d9b0548f0cb48fd9dc2a3fa6fa6b2e60138a0e1ebeb19b6b57fa2"
+   },
+   "2": {
+    "n": 2500,
+    "first": [
+     "H83_20230426_060000.ogg",
+     "H94_20230524_025000.ogg",
+     "H88_20230426_152500.ogg"
+    ],
+    "sha256": "198872bd30ce83f2ae735a8d59a90340c09dc359718a38398fb214a3dd9f4b5a"
+   },
+   "3": {
+    "n": 2500,
+    "first": [
+     "H09_20230512_020000.ogg",
+     "H84_20230502_044000.ogg",
+     "H91_20230509_001000.ogg"
+    ],
+    "sha256": "f5f2af91e6d97b46cfbe0d230c04c5aa2e29aa3c59d96606e23bded0a6768f95"
+   },
+   "4": {
+    "n": 2500,
+    "first": [
+     "H09_20230425_151500.ogg",
+     "H95_20230428_031000.ogg",
+     "H04_20230425_233000.ogg"
+    ],
+    "sha256": "d78df36a1625ddac14fc11d445fec6ddca1e5934ad5ebf20ba7d6a497f014cb6"
+   },
+   "5": {
+    "n": 2500,
+    "first": [
+     "H74_20230429_134500.ogg",
+     "H99_20230501_230000.ogg",
+     "H04_20230507_105000.ogg"
+    ],
+    "sha256": "cadc522f9a763e290c549ae7ef6ae8445c014a54cdf6177715e52987361c2136"
+   },
+   "6": {
+    "n": 2500,
+    "first": [
+     "H11_20230422_215500.ogg",
+     "H03_20230518_111500.ogg",
+     "H19_20230507_081500.ogg"
+    ],
+    "sha256": "c5e77bfca2dd3b701b6e6627e48d278ad96b0044413672d240d6b3020e7747a1"
+   },
+   "7": {
+    "n": 2500,
+    "first": [
+     "H03_20230509_173500.ogg",
+     "H77_20230426_074500.ogg",
+     "H99_20230427_193500.ogg"
+    ],
+    "sha256": "c6066b389ee9571b4bf004fb3b10cc327e1afcce0bead21029fd80d996c409a2"
+   },
+   "8": {
+    "n": 2500,
+    "first": [
+     "H8749_20230512_060000.ogg",
+     "H17_20230423_034000.ogg",
+     "H27_20230520_095500.ogg"
+    ],
+    "sha256": "84fd4eae3663367c7e3252f4774ba2aaa44f91d097983f47da852c45ff989dbf"
+   },
+   "9": {
+    "n": 2500,
+    "first": [
+     "H17_20230503_191500.ogg",
+     "H17_20230425_213000.ogg",
+     "H83_20230511_021000.ogg"
+    ],
+    "sha256": "80459ecb3efa654e38622f0989c5ecb613e18a7f8958619932766b2bf000cd06"
+   },
+   "10": {
+    "n": 2500,
+    "first": [
+     "H84_20230512_172000.ogg",
+     "H93_20230515_185000.ogg",
+     "H90_20230506_185000.ogg"
+    ],
+    "sha256": "cf6d6526201a0d112097ddc7589b79a2c70339db6d097449ec0f9cca8a37cf1d"
+   },
+   "11": {
+    "n": 2500,
+    "first": [
+     "H65_20230512_231500.ogg",
+     "H85_20230505_045500.ogg",
+     "H28_20230514_152500.ogg"
+    ],
+    "sha256": "a6bc4a18d75e2a966fdd038f6d032a962f77089b7990deb57b2cac9192b04ceb"
+   },
+   "12": {
+    "n": 2500,
+    "first": [
+     "H69_20230501_084500.ogg",
+     "H98_20230510_160500.ogg",
+     "H84_20230515_141000.ogg"
+    ],
+    "sha256": "f95bdd0f8e54ef8197658e67bfa3d184adc1534aad75cb9fa4535e2d9a97bc79"
+   },
+   "13": {
+    "n": 2500,
+    "first": [
+     "H67_20230421_112500.ogg",
+     "H14_20230503_110500.ogg",
+     "H73_20230514_084500.ogg"
+    ],
+    "sha256": "75c30c1f11a91c6dec3d908de8b98cf0d1142b8277a5f9d753d728f843bdc266"
+   },
+   "14": {
+    "n": 2500,
+    "first": [
+     "H32_20230501_231500.ogg",
+     "H11_20230509_151500.ogg",
+     "H88_20230505_151000.ogg"
+    ],
+    "sha256": "4f60da585efc75727a7e4bbb22462973fc8f384a3e732ba481c085f70f919019"
+   },
+   "15": {
+    "n": 2500,
+    "first": [
+     "H90_20230426_140500.ogg",
+     "H93_20230514_180500.ogg",
+     "H21_20230507_185000.ogg"
+    ],
+    "sha256": "6bb6f2a518ae6eb9eb07432336479708901d7139ddbeaee547ceeab368cdb852"
+   }
+  },
+  "batch_composition": "row types placed at random over the epoch, then cut into batches of 64; last partial batch dropped"
+ },
+ "checkpoint_rule": "model.pth = best clean val AUC (first 5 s, primary label) as in a1-v2s-train; model_final.pth = last epoch",
+ "best_epoch": 14,
+ "best_val_auc": 0.9865031655909725,
+ "final_val_auc": 0.9857409053476842,
+ "epochs": 15,
+ "mel": {
+  "transform": "TorchA1Mel (ns-mel-check)",
+  "pad_mode": "constant",
+  "device": "cuda"
+ },
+ "amp": true,
+ "versions": {
+  "torch": "2.11.0+cu130",
+  "torchaudio": "2.11.0+cu130",
+  "timm": "1.0.30",
+  "librosa": "0.11.0"
+ },
+ "device": "Tesla T4",
+ "smoke": false,
+ "seconds": {
+  "notebook": 4403.275485754013
+ }
+}

@@ -1,0 +1,35 @@
+[{"stream_name":"stderr","time":9.586409347,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.586472783,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.586480709,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.586486,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.46480749,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.464847843,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.464854079,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.464858886,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":15.881207701,"data":"torch.cuda.is_available(): False\n"}
+,{"stream_name":"stdout","time":15.881253445,"data":"DEVICE: cpu\n"}
+,{"stream_name":"stdout","time":82.667470884,"data":"model b0 (efficientnet_b0, norm v2) | backend torch | workers 4 | CPUs 4\n"}
+,{"stream_name":"stdout","time":82.667514238,"data":"Data: /kaggle/input/competitions/birdclef-2025 | model: /kaggle/input/notebooks/jmemei/sc4000-birdclef-m1-train-v2 | Python: 3.13.18\n"}
+,{"stream_name":"stdout","time":82.667522115,"data":"Running on 700 files from train_soundscapes\n"}
+,{"stream_name":"stdout","time":82.787000411,"data":"image package torch: 2.11.0+cpu\n"}
+,{"stream_name":"stdout","time":82.787038502,"data":"image package timm: 1.0.30\n"}
+,{"stream_name":"stdout","time":82.787045413,"data":"image package librosa: 0.11.0\n"}
+,{"stream_name":"stdout","time":82.787050622,"data":"image package soundfile: 0.14.0\n"}
+,{"stream_name":"stdout","time":82.787056185,"data":"image package onnx: 1.23.2\n"}
+,{"stream_name":"stdout","time":82.787060872,"data":"image package onnxruntime: None\n"}
+,{"stream_name":"stdout","time":82.787064631,"data":"image package openvino: None\n"}
+,{"stream_name":"stdout","time":342.48505896,"data":"Predictions: (8400, 206) in 259.6s\n"}
+,{"stream_name":"stdout","time":342.512803722,"data":"TIMING | decode 91.6s | mel 314.4s | model 542.2s (summed over 4 workers)\n"}
+,{"stream_name":"stdout","time":342.51284605,"data":"TIMING | setup 70.9s | export 0.0s | verify 0.0s | worker startup 22.0s (model load 21.7s) | 0.34s per file elapsed\n"}
+,{"stream_name":"stdout","time":342.512853123,"data":"TIMING | projected 700 files: 5.5 min (budget 75) -\u003e OK | measured on 700 files\n"}
+,{"stream_name":"stdout","time":345.446939937,"data":"(8400, 207)\n"}
+,{"stream_name":"stdout","time":345.446979982,"data":"NOTE: submission.csv covers training soundscapes; this was a timing run.\n"}
+,{"stream_name":"stderr","time":351.240864149,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":351.240913784,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":351.476128558,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":351.476161294,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":352.545496706,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":352.655464014,"data":"[NbConvertApp] Writing 33020 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":356.25916488,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":357.029706991,"data":"[NbConvertApp] Writing 356776 bytes to __results__.html\n"}
+]

@@ -1,0 +1,27 @@
+{
+ "perch_sha256": "bf0c8467a924cb074663970ca4a0ab1e143602121930209657d0dff5d5cefa1f",
+ "sha_checked": true,
+ "onnxruntime_version": "1.31.1",
+ "device_name": "Tesla T4",
+ "file_order": "sorted(train_soundscapes/*.ogg) by bare filename",
+ "files_listed": 9726,
+ "files_embedded": 9726,
+ "windows": 116712,
+ "windows_per_file_counts": {
+  "12": 9726
+ },
+ "failed_files": [],
+ "sanity_vs_soundscape_embed": {
+  "n_rows": 12000,
+  "max_abs_diff": 3.3527612686157227e-07,
+  "mean_abs_diff": 1.0130297989352499e-10,
+  "limit": 0.001
+ },
+ "wall_s": {
+  "perch": 3187.3167912960052,
+  "notebook": 3277.2897505760193
+ },
+ "model_s": {
+  "perch": 2978.1860661506653
+ }
+}

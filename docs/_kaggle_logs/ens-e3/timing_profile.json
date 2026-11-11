@@ -1,0 +1,52 @@
+{
+  "variant": "E3",
+  "weights": {
+    "main": 0.3333333333333333,
+    "a2d": 0.3333333333333333,
+    "ablation": 0.3333333333333333
+  },
+  "smoothing": true,
+  "source": "train_soundscapes (dry run)",
+  "n_files_used": 700,
+  "n_windows": 8400,
+  "num_workers": 4,
+  "active_workers": 4,
+  "threads_per_worker": 1,
+  "cpu_count": 4,
+  "device": "cpu",
+  "cuda_available": false,
+  "stages_s": {
+    "decode": 87.333,
+    "cnn_mel": 270.5291,
+    "model_main": 1711.1103,
+    "model_ablation": 1716.8521,
+    "model_a2d": 5292.6734,
+    "perch_preprocess": 10.1325,
+    "a2d_head": 1.7641,
+    "setup_incl_sha": 81.8362,
+    "sha_check": 2.6008,
+    "worker_startup_elapsed": 34.9828,
+    "post_processing": 0.9279,
+    "total_pipeline": 2309.7872,
+    "total_notebook": 2392.6427
+  },
+  "model_load_s": {
+    "main": 22.2731,
+    "ablation": 5.1409,
+    "a2d": 3.5704
+  },
+  "per_file_mean_s": {
+    "decode": 0.124761,
+    "cnn_mel": 0.38647,
+    "model_main": 2.444443,
+    "model_ablation": 2.452646,
+    "model_a2d": 7.560962,
+    "perch_preprocess": 0.014475,
+    "a2d_head": 0.00252
+  },
+  "per_file_elapsed_s": 3.249721,
+  "projected_700_files_min": 39.88,
+  "budget_min": 75,
+  "gate": "OK",
+  "timing_note": "stage seconds are summed over workers (compute seconds); per_file_elapsed_s is wall time per file"
+}
