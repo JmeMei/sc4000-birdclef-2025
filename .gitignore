@@ -15,11 +15,11 @@ submissions/*.csv
 *.onnx
 *.safetensors
 *.zip
-!report/member3-4_pretrained_ensemble/paper_overleaf.zip
-!report/member3-4_pretrained_ensemble/paper_v2_overleaf.zip
+!report/arshiya_pretrained_ensemble/paper_overleaf.zip
+!report/arshiya_pretrained_ensemble/archive/paper_v2_overleaf.zip
 
 # --- Local-only notes ---
-report/member3-4_pretrained_ensemble/_archive/
+report/arshiya_pretrained_ensemble/_archive/
 notes/session_history.md
 datasets/birdmae-base/
 

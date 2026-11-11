@@ -1,6 +1,6 @@
 # Experiments: SED Model
 
-> **For assembly (Member 4):** written by Sudhishna (Member 2). Goes in the Experiments section
+> **For assembly (Arshiya):** written by Sudhishna (Sudhishna). Goes in the Experiments section
 > after Jamie's baseline ablations. About 0.75 page with Table 3 and Figures 5–6 (single column).
 > Table and figure numbers are placeholders.
 
@@ -23,7 +23,7 @@ Figure 5 list every run.
 *Table 3: SED runs. All SED rows except the last use 20 s chunks. "Val AUC (first 5 s)" scores the
 first 5 s of each hold-out clip with the primary label, the same as the baseline's validation.*
 
-![SED ablations](../figures/m2_sed_ablation.png)
+![SED ablations](../figures/sudhishna_sed_ablation.png)
 
 *Figure 5: Leaderboard scores of the SED runs against baseline v2. The dashed line is the public
 top-70% cut-off.*
@@ -61,7 +61,7 @@ back. This is the opposite of the write-up, whose supervised SED ensemble scored
 with 5 s chunks and 0.872 with 20 s chunks (Babych 2025). The 5 s model is also faster: an
 estimated 16 CPU minutes for the test set, against 34 for the 20 s model with overlap.
 
-![Frame scores](../figures/m2_frame_scores.png)
+![Frame scores](../figures/sudhishna_frame_scores.png)
 
 *Figure 6: A hold-out clip of* paltan1 *(top) and the SED model's score for that species every
 0.5 s (bottom). The model was trained only with clip-level labels, but its scores rise exactly
@@ -78,7 +78,7 @@ a large gap to close. Every configuration here was trained once with one seed, w
 the loss weights or learning rate for the new head. Because the 5 s SED model scores level with
 v2 but is a different kind of model, it is a natural candidate for the ensemble (Section X).
 
-## Contribution (Member 2)
+## Contribution (Sudhishna)
 
 Sudhishna: SED model re-implemented from the 1st-place write-up, its training and CPU inference
 notebooks, seven SED leaderboard runs, the spectrogram cache with the write-up's settings, the
