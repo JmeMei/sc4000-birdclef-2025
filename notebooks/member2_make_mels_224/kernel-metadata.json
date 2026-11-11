@@ -1,0 +1,15 @@
+{
+  "id": "sudhishnajanavi/sc4000-birdclef-m2-make-mels-224",
+  "title": "sc4000-birdclef-m2-make-mels-224",
+  "code_file": "make_mels.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [
+    "birdclef-2025"
+  ],
+  "kernel_sources": []
+}

@@ -7,6 +7,7 @@
 # (copy one from an existing folder). Keep "is_private": true —
 # the course forbids releasing code publicly.
 # Outputs land in outputs/<folder name>/ (gitignored).
+# SKIP_DOWNLOAD=1 bash scripts/kaggle_run.sh <folder>  -> download only small files (log/csv/json/png).
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -37,5 +38,10 @@ while true; do
 done
 
 mkdir -p "$OUT"
-"$KAGGLE" kernels output "$KERNEL_ID" -p "$OUT" -o
+if [ "${SKIP_DOWNLOAD:-0}" = "1" ]; then
+  # Large outputs (e.g. the mel-spectrogram arrays) stay on Kaggle; fetch only small files.
+  "$KAGGLE" kernels output "$KERNEL_ID" -p "$OUT" -o --file-pattern '.*\.(log|csv|json|png)$'
+else
+  "$KAGGLE" kernels output "$KERNEL_ID" -p "$OUT" -o
+fi
 echo "Outputs saved to $OUT/"
