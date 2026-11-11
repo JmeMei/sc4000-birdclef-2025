@@ -1,0 +1,33 @@
+{
+ "best_head": "mlp",
+ "val_auc_first5s": 0.9915693011769762,
+ "val_auc_clip_max": 0.9921198630329361,
+ "val_classes": 191,
+ "perch_sha256": "bf0c8467a924cb074663970ca4a0ab1e143602121930209657d0dff5d5cefa1f",
+ "cfg": {
+  "max_seconds": 30,
+  "val_frac": 0.2,
+  "seed": 42,
+  "secondary_weight": 0.5,
+  "embed_batch": 64,
+  "epochs": 30,
+  "batch_size": 1024,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "mlp_hidden": 512,
+  "mlp_dropout": 0.3,
+  "preprocess_version": 1
+ },
+ "heads": {
+  "logreg": {
+   "first": 0.9071468941672126,
+   "clip_max": 0.9112674488382044,
+   "epoch": 28
+  },
+  "mlp": {
+   "first": 0.9915693011769762,
+   "clip_max": 0.9921198630329361,
+   "epoch": 16
+  }
+ }
+}

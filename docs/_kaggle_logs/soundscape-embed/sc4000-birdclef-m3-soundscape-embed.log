@@ -1,0 +1,73 @@
+[{"stream_name":"stderr","time":6.541084537,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.541142263,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.541148616,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.541152911,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.08795486,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.088006833,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.08801233,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.088016431,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.2829342,"data":"torch.cuda.is_available(): True\n"}
+,{"stream_name":"stdout","time":13.282960979,"data":"torch.cuda.get_device_name(0): Tesla T4\n"}
+,{"stream_name":"stderr","time":13.899061707,"data":"WARNING: Skipping onnxruntime as it is not installed.\n"}
+,{"stream_name":"stderr","time":14.101344837,"data":"WARNING: Skipping onnxruntime as it is not installed.\n"}
+,{"stream_name":"stderr","time":14.10137343,"data":"\n"}
+,{"stream_name":"stderr","time":14.101378022,"data":"WARNING: Skipping onnxruntime as it is not installed.\n"}
+,{"stream_name":"stdout","time":22.76911149,"data":"torch CUDA: 13.0 | cuDNN: 92700\n"}
+,{"stream_name":"stdout","time":37.682149038,"data":"transformers 4.38.0 from /tmp/bmae_pydeps/transformers/__init__.py\n"}
+,{"stream_name":"stdout","time":117.933424176,"data":"Data: /kaggle/input/competitions/birdclef-2025 | index: /kaggle/input/notebooks/jmemei/sc4000-birdclef-m1-make-mels | onnx: /kaggle/input/datasets/strippedbanana/sc4000-birdclef-m3-perch-onnx/perch_v2.onnx | Bird-MAE: /kaggle/input/datasets/strippedbanana/sc4000-birdclef-m3-birdmae-base\n"}
+,{"stream_name":"stdout","time":117.933456422,"data":"device: cuda | ORT 1.31.1 ['TensorrtExecutionProvider', 'CUDAExecutionProvider', 'CPUExecutionProvider']\n"}
+,{"stream_name":"stdout","time":118.131375338,"data":"1000 soundscapes from noise_index.csv\n"}
+,{"stream_name":"stdout","time":122.254473582,"data":"checksums done in 4s\n"}
+,{"stream_name":"stderr","time":122.961047659,"data":"\u001b[0;93m2026-11-09 09:04:32.232762668 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":123.16416442,"data":"\u001b[0;93m2026-11-09 09:04:32.232762668 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":123.164205985,"data":"\n"}
+,{"stream_name":"stderr","time":123.164209802,"data":"\u001b[0;93m2026-11-09 09:04:32.232762668 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":123.621801618,"data":"\u001b[0;93m2026-11-09 09:04:32.893425886 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":123.823953397,"data":"\u001b[0;93m2026-11-09 09:04:32.893425886 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":123.824013047,"data":"\n"}
+,{"stream_name":"stderr","time":123.824018487,"data":"\u001b[0;93m2026-11-09 09:04:32.893425886 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stdout","time":131.253033652,"data":"Node kernel time by provider (us): {'CUDAExecutionProvider': 4288863, 'CPUExecutionProvider': 1936300}\n"}
+,{"stream_name":"stdout","time":131.25306772,"data":"CUDA share of node time: 68.9%\n"}
+,{"stream_name":"stdout","time":131.253070813,"data":"placement probe 9s\n"}
+,{"stream_name":"stderr","time":131.657341912,"data":"\u001b[0;93m2026-11-09 09:04:40.929104366 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":131.86052709,"data":"\u001b[0;93m2026-11-09 09:04:40.929104366 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":131.860562097,"data":"\n"}
+,{"stream_name":"stderr","time":131.860572258,"data":"\u001b[0;93m2026-11-09 09:04:40.929104366 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":132.103660119,"data":"\u001b[0;93m2026-11-09 09:04:41.375409724 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stdout","time":132.302823524,"data":"Active providers: ['CUDAExecutionProvider', 'CPUExecutionProvider']\n"}
+,{"stream_name":"stderr","time":132.303997928,"data":"\u001b[0;93m2026-11-09 09:04:41.375409724 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":132.304018275,"data":"\n"}
+,{"stream_name":"stderr","time":132.304022925,"data":"\u001b[0;93m2026-11-09 09:04:41.375409724 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stdout","time":136.991557197,"data":"Perch 8/1000 files | 64 windows | 15s | ETA 30.3 min | model 3s\n"}
+,{"stream_name":"stdout","time":150.543258886,"data":"TIMING GUARD | Perch: 37.8 windows/s after 576 windows, about 12000 windows in total, 138s elapsed -\u003e projected notebook time 518s = 0.14 h (limit 3600s)\n"}
+,{"stream_name":"stdout","time":201.646396059,"data":"Perch 208/1000 files | 2496 windows | 79s | ETA 5.0 min | model 64s\n"}
+,{"stream_name":"stdout","time":266.174359662,"data":"Perch 408/1000 files | 4864 windows | 144s | ETA 3.5 min | model 124s\n"}
+,{"stream_name":"stdout","time":333.085094244,"data":"Perch 608/1000 files | 7296 windows | 211s | ETA 2.3 min | model 187s\n"}
+,{"stream_name":"stdout","time":398.383568634,"data":"Perch 808/1000 files | 9664 windows | 276s | ETA 1.1 min | model 248s\n"}
+,{"stream_name":"stdout","time":462.110097818,"data":"Perch done: (12000, 1536) | failed decodes 0 | wall 339s | model 308s\n"}
+,{"stream_name":"stderr","time":472.139483032,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":472.139526687,"data":"I0000 00:00:1794215421.348350      24 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":472.342343394,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":472.342369523,"data":"I0000 00:00:1794215421.348350      24 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":472.342376556,"data":"\n"}
+,{"stream_name":"stderr","time":472.34238182,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":472.342386654,"data":"I0000 00:00:1794215421.348350      24 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":474.533425425,"data":"probe OK: torch.Size([12, 1, 512, 128]) -\u003e torch.Size([12, 768]) | autocast: True\n"}
+,{"stream_name":"stdout","time":477.279596581,"data":"Bird-MAE 8/1000 files | 96 windows | 15s | ETA 31.3 min | model 0s\n"}
+,{"stream_name":"stdout","time":480.131857159,"data":"TIMING GUARD | Bird-MAE: 201.8 windows/s after 672 windows, about 12000 windows in total, 467s elapsed -\u003e projected notebook time 523s = 0.15 h (limit 3600s)\n"}
+,{"stream_name":"stdout","time":490.477689776,"data":"Bird-MAE 208/1000 files | 2496 windows | 28s | ETA 1.8 min | model 10s\n"}
+,{"stream_name":"stdout","time":504.413293759,"data":"Bird-MAE 408/1000 files | 4896 windows | 42s | ETA 1.0 min | model 20s\n"}
+,{"stream_name":"stdout","time":518.136691718,"data":"Bird-MAE 608/1000 files | 7296 windows | 56s | ETA 0.6 min | model 30s\n"}
+,{"stream_name":"stdout","time":532.053052135,"data":"Bird-MAE 808/1000 files | 9696 windows | 70s | ETA 0.3 min | model 39s\n"}
+,{"stream_name":"stdout","time":544.146074344,"data":"Bird-MAE done: (12000, 768) | failed decodes 0 | wall 82s | model 48s\n"}
+,{"stream_name":"stdout","time":544.365007267,"data":"Windows per file: {'12': 1000} | failed files: 0\n"}
+,{"stream_name":"stdout","time":544.365041742,"data":"TIMING | 12000 windows, 1000 files | Perch wall 339s, 35.3 windows/s | Bird-MAE wall 82s, 146.4 windows/s | notebook 531s = 0.15 h\n"}
+,{"stream_name":"stderr","time":550.009073321,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":550.00911612,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":550.153014695,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":550.153051663,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":550.917719255,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":550.999005835,"data":"[NbConvertApp] Writing 38872 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":553.535897051,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":554.120007693,"data":"[NbConvertApp] Writing 401469 bytes to __results__.html\n"}
+]

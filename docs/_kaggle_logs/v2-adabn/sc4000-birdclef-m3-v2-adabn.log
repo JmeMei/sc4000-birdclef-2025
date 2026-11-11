@@ -1,0 +1,39 @@
+[{"stream_name":"stderr","time":8.689737808,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.689779244,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.689783481,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.689786047,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.311080947,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.311108671,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.311114063,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.31111827,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":18.269125506,"data":"torch.cuda.is_available(): True\n"}
+,{"stream_name":"stdout","time":18.269160308,"data":"torch.cuda.get_device_name(0): Tesla T4\n"}
+,{"stream_name":"stdout","time":28.099787379,"data":"DEVICE: cuda | Tesla T4\n"}
+,{"stream_name":"stdout","time":88.715028703,"data":"cfg norm: v2 | norm_top_db: 80.0 | model: efficientnet_b0 | best_val_auc in cfg: 0.9766412863248184\n"}
+,{"stream_name":"stdout","time":88.715073063,"data":"Data: /kaggle/input/competitions/birdclef-2025 | model: /kaggle/input/notebooks/jmemei/sc4000-birdclef-m1-train-v2 | mels: /kaggle/input/notebooks/jmemei/sc4000-birdclef-m1-make-mels | CPUs: 4 | smoke: False\n"}
+,{"stream_name":"stdout","time":88.924010096,"data":"1000 soundscape files, e.g. ['H02_20230426_145500.ogg', 'H02_20230427_040500.ogg']\n"}
+,{"stream_name":"stdout","time":191.301869374,"data":"windows (12000, 128, 313) float32 1.92 GB | 102.4s\n"}
+,{"stream_name":"stdout","time":191.301920863,"data":"187 batches of 64, dropping 32 windows\n"}
+,{"stream_name":"stdout","time":192.390628393,"data":"train 22851 | val 5713\n"}
+,{"stream_name":"stdout","time":293.698177095,"data":"val AUC before adaptation 0.9766 | 101.3s\n"}
+,{"stream_name":"stdout","time":293.698227044,"data":"reference 0.9766 (cfg.json best_val_auc) | gap 0.0000 (limit 0.002)\n"}
+,{"stream_name":"stdout","time":293.895330017,"data":"49 BatchNorm modules set to adapt | 12000 windows | 187 batches\n"}
+,{"stream_name":"stdout","time":294.424770604,"data":"guard: 0.09s per batch | elapsed 284s (windows 102s) | adapt left 15s | val estimate 101s | projected notebook 6.7 min (limit 30)\n"}
+,{"stream_name":"stdout","time":297.394661295,"data":"batch 50/187 | 4s\n"}
+,{"stream_name":"stdout","time":300.940783937,"data":"batch 100/187 | 7s\n"}
+,{"stream_name":"stdout","time":304.500346365,"data":"batch 150/187 | 11s\n"}
+,{"stream_name":"stdout","time":307.142128961,"data":"adapted 49 BN modules on 12000 windows (187 batches) in 13.4s\n"}
+,{"stream_name":"stdout","time":313.76854017,"data":"val AUC before 0.9766 (computed in this run on the unadapted model) | after 0.9405 | 6.6s\n"}
+,{"stream_name":"stdout","time":313.768579596,"data":"unchanged non-statistic entries: 213 | running_mean changed in 49/49 BN modules\n"}
+,{"stream_name":"stdout","time":314.514868258,"data":"model.pth reloaded with strict=True\n"}
+,{"stream_name":"stdout","time":314.514903007,"data":"{'val_auc_before': 0.9766361807453074, 'val_auc_before_source': 'computed in this run on the unadapted model', 'val_auc_after': 0.9404530265459694, 'val_auc_before_reference': 0.9766412863248184, 'val_auc_before_reference_source': 'cfg.json best_val_auc', 'n_files': 1000, 'n_windows': 12000, 'n_batches': 187, 'n_bn_modules': 49, 'setup_seconds': 78.29125833511353, 'windows_seconds': 102.37754225730896, 'val_before_seconds': 101.2839663028717, 'adapt_seconds': 13.402835845947266, 'val_after_seconds': 6.5782506465911865, 'save_seconds': 0.7175898551940918, 'total_seconds': 304.01661443710327, 'device': 'cuda', 'device_name': 'Tesla T4'}\n"}
+,{"stream_name":"stdout","time":314.51493133,"data":"TIMING | setup 78.3s | windows 102.4s | val before 101.3s | adapt 13.4s | val after 6.6s | save 0.7s | total 304.0s (5.1 min)\n"}
+,{"stream_name":"stderr","time":319.906010888,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":319.906045916,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":320.073997116,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":320.074022199,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":320.931083563,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":321.016842199,"data":"[NbConvertApp] Writing 33862 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":323.700051332,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":324.299395249,"data":"[NbConvertApp] Writing 366989 bytes to __results__.html\n"}
+]

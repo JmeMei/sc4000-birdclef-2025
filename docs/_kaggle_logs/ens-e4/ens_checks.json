@@ -1,0 +1,36 @@
+{
+  "columns_match": true,
+  "n_rows": 8400,
+  "expected_rows": 8400,
+  "row_ids_unique": true,
+  "all_finite": true,
+  "in_0_1": true,
+  "models": {
+    "main": {
+      "spearman_per_class_mean": 0.7327352340847909,
+      "n_classes_spearman": 206,
+      "pearson_vs_ranks": 0.7482855263607301,
+      "pearson_vs_probs": 0.140242560979029,
+      "probs_finite": true,
+      "probs_in_0_1": true
+    },
+    "a2d": {
+      "spearman_per_class_mean": 0.8979557642706768,
+      "n_classes_spearman": 206,
+      "pearson_vs_ranks": 0.8968912306069402,
+      "pearson_vs_probs": 0.13759668370872769,
+      "probs_finite": true,
+      "probs_in_0_1": true
+    }
+  },
+  "failures": [],
+  "passed": true,
+  "variant": "E4",
+  "weights": {
+    "main": 0.4,
+    "a2d": 0.6
+  },
+  "smoothing": true,
+  "dry_run": true,
+  "min_corr": 0.5
+}

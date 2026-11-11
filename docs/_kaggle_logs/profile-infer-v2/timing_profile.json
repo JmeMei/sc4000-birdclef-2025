@@ -1,0 +1,26 @@
+{
+  "n_files_requested": 700,
+  "n_files_used": 700,
+  "n_windows": 8400,
+  "num_workers": 4,
+  "torch_threads": 4,
+  "cpu_count": 4,
+  "batch_size": 64,
+  "stages_s": {
+    "setup": 42.0353,
+    "model_load": 0.7895,
+    "decode": 224.0959,
+    "mel": 1078.2769,
+    "preprocess_elapsed": 333.8907,
+    "model_forward": 288.2338,
+    "total_pipeline": 622.1761,
+    "total_notebook": 665.0213
+  },
+  "per_file_mean_s": {
+    "decode": 0.320137,
+    "mel": 1.540396,
+    "preprocess_elapsed": 0.476987,
+    "model_forward": 0.411763,
+    "total_pipeline": 0.888823
+  }
+}

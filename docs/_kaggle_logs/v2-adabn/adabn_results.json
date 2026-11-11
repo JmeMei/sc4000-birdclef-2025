@@ -1,0 +1,20 @@
+{
+  "val_auc_before": 0.9766361807453074,
+  "val_auc_before_source": "computed in this run on the unadapted model",
+  "val_auc_after": 0.9404530265459694,
+  "val_auc_before_reference": 0.9766412863248184,
+  "val_auc_before_reference_source": "cfg.json best_val_auc",
+  "n_files": 1000,
+  "n_windows": 12000,
+  "n_batches": 187,
+  "n_bn_modules": 49,
+  "setup_seconds": 78.29125833511353,
+  "windows_seconds": 102.37754225730896,
+  "val_before_seconds": 101.2839663028717,
+  "adapt_seconds": 13.402835845947266,
+  "val_after_seconds": 6.5782506465911865,
+  "save_seconds": 0.7175898551940918,
+  "total_seconds": 304.01661443710327,
+  "device": "cuda",
+  "device_name": "Tesla T4"
+}

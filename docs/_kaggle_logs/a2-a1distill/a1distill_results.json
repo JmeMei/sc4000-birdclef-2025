@@ -1,0 +1,102 @@
+{
+ "config": {
+  "teacher": "sc4000-birdclef-m3-a1-v2s-train/model.pth, unadapted, full eval, float32, no AMP",
+  "teacher_batch": 64,
+  "teacher_power": 1.3,
+  "teacher_floor": 0.01,
+  "soundscape_loss_weight": 0.5,
+  "epochs": 30,
+  "seed": 42,
+  "device": "cuda",
+  "device_name": "Tesla T4",
+  "student_amp": false
+ },
+ "teacher": {
+  "n_windows": 12000,
+  "power": 1.3,
+  "floor": 0.01,
+  "soft_label_stats_are_after_power_and_floor": true,
+  "fraction_nonzero": 0.03714846278317152,
+  "mean_max_per_window": 0.1740802824497223,
+  "windows_any_label_ge_0_5": 1378,
+  "top10_species": [
+   {
+    "species": "trokin",
+    "windows_nonzero": 9980,
+    "windows_ge_0_5": 40,
+    "sum_soft": 369.740478515625
+   },
+   {
+    "species": "compau",
+    "windows_nonzero": 8630,
+    "windows_ge_0_5": 10,
+    "sum_soft": 284.5208740234375
+   },
+   {
+    "species": "roahaw",
+    "windows_nonzero": 8034,
+    "windows_ge_0_5": 17,
+    "sum_soft": 227.13925170898438
+   },
+   {
+    "species": "grekis",
+    "windows_nonzero": 6841,
+    "windows_ge_0_5": 30,
+    "sum_soft": 181.33792114257812
+   },
+   {
+    "species": "banana",
+    "windows_nonzero": 6786,
+    "windows_ge_0_5": 20,
+    "sum_soft": 188.33157348632812
+   },
+   {
+    "species": "amekes",
+    "windows_nonzero": 5179,
+    "windows_ge_0_5": 11,
+    "sum_soft": 143.98486328125
+   },
+   {
+    "species": "compot1",
+    "windows_nonzero": 3052,
+    "windows_ge_0_5": 3,
+    "sum_soft": 82.89336395263672
+   },
+   {
+    "species": "whtdov",
+    "windows_nonzero": 2674,
+    "windows_ge_0_5": 91,
+    "sum_soft": 139.5650634765625
+   },
+   {
+    "species": "bbwduc",
+    "windows_nonzero": 2431,
+    "windows_ge_0_5": 11,
+    "sum_soft": 73.29217529296875
+   },
+   {
+    "species": "52884",
+    "windows_nonzero": 2214,
+    "windows_ge_0_5": 0,
+    "sum_soft": 75.8199691772461
+   }
+  ]
+ },
+ "student": {
+  "val_auc_first5s": 0.9918249582214589,
+  "val_auc_clip_max": 0.9926062198850206,
+  "best_epoch": 26,
+  "val_classes": 191,
+  "soundscape_loss_weight_share": 0.2079650618696059,
+  "loss_weight_source": 22851.0,
+  "loss_weight_soundscape": 6000.0,
+  "head_file": "perch_head_a1distill.npz",
+  "numpy_vs_torch_max_diff": 1.4901161193847656e-07,
+  "seconds": 48.298303842544556
+ },
+ "prep_seconds": 3.646866798400879,
+ "windows_seconds": 114.80731797218323,
+ "teacher_model_seconds": 40.49948835372925,
+ "teacher_seconds": 157.49278712272644,
+ "total_seconds": 272.27114391326904
+}
