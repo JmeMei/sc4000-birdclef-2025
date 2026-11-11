@@ -1,0 +1,35 @@
+{
+  "architectures": [
+    "BirdMAEModel"
+  ],
+  "attn_drop_rate": 0.0,
+  "auto_map": {
+    "AutoConfig": "configuration_bird_mae.BirdMAEConfig",
+    "AutoModel": "modeling_bird_mae.BirdMAEModel",
+    "AutoModelForSequenceClassification": "modeling_bird_mae.BirdMAEForSequenceClassification"
+  },
+  "depth": 12,
+  "drop_path_rate": 0.0,
+  "drop_rate": 0.0,
+  "embed_dim": 768,
+  "global_pool": "mean",
+  "img_size_x": 512,
+  "img_size_y": 128,
+  "in_chans": 1,
+  "init_values": null,
+  "mlp_ratio": 4,
+  "norm_layer_eps": 1e-06,
+  "num_heads": 12,
+  "num_patches": 256,
+  "num_patches_x": 32,
+  "num_patches_y": 8,
+  "num_tokens": 257,
+  "patch_size": 16,
+  "pos_drop_rate": 0.0,
+  "pos_trainable": false,
+  "proj_drop_rate": 0.0,
+  "qk_norm": false,
+  "qkv_bias": true,
+  "torch_dtype": "float32",
+  "transformers_version": "4.38.0"
+}
