@@ -1,0 +1,23 @@
+{
+  "id": "strippedbanana/sc4000-birdclef-m3-ns-a1-all",
+  "title": "sc4000-birdclef-m3-ns-a1-all",
+  "code_file": "sc4000-birdclef-m3-ns-a1-all.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "keywords": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4",
+  "competition_sources": [
+    "birdclef-2025"
+  ],
+  "enable_internet": false,
+  "dataset_sources": [],
+  "kernel_sources": [
+    "strippedbanana/sc4000-birdclef-m3-a1-v2s-train",
+    "strippedbanana/sc4000-birdclef-m3-a2-a1distill",
+    "strippedbanana/sc4000-birdclef-m3-soundscape-embed"
+  ]
+}

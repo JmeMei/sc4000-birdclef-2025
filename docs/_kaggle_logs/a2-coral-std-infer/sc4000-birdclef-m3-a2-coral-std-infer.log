@@ -1,0 +1,30 @@
+[{"stream_name":"stderr","time":11.051480526,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.051535464,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.051542195,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.051546854,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.057625912,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.057667162,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.057673319,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.057677836,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":90.677881677,"data":"onnxruntime image version: None | wanted: 1.31.1\n"}
+,{"stream_name":"stdout","time":90.677921844,"data":"Data: /kaggle/input/competitions/birdclef-2025 | head: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-coral-heads | onnx: /kaggle/input/datasets/strippedbanana/sc4000-birdclef-m3-perch-onnx/perch_v2.onnx | CPUs: 4 | workers: 4\n"}
+,{"stream_name":"stdout","time":90.677946205,"data":"Head: mlp\n"}
+,{"stream_name":"stdout","time":93.867952842,"data":"DRY RUN on 20 soundscapes\n"}
+,{"stream_name":"stdout","time":142.7103359,"data":"(240, 207)\n"}
+,{"stream_name":"stdout","time":142.710377582,"data":"                   row_id       1139490       1192948       1194042\n"}
+,{"stream_name":"stdout","time":142.710383868,"data":"0   H02_20230420_074000_5  1.659535e-07  9.230743e-08  2.018852e-07\n"}
+,{"stream_name":"stdout","time":142.710389242,"data":"1  H02_20230420_074000_10  1.031133e-08  6.965934e-09  5.779833e-09\n"}
+,{"stream_name":"stdout","time":142.710394454,"data":"2  H02_20230420_074000_15  1.609294e-08  1.306162e-08  1.053173e-08\n"}
+,{"stream_name":"stdout","time":142.710399694,"data":"TIMING | decode 4.0s | preprocess 0.4s | perch 164.0s | head 1.35s (summed over 4 workers)\n"}
+,{"stream_name":"stdout","time":142.710405068,"data":"TIMING | model load per worker 3.7s | predict wall 46.4s | 20 files | 2.14s per file\n"}
+,{"stream_name":"stdout","time":142.710417162,"data":"TIMING | projected 700 files: 25.0 min (budget 75) -\u003e OK\n"}
+,{"stream_name":"stdout","time":142.710442814,"data":"TOTAL notebook time: 2.13 min\n"}
+,{"stream_name":"stderr","time":146.678612954,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":146.67865364,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":146.916671353,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":146.916701881,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":148.013440523,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":148.114525391,"data":"[NbConvertApp] Writing 15758 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":151.65119833,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":152.349975978,"data":"[NbConvertApp] Writing 321801 bytes to __results__.html\n"}
+]

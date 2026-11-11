@@ -1,0 +1,83 @@
+[{"stream_name":"stderr","time":7.871573451,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.871628576,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.871646881,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.871650497,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.594586723,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.594621452,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.594627256999999,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.594631435,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":80.998139793,"data":"Data: /kaggle/input/competitions/birdclef-2025 | head: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-coral-heads | wheels: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-a3-birdmae-embed | model: /kaggle/input/datasets/strippedbanana/sc4000-birdclef-m3-birdmae-base | CPUs: 4 | workers: 4\n"}
+,{"stream_name":"stdout","time":80.998178246,"data":"Head: mlp | HF revision: 6cc416d1a7ae2af29b6b866499b3b047a8f01304 | pins: {'transformers': '4.38.0', 'tokenizers': '0.15.2', 'huggingface_hub': '0.21.4'}\n"}
+,{"stream_name":"stdout","time":83.662889363,"data":"DRY RUN on 20 soundscapes\n"}
+,{"stream_name":"stdout","time":99.668482577,"data":"head check, numpy vs torch on random input: max abs diff 3.58e-07head check, numpy vs torch on random input: max abs diff 3.58e-07head check, numpy vs torch on random input: max abs diff 3.58e-07head check, numpy vs torch on random input: max abs diff 3.58e-07\n"}
+,{"stream_name":"stdout","time":99.669818671,"data":"\n"}
+,{"stream_name":"stdout","time":99.675544944,"data":"\n"}
+,{"stream_name":"stdout","time":99.680740827,"data":"\n"}
+,{"stream_name":"stderr","time":101.535960919,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.536007809,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.536015414,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.536021051,"data":"I0000 00:00:1794218546.129155      56 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.536027447,"data":"I0000 00:00:1794218546.129155      55 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.536033303,"data":"I0000 00:00:1794218546.129120      58 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.536039041,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.536044817,"data":"I0000 00:00:1794218546.129123      57 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.739095239,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.739166114,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.739188248,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.739193716,"data":"I0000 00:00:1794218546.129155      56 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.739198624,"data":"I0000 00:00:1794218546.129155      55 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.73920341,"data":"I0000 00:00:1794218546.129120      58 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.739209141,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.73921327,"data":"I0000 00:00:1794218546.129123      57 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.739217484,"data":"\n"}
+,{"stream_name":"stderr","time":101.739221361,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.739225507,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.739231448,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.739240613,"data":"I0000 00:00:1794218546.129155      56 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.73924347,"data":"I0000 00:00:1794218546.129155      55 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.739246473,"data":"I0000 00:00:1794218546.129120      58 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":101.739249289,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":101.739252097,"data":"I0000 00:00:1794218546.129123      57 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.487360596,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.487401389,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.487407985,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.487413359,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.48741865,"data":"I0000 00:00:1794218560.082279      58 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.487423869,"data":"I0000 00:00:1794218560.082279      56 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.487428982,"data":"I0000 00:00:1794218560.082279      55 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.487434169,"data":"I0000 00:00:1794218560.082279      57 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.6941089,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.69415477,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.694160233,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.694164494,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.694168966,"data":"I0000 00:00:1794218560.082279      58 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.694173251,"data":"I0000 00:00:1794218560.082279      56 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.694177629,"data":"I0000 00:00:1794218560.082279      55 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.694190788,"data":"I0000 00:00:1794218560.082279      57 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.694195284,"data":"\n"}
+,{"stream_name":"stderr","time":115.694422619,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.694451049,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.694456728,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.694461339,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":115.69446667,"data":"I0000 00:00:1794218560.082279      58 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.694471428,"data":"I0000 00:00:1794218560.082279      56 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.694476504,"data":"I0000 00:00:1794218560.082279      55 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":115.694481356,"data":"I0000 00:00:1794218560.082279      57 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":211.147960336,"data":"(240, 207)\n"}
+,{"stream_name":"stdout","time":211.148000911,"data":"                   row_id   1139490   1192948   1194042\n"}
+,{"stream_name":"stdout","time":211.148008749,"data":"0   H02_20230420_074000_5  0.000044  0.000022  0.000005\n"}
+,{"stream_name":"stdout","time":211.148014914,"data":"1  H02_20230420_074000_10  0.000020  0.000023  0.000002\n"}
+,{"stream_name":"stdout","time":211.14802065,"data":"2  H02_20230420_074000_15  0.000003  0.000006  0.000002\n"}
+,{"stream_name":"stdout","time":211.148027052,"data":"TIMING | decode 3.8s | mel 79.4s | model 359.6s | head 0.94s (summed over 4 workers)\n"}
+,{"stream_name":"stdout","time":211.148033206,"data":"TIMING | model load per worker 14.4s | predict wall 125.8s | 20 files | 5.57s per file\n"}
+,{"stream_name":"stdout","time":211.148038249,"data":"TIMING | projected 700 files: 65.2 min (budget 75) -\u003e OK\n"}
+,{"stream_name":"stdout","time":211.148043589,"data":"TOTAL notebook time: 3.34 min\n"}
+,{"stream_name":"stderr","time":214.464972111,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":214.465028728,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":214.648815491,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":214.648842334,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":215.652690299,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":215.743985213,"data":"[NbConvertApp] Writing 20515 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":218.890061157,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":219.546321878,"data":"[NbConvertApp] Writing 334671 bytes to __results__.html\n"}
+]

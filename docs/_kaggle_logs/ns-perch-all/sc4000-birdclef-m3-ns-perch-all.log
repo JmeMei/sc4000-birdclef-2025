@@ -1,0 +1,125 @@
+[{"stream_name":"stderr","time":8.614592988,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.614661229,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.614667935,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.614671663,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.229730802,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.229760339,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.229764814,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.229768259,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.904551008,"data":"torch.cuda.is_available(): True\n"}
+,{"stream_name":"stdout","time":17.904595882,"data":"torch.cuda.get_device_name(0): Tesla T4\n"}
+,{"stream_name":"stderr","time":18.597605371,"data":"WARNING: Skipping onnxruntime as it is not installed.\n"}
+,{"stream_name":"stderr","time":18.799636285,"data":"WARNING: Skipping onnxruntime as it is not installed.\n"}
+,{"stream_name":"stderr","time":18.799665131,"data":"\n"}
+,{"stream_name":"stderr","time":18.799669577,"data":"WARNING: Skipping onnxruntime as it is not installed.\n"}
+,{"stream_name":"stdout","time":33.756101793,"data":"torch CUDA: 13.0 | cuDNN: 92700\n"}
+,{"stream_name":"stdout","time":99.133363974,"data":"Data: /kaggle/input/competitions/birdclef-2025 | reference: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-soundscape-embed | onnx: /kaggle/input/datasets/strippedbanana/sc4000-birdclef-m3-perch-onnx/perch_v2.onnx | smoke: False\n"}
+,{"stream_name":"stdout","time":99.133398624,"data":"ORT 1.31.1 ['TensorrtExecutionProvider', 'CUDAExecutionProvider', 'CPUExecutionProvider']\n"}
+,{"stream_name":"stdout","time":99.332011923,"data":"9726 soundscapes in train_soundscapes\n"}
+,{"stream_name":"stdout","time":100.054852416,"data":"reference: 12000 windows, 1000 files, 1536-d\n"}
+,{"stream_name":"stdout","time":103.028152304,"data":"checksum done in 3s\n"}
+,{"stream_name":"stderr","time":103.72067278,"data":"\u001b[0;93m2026-11-09 14:49:57.850659900 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":103.922998736,"data":"\u001b[0;93m2026-11-09 14:49:57.850659900 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":103.923032859,"data":"\n"}
+,{"stream_name":"stderr","time":103.923038283,"data":"\u001b[0;93m2026-11-09 14:49:57.850659900 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":104.408588088,"data":"\u001b[0;93m2026-11-09 14:49:58.538576926 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":104.611096041,"data":"\u001b[0;93m2026-11-09 14:49:58.538576926 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":104.611140287,"data":"\n"}
+,{"stream_name":"stderr","time":104.611145247,"data":"\u001b[0;93m2026-11-09 14:49:58.538576926 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stdout","time":113.27502106,"data":"Node kernel time by provider (us): {'CUDAExecutionProvider': 5467983, 'CPUExecutionProvider': 2004750}\n"}
+,{"stream_name":"stdout","time":113.275078138,"data":"CUDA share of node time: 73.2%\n"}
+,{"stream_name":"stdout","time":113.275088294,"data":"placement probe 10s\n"}
+,{"stream_name":"stderr","time":113.677498889,"data":"\u001b[0;93m2026-11-09 14:50:07.807494730 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":113.879833114,"data":"\u001b[0;93m2026-11-09 14:50:07.807494730 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":113.879868075,"data":"\n"}
+,{"stream_name":"stderr","time":113.8798728,"data":"\u001b[0;93m2026-11-09 14:50:07.807494730 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":114.120399206,"data":"\u001b[0;93m2026-11-09 14:50:08.250333638 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":114.323586614,"data":"\u001b[0;93m2026-11-09 14:50:08.250333638 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":114.323634052,"data":"\n"}
+,{"stream_name":"stderr","time":114.323639476,"data":"\u001b[0;93m2026-11-09 14:50:08.250333638 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stdout","time":114.325048789,"data":"Active providers: ['CUDAExecutionProvider', 'CPUExecutionProvider']\n"}
+,{"stream_name":"stdout","time":119.570950816,"data":"Perch 8/9726 files | 64 windows | 16s | ETA 334.0 min | model 3s\n"}
+,{"stream_name":"stdout","time":133.090786333,"data":"TIMING GUARD | Perch: 37.9 windows/s after 576 windows, about 116712 windows in total, 115s elapsed -\u003e projected notebook time 3181s = 0.88 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":183.364362677,"data":"Perch 208/9726 files | 2496 windows | 80s | ETA 61.2 min | model 63s\n"}
+,{"stream_name":"stdout","time":245.934483282,"data":"Perch 408/9726 files | 4864 windows | 143s | ETA 54.4 min | model 122s\n"}
+,{"stream_name":"stdout","time":266.575967349,"data":"TIMING GUARD | Perch: 37.9 windows/s after 5632 windows, about 116712 windows in total, 249s elapsed -\u003e projected notebook time 3182s = 0.88 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":311.494817213,"data":"Perch 608/9726 files | 7296 windows | 208s | ETA 52.1 min | model 183s\n"}
+,{"stream_name":"stdout","time":376.947744419,"data":"Perch 808/9726 files | 9664 windows | 274s | ETA 50.4 min | model 244s\n"}
+,{"stream_name":"stdout","time":404.484752938,"data":"TIMING GUARD | Perch: 37.3 windows/s after 10688 windows, about 116712 windows in total, 387s elapsed -\u003e projected notebook time 3230s = 0.90 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":443.247962603,"data":"Perch 1008/9726 files | 12096 windows | 340s | ETA 49.0 min | model 307s\n"}
+,{"stream_name":"stdout","time":508.512796037,"data":"Perch 1208/9726 files | 14464 windows | 405s | ETA 47.6 min | model 368s\n"}
+,{"stream_name":"stdout","time":543.35192441,"data":"TIMING GUARD | Perch: 37.0 windows/s after 15744 windows, about 116712 windows in total, 526s elapsed -\u003e projected notebook time 3255s = 0.90 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":575.157586648,"data":"Perch 1408/9726 files | 16896 windows | 472s | ETA 46.5 min | model 431s\n"}
+,{"stream_name":"stdout","time":640.266576059,"data":"Perch 1608/9726 files | 19264 windows | 537s | ETA 45.2 min | model 491s\n"}
+,{"stream_name":"stdout","time":682.262916233,"data":"TIMING GUARD | Perch: 36.9 windows/s after 20800 windows, about 116712 windows in total, 665s elapsed -\u003e projected notebook time 3267s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":706.386638392,"data":"Perch 1808/9726 files | 21696 windows | 603s | ETA 44.0 min | model 554s\n"}
+,{"stream_name":"stdout","time":771.234191204,"data":"Perch 2008/9726 files | 24064 windows | 668s | ETA 42.8 min | model 615s\n"}
+,{"stream_name":"stdout","time":820.291347671,"data":"TIMING GUARD | Perch: 36.8 windows/s after 25856 windows, about 116712 windows in total, 803s elapsed -\u003e projected notebook time 3271s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":837.354382349,"data":"Perch 2208/9726 files | 26496 windows | 734s | ETA 41.7 min | model 677s\n"}
+,{"stream_name":"stdout","time":902.736137122,"data":"Perch 2408/9726 files | 28864 windows | 800s | ETA 40.5 min | model 738s\n"}
+,{"stream_name":"stdout","time":958.298836167,"data":"TIMING GUARD | Perch: 36.8 windows/s after 30912 windows, about 116712 windows in total, 941s elapsed -\u003e projected notebook time 3273s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":968.678033485,"data":"Perch 2608/9726 files | 31296 windows | 866s | ETA 39.4 min | model 800s\n"}
+,{"stream_name":"stdout","time":1033.140220381,"data":"Perch 2808/9726 files | 33664 windows | 930s | ETA 38.2 min | model 860s\n"}
+,{"stream_name":"stdout","time":1096.045630203,"data":"TIMING GUARD | Perch: 36.8 windows/s after 35968 windows, about 116712 windows in total, 1078s elapsed -\u003e projected notebook time 3274s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":1099.315965571,"data":"Perch 3008/9726 files | 36096 windows | 996s | ETA 37.1 min | model 923s\n"}
+,{"stream_name":"stdout","time":1164.547904463,"data":"Perch 3208/9726 files | 38464 windows | 1061s | ETA 35.9 min | model 983s\n"}
+,{"stream_name":"stdout","time":1230.538288426,"data":"Perch 3408/9726 files | 40896 windows | 1127s | ETA 34.8 min | model 1045s\n"}
+,{"stream_name":"stdout","time":1233.891470465,"data":"TIMING GUARD | Perch: 36.8 windows/s after 41024 windows, about 116712 windows in total, 1216s elapsed -\u003e projected notebook time 3275s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":1295.206076052,"data":"Perch 3608/9726 files | 43264 windows | 1192s | ETA 33.7 min | model 1106s\n"}
+,{"stream_name":"stdout","time":1361.713832821,"data":"Perch 3808/9726 files | 45696 windows | 1259s | ETA 32.6 min | model 1169s\n"}
+,{"stream_name":"stdout","time":1372.268861852,"data":"TIMING GUARD | Perch: 36.7 windows/s after 46080 windows, about 116712 windows in total, 1355s elapsed -\u003e projected notebook time 3277s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":1427.295869822,"data":"Perch 4008/9726 files | 48064 windows | 1324s | ETA 31.5 min | model 1230s\n"}
+,{"stream_name":"stdout","time":1493.775447423,"data":"Perch 4208/9726 files | 50496 windows | 1391s | ETA 30.4 min | model 1292s\n"}
+,{"stream_name":"stdout","time":1511.621679014,"data":"TIMING GUARD | Perch: 36.7 windows/s after 51136 windows, about 116712 windows in total, 1494s elapsed -\u003e projected notebook time 3281s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":1558.544359633,"data":"Perch 4408/9726 files | 52864 windows | 1455s | ETA 29.3 min | model 1353s\n"}
+,{"stream_name":"stdout","time":1624.550675982,"data":"Perch 4608/9726 files | 55296 windows | 1521s | ETA 28.2 min | model 1416s\n"}
+,{"stream_name":"stdout","time":1649.214900861,"data":"TIMING GUARD | Perch: 36.7 windows/s after 56192 windows, about 116712 windows in total, 1632s elapsed -\u003e projected notebook time 3281s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":1689.367628293,"data":"Perch 4808/9726 files | 57664 windows | 1586s | ETA 27.0 min | model 1476s\n"}
+,{"stream_name":"stdout","time":1755.23951231,"data":"Perch 5008/9726 files | 60096 windows | 1652s | ETA 25.9 min | model 1538s\n"}
+,{"stream_name":"stdout","time":1786.331986222,"data":"TIMING GUARD | Perch: 36.7 windows/s after 61248 windows, about 116712 windows in total, 1769s elapsed -\u003e projected notebook time 3280s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":1819.153757376,"data":"Perch 5208/9726 files | 62464 windows | 1716s | ETA 24.8 min | model 1599s\n"}
+,{"stream_name":"stdout","time":1884.749948313,"data":"Perch 5408/9726 files | 64896 windows | 1782s | ETA 23.7 min | model 1660s\n"}
+,{"stream_name":"stdout","time":1923.182664124,"data":"TIMING GUARD | Perch: 36.7 windows/s after 66304 windows, about 116712 windows in total, 1906s elapsed -\u003e projected notebook time 3278s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":1949.328350042,"data":"Perch 5608/9726 files | 67264 windows | 1846s | ETA 22.6 min | model 1721s\n"}
+,{"stream_name":"stdout","time":2015.32210958,"data":"Perch 5808/9726 files | 69696 windows | 1912s | ETA 21.5 min | model 1783s\n"}
+,{"stream_name":"stdout","time":2060.147182965,"data":"TIMING GUARD | Perch: 36.7 windows/s after 71360 windows, about 116712 windows in total, 2043s elapsed -\u003e projected notebook time 3277s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":2079.145400527,"data":"Perch 6008/9726 files | 72064 windows | 1976s | ETA 20.4 min | model 1843s\n"}
+,{"stream_name":"stdout","time":2144.529824732,"data":"Perch 6208/9726 files | 74496 windows | 2041s | ETA 19.3 min | model 1905s\n"}
+,{"stream_name":"stdout","time":2196.556173059,"data":"TIMING GUARD | Perch: 36.8 windows/s after 76416 windows, about 116712 windows in total, 2179s elapsed -\u003e projected notebook time 3275s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":2209.088166101,"data":"Perch 6408/9726 files | 76864 windows | 2106s | ETA 18.2 min | model 1965s\n"}
+,{"stream_name":"stdout","time":2274.931545753,"data":"Perch 6608/9726 files | 79296 windows | 2172s | ETA 17.1 min | model 2027s\n"}
+,{"stream_name":"stdout","time":2333.893619995,"data":"TIMING GUARD | Perch: 36.8 windows/s after 81472 windows, about 116712 windows in total, 2316s elapsed -\u003e projected notebook time 3275s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":2338.806304554,"data":"Perch 6808/9726 files | 81664 windows | 2236s | ETA 16.0 min | model 2087s\n"}
+,{"stream_name":"stdout","time":2404.337859841,"data":"Perch 7008/9726 files | 84096 windows | 2301s | ETA 14.9 min | model 2149s\n"}
+,{"stream_name":"stdout","time":2468.347025468,"data":"Perch 7208/9726 files | 86464 windows | 2365s | ETA 13.8 min | model 2209s\n"}
+,{"stream_name":"stdout","time":2469.963495928,"data":"TIMING GUARD | Perch: 36.8 windows/s after 86528 windows, about 116712 windows in total, 2452s elapsed -\u003e projected notebook time 3273s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":2534.299019727,"data":"Perch 7408/9726 files | 88896 windows | 2431s | ETA 12.7 min | model 2271s\n"}
+,{"stream_name":"stdout","time":2598.756941934,"data":"Perch 7608/9726 files | 91264 windows | 2496s | ETA 11.6 min | model 2331s\n"}
+,{"stream_name":"stdout","time":2607.521732581,"data":"TIMING GUARD | Perch: 36.8 windows/s after 91584 windows, about 116712 windows in total, 2590s elapsed -\u003e projected notebook time 3273s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":2664.883456363,"data":"Perch 7808/9726 files | 93696 windows | 2562s | ETA 10.5 min | model 2393s\n"}
+,{"stream_name":"stdout","time":2729.621524669,"data":"Perch 8008/9726 files | 96064 windows | 2627s | ETA 9.4 min | model 2453s\n"}
+,{"stream_name":"stdout","time":2744.971604051,"data":"TIMING GUARD | Perch: 36.8 windows/s after 96640 windows, about 116712 windows in total, 2727s elapsed -\u003e projected notebook time 3273s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":2795.675222746,"data":"Perch 8208/9726 files | 98496 windows | 2693s | ETA 8.3 min | model 2515s\n"}
+,{"stream_name":"stdout","time":2859.83610499,"data":"Perch 8408/9726 files | 100864 windows | 2757s | ETA 7.2 min | model 2575s\n"}
+,{"stream_name":"stdout","time":2882.23228109,"data":"TIMING GUARD | Perch: 36.8 windows/s after 101696 windows, about 116712 windows in total, 2865s elapsed -\u003e projected notebook time 3273s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":2925.591217527,"data":"Perch 8608/9726 files | 103296 windows | 2823s | ETA 6.1 min | model 2637s\n"}
+,{"stream_name":"stdout","time":2990.94357532,"data":"Perch 8808/9726 files | 105664 windows | 2888s | ETA 5.0 min | model 2698s\n"}
+,{"stream_name":"stdout","time":3019.919517802,"data":"TIMING GUARD | Perch: 36.8 windows/s after 106752 windows, about 116712 windows in total, 3002s elapsed -\u003e projected notebook time 3273s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":3056.875806163,"data":"Perch 9008/9726 files | 108096 windows | 2954s | ETA 3.9 min | model 2759s\n"}
+,{"stream_name":"stdout","time":3121.280505486,"data":"Perch 9208/9726 files | 110464 windows | 3018s | ETA 2.8 min | model 2820s\n"}
+,{"stream_name":"stdout","time":3158.180984779,"data":"TIMING GUARD | Perch: 36.8 windows/s after 111808 windows, about 116712 windows in total, 3141s elapsed -\u003e projected notebook time 3274s = 0.91 h (limit 5400s = 1.50 h)\n"}
+,{"stream_name":"stdout","time":3187.164226429,"data":"Perch 9408/9726 files | 112896 windows | 3084s | ETA 1.7 min | model 2881s\n"}
+,{"stream_name":"stdout","time":3252.259999194,"data":"Perch 9608/9726 files | 115264 windows | 3149s | ETA 0.6 min | model 2942s\n"}
+,{"stream_name":"stdout","time":3290.624950973,"data":"Perch done: 116712 windows | failed decodes 0 | wall 3187s | model 2978s\n"}
+,{"stream_name":"stdout","time":3294.893112691,"data":"SANITY | Perch vs soundscape_embed: 12000 rows | max abs diff 3.353e-07 | mean abs diff 1.013e-10 | limit 0.001\n"}
+,{"stream_name":"stdout","time":3295.054171746,"data":"Windows per file: {'12': 9726} | failed files: 0\n"}
+,{"stream_name":"stdout","time":3295.05420169,"data":"TIMING | 116712 windows, 9726 files | Perch wall 3187s, 36.6 windows/s | model 2978s | notebook 3277s = 0.91 h | device Tesla T4\n"}
+,{"stream_name":"stderr","time":3300.227456366,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3300.227485875,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3300.41247948,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3300.412504083,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3301.232819312,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":3301.317825241,"data":"[NbConvertApp] Writing 41090 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":3303.858506807,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3304.438345354,"data":"[NbConvertApp] Writing 389472 bytes to __results__.html\n"}
+]

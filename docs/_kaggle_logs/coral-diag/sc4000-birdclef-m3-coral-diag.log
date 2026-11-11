@@ -1,0 +1,59 @@
+[{"stream_name":"stderr","time":10.130582363,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":10.130649937,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":11.863496046,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.863530621,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.863536212,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.863540213,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.97708618,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.977123376,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.977129524,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.977134175,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":98.615004204,"data":"onnxruntime image version: None | wanted: 1.31.1\n"}
+,{"stream_name":"stdout","time":101.837269102,"data":"No feature transform is applied at inference: features stay raw in the CORAL path, so the identity transform is what this path already does.\n"}
+,{"stream_name":"stdout","time":101.837312284,"data":"Data: /kaggle/input/competitions/birdclef-2025 | CPUs: 4 | workers: 4\n"}
+,{"stream_name":"stdout","time":147.211013701,"data":"Part 1(a) original head: PASS | max abs 2.973e-08 | mean abs 4.839e-11 | threshold 1e-05 | worst H02_20230420_164000_50 / pavpig2 | wall 45.0s\n"}
+,{"stream_name":"stdout","time":193.768709028,"data":"Part 1(b) control head (retrained head, informational): max abs 1.148e-01 | mean abs 4.635e-04 | mean per-class Spearman 0.986 (valid 206, constant 0) | wall 46.3s\n"}
+,{"stream_name":"stdout","time":206.443645507,"data":"mean/std vs original | perch/meanstd   | mean L2 1.7548 max 0.2592 | std L2 0.8906 max 0.1011\n"}
+,{"stream_name":"stdout","time":206.443692558,"data":"mean/std vs original | perch/coral_std | mean L2 1.7548 max 0.2592 | std L2 0.9836 max 0.1121\n"}
+,{"stream_name":"stdout","time":206.44369966,"data":"mean/std vs original | perch/control   | mean L2 0.0000 max 0.0000 | std L2 0.0000 max 0.0000\n"}
+,{"stream_name":"stdout","time":206.443704913,"data":"mean/std vs original | perch/coral_raw | mean L2 1.7548 max 0.2592 | std L2 0.0905 max 0.0243\n"}
+,{"stream_name":"stdout","time":207.063151879,"data":"mean/std vs original | birdmae/control   | mean L2 0.0000 max 0.0000 | std L2 0.0000 max 0.0000\n"}
+,{"stream_name":"stdout","time":207.063191549,"data":"mean/std vs original | birdmae/meanstd   | mean L2 3.1135 max 1.1100 | std L2 0.9624 max 0.3271\n"}
+,{"stream_name":"stdout","time":207.063198999,"data":"mean/std vs original | birdmae/coral_std | mean L2 3.1136 max 1.1100 | std L2 1.1013 max 0.3566\n"}
+,{"stream_name":"stdout","time":207.063204003,"data":"mean/std vs original | birdmae/coral_raw | mean L2 3.1136 max 1.1100 | std L2 0.4421 max 0.2284\n"}
+,{"stream_name":"stdout","time":218.228702947,"data":"\n"}
+,{"stream_name":"stdout","time":218.228749166,"data":"set                        head         mean p  med max   \u003e0.5   \u003e0.9 top1 n  top1 sh rho mean  rho med   rho p5 const     z L2    |z|\n"}
+,{"stream_name":"stdout","time":218.228777509,"data":"A2 Perch                   original     0.0035   0.1883  0.161  0.034    148    0.155    1.000    1.000    1.000     0    39.58  0.777\n"}
+,{"stream_name":"stdout","time":218.228783209,"data":"A2 Perch                   meanstd      0.0044   0.1355  0.115  0.036    157    0.076    0.368    0.329    0.074     0    38.91  0.777\n"}
+,{"stream_name":"stdout","time":218.228787324,"data":"A2 Perch                   coral_std    0.0026   0.0896  0.131  0.058    161    0.060    0.293    0.244   -0.015     0    39.65  0.791\n"}
+,{"stream_name":"stdout","time":218.228791206,"data":"A2 Perch                   control      0.0036   0.1937  0.161  0.034    147    0.189    0.987    0.988    0.977     0    39.58  0.777\n"}
+,{"stream_name":"stdout","time":218.228795859,"data":"A3 Bird-MAE (additional)   original     0.0032   0.1762  0.154  0.015    148    0.243    1.000    1.000    1.000     0    28.41  0.825\n"}
+,{"stream_name":"stdout","time":218.228800136,"data":"A3 Bird-MAE (additional)   control      0.0032   0.1762  0.154  0.015    148    0.243    1.000    1.000    1.000     0    28.41  0.825\n"}
+,{"stream_name":"stdout","time":218.228823841,"data":"A3 Bird-MAE (additional)   meanstd      0.0023   0.0959  0.057  0.013    161    0.069    0.724    0.742    0.531     0    27.18  0.790\n"}
+,{"stream_name":"stdout","time":218.22882844,"data":"A3 Bird-MAE (additional)   coral_std    0.0024   0.0983  0.067  0.016    163    0.071    0.568    0.566    0.379     0    28.01  0.814\n"}
+,{"stream_name":"stdout","time":218.228832255,"data":"\n"}
+,{"stream_name":"stdout","time":218.228835813,"data":"Control vs ORIGINAL head, training script end-to-end check, expected about 0.99 (per-class Spearman, 12000 windows)\n"}
+,{"stream_name":"stdout","time":218.228839846,"data":"perch_head_control.npz vs perch_head.npz: mean 0.987 | median 0.988 | p5 0.977 | valid 206 | constant 0\n"}
+,{"stream_name":"stdout","time":218.228843825,"data":"birdmae_head_control.npz vs birdmae_mlp_head.npz: mean 1.000 | median 1.000 | p5 1.000 | valid 206 | constant 0\n"}
+,{"stream_name":"stdout","time":218.228847975,"data":"\n"}
+,{"stream_name":"stdout","time":218.228856306,"data":"Head standardiser vs soundscape target (log only; close = mean gap \u003c= 0.1 and std ratio in 0.9-1.1)\n"}
+,{"stream_name":"stdout","time":218.22886088,"data":"head                 mean gap / sig_t  med std ratio  close  role\n"}
+,{"stream_name":"stdout","time":218.228864714,"data":"perch/meanstd                  0.0000         1.0000   True  expected close to target\n"}
+,{"stream_name":"stdout","time":218.228868429,"data":"perch/coral_std                0.0000         0.9814   True  expected close to target\n"}
+,{"stream_name":"stdout","time":218.22887195,"data":"perch/control                  0.3528         1.1451  False  reference (not mapped to target)\n"}
+,{"stream_name":"stdout","time":218.22887836,"data":"birdmae/control                0.5873         1.2023  False  reference (not mapped to target)\n"}
+,{"stream_name":"stdout","time":218.228882481,"data":"birdmae/meanstd                0.0000         1.0000   True  expected close to target\n"}
+,{"stream_name":"stdout","time":218.228886369,"data":"birdmae/coral_std              0.0000         0.9735   True  expected close to target\n"}
+,{"stream_name":"stdout","time":218.228890361,"data":"Expectation that meanstd/coral_std head mean and std sit close to the soundscape target: HOLDS\n"}
+,{"stream_name":"stdout","time":218.24607904,"data":"\n"}
+,{"stream_name":"stdout","time":218.246121798,"data":"Part 1(a) result: PASS | output: coral_diag.json only, no submission file\n"}
+,{"stream_name":"stdout","time":218.246149465,"data":"TIMING | setup 97s | part1 91s | part2 11s | total 3.32 min (guard 30 min)\n"}
+,{"stream_name":"stderr","time":222.297054256,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":222.297093786,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":222.607432559,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":222.607464873,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":223.910095488,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":224.022766076,"data":"[NbConvertApp] Writing 33271 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":227.837590358,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":228.658680602,"data":"[NbConvertApp] Writing 393276 bytes to __results__.html\n"}
+]

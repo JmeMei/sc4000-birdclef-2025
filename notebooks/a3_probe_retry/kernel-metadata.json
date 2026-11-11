@@ -1,0 +1,22 @@
+{
+  "id": "strippedbanana/sc4000-birdclef-m3-a3-probe-retry",
+  "title": "sc4000-birdclef-m3-a3-probe-retry",
+  "code_file": "sc4000-birdclef-m3-a3-probe-retry.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [],
+  "dataset_sources": [],
+  "kernel_sources": [
+    "strippedbanana/sc4000-birdclef-m3-a3-birdmae-embed",
+    "jmemei/sc4000-birdclef-m1-make-mels"
+  ],
+  "competition_sources": [
+    "birdclef-2025"
+  ],
+  "model_sources": [],
+  "machine_shape": "None"
+}

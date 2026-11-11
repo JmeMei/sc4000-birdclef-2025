@@ -1,0 +1,13 @@
+{
+  "val_auc_before": 0.9832,
+  "val_auc_before_source": "measured in a1-adabn v1 log / a1-v2s-train; not recomputed",
+  "val_auc_after": 0.9712676514649831,
+  "n_files": 1000,
+  "n_windows": 12000,
+  "n_batches": 187,
+  "n_bn_modules": 110,
+  "adapt_seconds": 40.068084478378296,
+  "total_seconds": 349.8041591644287,
+  "device": "cuda",
+  "device_name": "Tesla T4"
+}
