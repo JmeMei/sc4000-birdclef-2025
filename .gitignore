@@ -13,15 +13,7 @@ submissions/*.csv
 *.pth
 *.ckpt
 *.onnx
-*.safetensors
 *.zip
-!docs/paper_overleaf.zip
-!docs/paper_v2_overleaf.zip
-
-# --- Local-only notes ---
-docs/_archive/
-notes/session_history.md
-datasets/birdmae-base/
 
 # --- Secrets ---
 kaggle.json
