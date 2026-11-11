@@ -1,0 +1,33 @@
+[{"stream_name":"stderr","time":8.15694663,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.15707117,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.157078867,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.157083252,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.898782126,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.898821101,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.898826797,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.898830536,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":103.268318888,"data":"model: tf_efficientnetv2_s_in21k | norm: zscore_minmax | timm 1.0.30\n"}
+,{"stream_name":"stdout","time":103.268365884,"data":"Data: /kaggle/input/competitions/birdclef-2025 | model: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-a1-v2s-train | CPUs: 4\n"}
+,{"stream_name":"stdout","time":103.268371848,"data":"                  row_id   1139490   1192948   1194042\n"}
+,{"stream_name":"stdout","time":103.268375258,"data":"0   soundscape_8358733_5  0.004854  0.004854  0.004854\n"}
+,{"stream_name":"stdout","time":103.268378857,"data":"1  soundscape_8358733_10  0.004854  0.004854  0.004854\n"}
+,{"stream_name":"stdout","time":103.268383684,"data":"2  soundscape_8358733_15  0.004854  0.004854  0.004854\n"}
+,{"stream_name":"stdout","time":103.398769785,"data":"DRY RUN on 20 soundscapes\n"}
+,{"stream_name":"stdout","time":144.578029241,"data":"Windows: (240, 128, 313) in 41s\n"}
+,{"stream_name":"stderr","time":144.795352273,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":144.795402471,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":144.795410065,"data":"\n"}
+,{"stream_name":"stderr","time":144.795415224,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":144.795421299,"data":"  model = create_fn(\n"}
+,{"stream_name":"stdout","time":164.70036841,"data":"Predictions: (240, 206) in 19s\n"}
+,{"stream_name":"stdout","time":164.700423092,"data":"TIMING | decode 5.0s and mel 155.2s (summed over workers) | features wall 41.1s | model wall 18.7s | total wall 59.9s | 20 files\n"}
+,{"stream_name":"stdout","time":164.818488475,"data":"(240, 207)\n"}
+,{"stream_name":"stderr","time":170.260023041,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":170.260064121,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":170.45817378,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":170.458213831,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":171.424115771,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":171.517277483,"data":"[NbConvertApp] Writing 15933 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":174.81989989,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":175.476369622,"data":"[NbConvertApp] Writing 309461 bytes to __results__.html\n"}
+]

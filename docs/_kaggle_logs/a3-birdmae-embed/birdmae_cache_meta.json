@@ -1,0 +1,24 @@
+{
+ "fingerprint": {
+  "filenames_sha": "d35c6034da1480eaf2ab3421c4c4bad436257926758504a5df84a4899cff632c",
+  "hf_revision": "6cc416d1a7ae2af29b6b866499b3b047a8f01304",
+  "birdmae_sha": "402103ecc81787ca6317ad78377fb38a912b3548f23a18f424d7a0dc31f754c5",
+  "transformers": "4.38.0",
+  "max_seconds": 30,
+  "preprocess_version": 1
+ },
+ "file_shas": {
+  "model.safetensors": "402103ecc81787ca6317ad78377fb38a912b3548f23a18f424d7a0dc31f754c5",
+  "config.json": "f73bd64fcbd214703a06e3c435fbb76b02a0106d50c4eb54bb23aaf32a1a1e1c",
+  "preprocessor_config.json": "07e9042b539bdd3e824a811bdb1eb1f2299d0cdf9adb1e0efe9f417595f5fcfe",
+  "configuration_bird_mae.py": "c3b1b46289a1467843ade4b74237ed50995b745ffea080815350b7d5fbbbecb7",
+  "feature_extractor.py": "c03b310f4c1af43739ade7119d801fd851b89576c060102fe45b97ba3c2158cf",
+  "modeling_bird_mae.py": "f9e474de4a79da5ca47f1954010528155520a7b05afd0116974b722e9879921f"
+ },
+ "windows": 106157,
+ "clips": 28564,
+ "failed": [],
+ "wall_s": 691.4514482021332,
+ "model_s": 363.2077679634094,
+ "windows_per_s": 153.52777158254926
+}

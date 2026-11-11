@@ -1,0 +1,25 @@
+{
+ "teacher": "sc4000-birdclef-m3-a1-v2s-train/model.pth, unadapted, full eval, float32, no AMP",
+ "batch_size": 64,
+ "device_name": "Tesla T4",
+ "file_order": "sorted(train_soundscapes/*.ogg) by bare filename",
+ "files_listed": 9726,
+ "files_processed": 9726,
+ "windows": 116712,
+ "windows_per_file_counts": {
+  "12": 9726
+ },
+ "failed_files": [],
+ "sanity_vs_a2_a1distill": {
+  "n_rows": 12000,
+  "max_abs_diff": 5.364418029785156e-07,
+  "mean_abs_diff": 9.871857671595041e-12,
+  "limit": 0.001
+ },
+ "wall_s": {
+  "a1": 902.6363248825073,
+  "waiting_for_windows": 522.174164056778,
+  "notebook": 989.9268469810486
+ },
+ "model_s": 368.51464557647705
+}

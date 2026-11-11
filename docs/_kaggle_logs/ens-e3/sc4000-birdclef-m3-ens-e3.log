@@ -1,0 +1,65 @@
+[{"stream_name":"stderr","time":8.847376367,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":8.847433622,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":10.282301475,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.282338128,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.282344486,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.282348718,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.187780731,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.187814912,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.187821073,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.187825373,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.123910012,"data":"torch.cuda.is_available(): False\n"}
+,{"stream_name":"stdout","time":17.123960709,"data":"DEVICE: cpu\n"}
+,{"stream_name":"stdout","time":89.421679033,"data":"onnxruntime image version: None | wanted: 1.31.1\n"}
+,{"stream_name":"stdout","time":89.421720747,"data":"VARIANT E3 | weights {'main': 0.3333333333333333, 'a2d': 0.3333333333333333, 'ablation': 0.3333333333333333} | smoothing True | workers 4 | CPUs 4\n"}
+,{"stream_name":"stdout","time":89.421730177,"data":"Data: /kaggle/input/competitions/birdclef-2025 | CNN: {'main': '/kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-ns-student-main', 'ablation': '/kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-ns-student-ablation'} | head: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-a2-a1distill | onnx: /kaggle/input/datasets/strippedbanana/sc4000-birdclef-m3-perch-onnx/perch_v2.onnx\n"}
+,{"stream_name":"stdout","time":89.421737697,"data":"CNN cfg: {'main': ('tf_efficientnetv2_s_in21k', 'zscore_minmax'), 'ablation': ('tf_efficientnetv2_s_in21k', 'zscore_minmax')}\n"}
+,{"stream_name":"stdout","time":89.421743698,"data":"Head: mlp\n"}
+,{"stream_name":"stdout","time":92.168526161,"data":"DRY RUN on 700 soundscapes | sha check 2.6s\n"}
+,{"stream_name":"stderr","time":115.604721118,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.604788101,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.604795984,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.604802445,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.60480803,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.604813991,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.604832884,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.604837188,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.811297258,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.811337108,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.811342409,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.811347231,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.811351423,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.811357039,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.811360977,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.811365334,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.811369773,"data":"\n"}
+,{"stream_name":"stderr","time":115.811374017,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.811378452,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.811382459,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.81138812,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.811392237,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.811396785,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":115.811401039,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":115.811406019,"data":"  model = create_fn(\n"}
+,{"stream_name":"stdout","time":2404.342922829,"data":"Models run: ['main', 'ablation', 'a2d'] | 700 files in 2309.8s\n"}
+,{"stream_name":"stdout","time":2405.327011893,"data":"Ensemble E3: (8400, 206) from ['main', 'a2d', 'ablation'] | smoothing True | post-processing 0.9s\n"}
+,{"stream_name":"stdout","time":2405.356655541,"data":"TIMING | decode 87.3s | cnn_mel 270.5s | model_main 1711.1s | model_ablation 1716.9s | model_a2d 5292.7s | perch_preprocess 10.1s | a2d_head 1.8s (summed over 4 workers)\n"}
+,{"stream_name":"stdout","time":2405.356692344,"data":"TIMING | setup 81.8s (sha 2.6s) | worker startup 35.0s (load main 22.3s, ablation 5.1s, a2d 3.6s) | post 0.9s | 3.25s per file elapsed\n"}
+,{"stream_name":"stdout","time":2405.356699249,"data":"TIMING | projected 700 files: 39.9 min (budget 75) -\u003e OK | measured on 700 files\n"}
+,{"stream_name":"stdout","time":2408.325886056,"data":"SANITY | columns True | rows 8400/8400 | unique ids True | finite True | in [0,1] True\n"}
+,{"stream_name":"stdout","time":2408.325943051,"data":"SANITY | ensemble vs main: Spearman per class 0.884 (206 classes) | Pearson vs ranks 0.884 | Pearson vs probs 0.146 (info)\n"}
+,{"stream_name":"stdout","time":2408.32594888,"data":"SANITY | ensemble vs ablation: Spearman per class 0.857 (206 classes) | Pearson vs ranks 0.857 | Pearson vs probs 0.111 (info)\n"}
+,{"stream_name":"stdout","time":2408.325953416,"data":"SANITY | ensemble vs a2d: Spearman per class 0.677 (206 classes) | Pearson vs ranks 0.694 | Pearson vs probs 0.133 (info)\n"}
+,{"stream_name":"stdout","time":2408.325957965,"data":"SANITY | PASS\n"}
+,{"stream_name":"stdout","time":2410.746445615,"data":"submission.csv (8400, 207) | variant E3\n"}
+,{"stream_name":"stdout","time":2410.746487684,"data":"NOTE: submission.csv covers training soundscapes; this was a dry run.\n"}
+,{"stream_name":"stdout","time":2410.746494845,"data":"TOTAL notebook time: 39.97 min\n"}
+,{"stream_name":"stderr","time":2416.652337861,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2416.652378764,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2416.893692112,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2416.893724874,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2417.979788227,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2418.084267041,"data":"[NbConvertApp] Writing 43233 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2421.508447373,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2422.275217446,"data":"[NbConvertApp] Writing 388486 bytes to __results__.html\n"}
+]
