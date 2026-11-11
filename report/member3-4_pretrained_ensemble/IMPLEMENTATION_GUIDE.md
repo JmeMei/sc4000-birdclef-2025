@@ -2,9 +2,9 @@
 
 First draft, 8 Nov 2026. Audience: the Member 3 student, who must understand and explain what was built.
 
-This guide covers the BirdCLEF+ 2025 late-submission work for NTU SC4000: three pretrained-model experiments (A1, A2, A3), a profiling run and a faster CPU inference pipeline (B). Every number below comes from `STATE.md`, `docs/LOG.md`, `reports/*.md`, `notes/*.md`, the notebooks in `notebooks/`, or the downloaded Kaggle logs in `docs/_kaggle_logs/`. Where a number is not in a source, the text says so.
+This guide covers the BirdCLEF+ 2025 late-submission work for NTU SC4000: three pretrained-model experiments (A1, A2, A3), a profiling run and a faster CPU inference pipeline (B). Every number below comes from `STATE.md`, `report/member3-4_pretrained_ensemble/LOG.md`, `report/member3-4_pretrained_ensemble/results/*.md`, `notes/*.md`, the notebooks in `notebooks/`, or the downloaded Kaggle logs in `report/member3-4_pretrained_ensemble/_kaggle_logs/`. Where a number is not in a source, the text says so.
 
-Conventions used for timings, as in `reports/timing_table.md`:
+Conventions used for timings, as in `report/member3-4_pretrained_ensemble/results/timing_table.md`:
 - **Measured**: taken from a log or JSON file of a run on the full 700 `train_soundscapes` files.
 - **Projected**: scaled up from a 20-file dry run of a submitted notebook. The scored (leaderboard) runtime is not available through the Kaggle CLI, so no submitted notebook has a scored-run time.
 
@@ -709,7 +709,7 @@ Export and verification for ONNX:
 | Fast v1, v2 B0, torch | 5.5 (4.0) | 0.34 | 91.6 / 314.4 / 542.2 | setup 70.9 s |
 | Fast v2, A1 V2-S, torch | 8.0 (7.2) | 0.61 | 73.5 / 240.0 / 1,402.7 | setup 27.7 s, worker startup 23.8 s |
 
-The fast v1 numbers come from `docs/_kaggle_logs/fast-infer-v1/timing_profile.json`. The fast pipeline's 5.5 min is a projection field computed from a 700-file run (setup, startup and per-file time), and the timing table lists it as measured.
+The fast v1 numbers come from `report/member3-4_pretrained_ensemble/_kaggle_logs/fast-infer-v1/timing_profile.json`. The fast pipeline's 5.5 min is a projection field computed from a 700-file run (setup, startup and per-file time), and the timing table lists it as measured.
 
 Summed mel seconds fell from 1,078 to 314 between the profile and fast v1. The cause was not isolated by an ablation. Candidates the notebook changes together are the single mel call per file, one thread per process, and per-file batching; the guide cannot say which mattered most. For the model stage, the fast pipeline's 542 s is summed over four single-thread workers (about 136 s each), whereas the profile's 288 s is main-process wall time on four threads, so the two numbers are not comparable directly.
 
@@ -883,5 +883,5 @@ Set `SMOKE_TEST=1` and the relevant `M3_*` paths in a local shell, then run the 
 - A3 used a mean-pooled MLP head; the prototypical probe was not run. Bird-MAE's weights have no declared licence.
 - The A2 logistic-regression result carries the bias-initialisation defect.
 - All submitted-notebook CPU times are projections from 20 files; scored runtimes are unavailable. Member 1's 25 min for v2 was not reproduced.
-- ONNX Runtime and OpenVINO were not run for the CNNs on Kaggle; no A1 + A2 ensemble was built or scored; the export dataset (deliverable 2) and `reports/pretrained_models_section.md` remain to be done.
+- ONNX Runtime and OpenVINO were not run for the CNNs on Kaggle; no A1 + A2 ensemble was built or scored; the export dataset (deliverable 2) and `report/member3-4_pretrained_ensemble/results/pretrained_models_section.md` remain to be done.
 - Each experiment was submitted once, so no run-to-run variance is available; public differences under 0.01 are noise.

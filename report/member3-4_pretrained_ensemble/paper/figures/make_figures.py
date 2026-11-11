@@ -1,9 +1,9 @@
 """Build all paper figures (vector PDF + 300-dpi PNG) into this folder.
 
 Reads small local files only:
-  docs/_kaggle_logs/_writeup/submissions.csv   (leaderboard scores by ref)
-  docs/_kaggle_logs/{a1-v2s-train,ns-student-main,ns-student-ablation}/history.csv
-  docs/_kaggle_logs/ens-e4/timing_profile.json
+  report/member3-4_pretrained_ensemble/_kaggle_logs/_writeup/submissions.csv   (leaderboard scores by ref)
+  report/member3-4_pretrained_ensemble/_kaggle_logs/{a1-v2s-train,ns-student-main,ns-student-ablation}/history.csv
+  report/member3-4_pretrained_ensemble/_kaggle_logs/ens-e4/timing_profile.json
 Val AUCs and timings that are not in those files are hard-coded below with sources.
 """
 import csv
@@ -171,7 +171,7 @@ def fig_adaptation_delta():
 
 
 def fig_transfer_gap():
-    # source: reports/results_table.md and docs/LOG.md (val AUC); v2 from v2-adabn run cfg
+    # source: report/member3-4_pretrained_ensemble/results/results_table.md and report/member3-4_pretrained_ensemble/LOG.md (val AUC); v2 from v2-adabn run cfg
     val = {"v2": 0.9766, "A1": 0.9832, "A2": 0.9916, "A3": 0.9749, "A1+AdaBN": 0.9713,
            "A2 std-CORAL": 0.9901, "A3 std-CORAL": 0.9728, "A3 Perch-distilled": 0.97504,
            "A2 + A1-distilled": 0.99182, "NS MAIN": 0.98650, "NS ABLATION": 0.98541}
@@ -196,7 +196,7 @@ def fig_transfer_gap():
 
 
 def fig_timing():
-    # source: reports/timing_table.md, reports/results_table.md
+    # source: report/member3-4_pretrained_ensemble/results/timing_table.md, report/member3-4_pretrained_ensemble/results/results_table.md
     rows = [("v2 profile (baseline pool)", 11.1, True), ("v2 fast pipeline", 5.5, True),
             ("A1 fast pipeline", 8.0, True), ("A1 submitted notebook", 37, False),
             ("A2 Perch", 25.0, False), ("A3 Bird-MAE", 61.6, False),

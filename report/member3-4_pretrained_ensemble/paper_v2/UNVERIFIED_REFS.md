@@ -15,5 +15,5 @@ Source: `notes/R5_citations.md` (checked 2026-11-08).
 
 - Bird-MAE novelty statement: based on `notes/R6_birdmae_novelty.md`. Full text of the four 2025 BirdCLEF+ working notes and of 20 of 21 BirdCLEF+ 2026 notes could not be read; Kaggle notebooks and discussions were not searchable. The paper states the search as limited and does not use the word "first".
 - Bird-MAE pretraining data (Xeno-canto snapshot via BirdSet) and the claim that BirdSet evaluation sets are bird soundscapes come from the arXiv page as read in R6 (first 100k of 120k characters); taxonomic composition was not explicitly confirmed.
-- Perch 2.0 training data (Xeno-canto and iNaturalist) is taken from the project notes (`docs/IMPLEMENTATION_GUIDE.md`, `STATE.md`); the Perch 2.0 paper text was not re-read for this paper, and its taxonomic composition was not verified.
+- Perch 2.0 training data (Xeno-canto and iNaturalist) is taken from the project notes (`report/member3-4_pretrained_ensemble/IMPLEMENTATION_GUIDE.md`, `STATE.md`); the Perch 2.0 paper text was not re-read for this paper, and its taxonomic composition was not verified.
 - The 2026 paper that mentions Bird-MAE (arXiv 2607.14474) is described in the text but not cited, because it is not in `references.bib`.

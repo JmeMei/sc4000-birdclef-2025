@@ -33,7 +33,7 @@ Four research notes (`notes/R1` to `R4`) established the following.
 2. A2 embed v1 on T4: Perch embeddings for 28,564 clips (106,157 windows) with an embedding wall time of 3,024 s, then heads. MLP head val AUC 0.9916 (first 5 s); logistic regression 0.9071.
 3. A3 embed v1 on T4, pushed after a GPU slot freed (see failures). About 12 minutes of embedding, then a linear probe: first-5 s val AUC 0.7495, clip-max 0.716. Not submitted.
 4. Profile infer-v2 v1 on CPU (700 `train_soundscapes` files, Member 1's pool): pipeline 622 s (10.4 min, measured; whole notebook 665 s = 11.1 min). Per file: decode 0.320 s, mel 1.540 s, model 0.412 s (summed over workers).
-5. Fast-infer v1 (v2 B0, torch, 4 workers) on CPU, 700 files: 5.5 min whole notebook, 4.0 min pipeline (measured, `docs/_kaggle_logs/fast-infer-v1/timing_profile.json`).
+5. Fast-infer v1 (v2 B0, torch, 4 workers) on CPU, 700 files: 5.5 min whole notebook, 4.0 min pipeline (measured, `report/member3-4_pretrained_ensemble/_kaggle_logs/fast-infer-v1/timing_profile.json`).
 6. Fast-infer v2 (A1 V2-S, torch) on CPU, 700 files: 8.0 min whole notebook, 7.2 min pipeline, 0.61 s per file (measured, `timing_profile.json`).
 7. A1 infer v1 on CPU: 20-file dry run took 59.9 s wall (features 41.1 s, model 18.7 s), projecting about 35 min plus about 2 min start-up for 700 files. Gate (75 min) passed; submitted once.
 8. A2 infer v1 on CPU: 20 files, predict wall 46.5 s (2.14 s per file), 25.0 min projected for 700 files. Gate passed; submitted once.
@@ -43,8 +43,8 @@ Four research notes (`notes/R1` to `R4`) established the following.
 12. A3 infer v1 on CPU: 20 files, predict wall 122.7 s, 5.25 s per file, model load 17.6 s per worker, 61.6 min projected for 700 files. Gate passed; submitted once.
 
 ### Phase 4: deliverables (evening, 8 Nov)
-- Written: `reports/results_table.md`, `reports/timing_table.md`, `reports/ensemble_handoff.md`.
-- Not yet written: `reports/pretrained_models_section.md`.
+- Written: `report/member3-4_pretrained_ensemble/results/results_table.md`, `report/member3-4_pretrained_ensemble/results/timing_table.md`, `report/member3-4_pretrained_ensemble/results/ensemble_handoff.md`.
+- Not yet written: `report/member3-4_pretrained_ensemble/results/pretrained_models_section.md`.
 - Not done: export of the best model to ONNX/OpenVINO as a private dataset (deliverable 2). ONNX Runtime and OpenVINO runs for the CNNs were never approved or run on Kaggle.
 - Open: the private Kaggle items still have to be shared with Member 4 through the Kaggle website.
 - Work paused once at a usage limit and resumed in the evening.
@@ -141,7 +141,7 @@ Each experiment was submitted once. Against v2 (0.763 / 0.789), the public chang
 | Scored runtime not available | Kaggle CLI does not report it | All submitted-notebook times are projections |
 
 ## 8. Bird-MAE-centred write-up (v2)
-A writing-only second version reframes existing results around Bird-MAE (A3): `docs/paper_v2/` and `docs/presentation_v2/`, packaged as `docs/paper_v2_overleaf.zip`. No Kaggle runs, training, submissions or dataset changes were made. A literature check (`notes/R6_birdmae_novelty.md`) found no prior report of frozen Bird-MAE-Base on BirdCLEF+ 2025, but its coverage was limited, so the paper does not claim to be first. The transfer-gap table subtracts leaderboard AUC from first-5s validation AUC. Neither v2 document has been compiled locally.
+A writing-only second version reframes existing results around Bird-MAE (A3): `report/member3-4_pretrained_ensemble/paper_v2/` and `report/member3-4_pretrained_ensemble/presentation_v2/`, packaged as `report/member3-4_pretrained_ensemble/paper_v2_overleaf.zip`. No Kaggle runs, training, submissions or dataset changes were made. A literature check (`notes/R6_birdmae_novelty.md`) found no prior report of frozen Bird-MAE-Base on BirdCLEF+ 2025, but its coverage was limited, so the paper does not claim to be first. The transfer-gap table subtracts leaderboard AUC from first-5s validation AUC. Neither v2 document has been compiled locally.
 
 ## CORAL heads and dry runs (9 Nov, label-free alignment phase)
 
