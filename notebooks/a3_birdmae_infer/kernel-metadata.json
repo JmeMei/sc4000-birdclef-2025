@@ -1,0 +1,24 @@
+{
+  "id": "strippedbanana/sc4000-birdclef-m3-a3-birdmae-infer",
+  "title": "sc4000-birdclef-m3-a3-birdmae-infer",
+  "code_file": "sc4000-birdclef-m3-a3-birdmae-infer.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [],
+  "dataset_sources": [
+    "strippedbanana/sc4000-birdclef-m3-birdmae-base"
+  ],
+  "kernel_sources": [
+    "strippedbanana/sc4000-birdclef-m3-a3-mlp-head",
+    "strippedbanana/sc4000-birdclef-m3-a3-birdmae-embed"
+  ],
+  "competition_sources": [
+    "birdclef-2025"
+  ],
+  "model_sources": [],
+  "machine_shape": "None"
+}

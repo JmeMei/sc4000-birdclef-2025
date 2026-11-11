@@ -1,0 +1,80 @@
+{
+ "device": "cpu",
+ "torch_threads": 2,
+ "cfg": {
+  "val_frac": 0.2,
+  "seed": 42,
+  "secondary_weight": 0.5,
+  "batch_size": 1024,
+  "weight_decay": 0.01
+ },
+ "epochs": {
+  "linear": 30,
+  "mlp": 12
+ },
+ "budget_s": 1200.0,
+ "baseline_reference": {
+  "first5s": 0.7495,
+  "clip_max": 0.716
+ },
+ "baseline_diff_first5s": 0.0003021434255503497,
+ "baseline_diff_clip_max": 0.002264655239260338,
+ "prior_eps": 1e-06,
+ "prior_bias_mean": -6.200774192810059,
+ "prior_classes_clipped": 0,
+ "windows": 106157,
+ "notebook_seconds": 221.72811770439148,
+ "results": [
+  {
+   "name": "linear_lr0.001_priorbias",
+   "kind": "linear",
+   "max_lr": 0.001,
+   "dropout": null,
+   "standardised": true,
+   "prior_bias": true,
+   "epochs": 30,
+   "first": 0.9626232254211035,
+   "clip_max": 0.9635527927482462,
+   "best_epoch": 24,
+   "n_classes": 191,
+   "init_bias_mean": -6.200774192810059,
+   "first_epoch_loss": 0.028536788431838864,
+   "status": "done",
+   "seconds": 53.456279039382935
+  },
+  {
+   "name": "linear_lr0.003_priorbias",
+   "kind": "linear",
+   "max_lr": 0.003,
+   "dropout": null,
+   "standardised": true,
+   "prior_bias": true,
+   "epochs": 30,
+   "first": 0.9618034159991478,
+   "clip_max": 0.9631438913712164,
+   "best_epoch": 23,
+   "n_classes": 191,
+   "init_bias_mean": -6.200774192810059,
+   "first_epoch_loss": 0.02653207510177578,
+   "status": "done",
+   "seconds": 52.66863250732422
+  },
+  {
+   "name": "linear_lr0.001",
+   "kind": "linear",
+   "max_lr": 0.001,
+   "dropout": null,
+   "standardised": true,
+   "prior_bias": false,
+   "epochs": 30,
+   "first": 0.7498021434255504,
+   "clip_max": 0.7182646552392603,
+   "best_epoch": 24,
+   "n_classes": 191,
+   "init_bias_mean": 0.0009063596371561289,
+   "first_epoch_loss": 0.6940815619059971,
+   "status": "done",
+   "seconds": 62.52056694030762
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "best_head": "linear",
+ "val_auc_first5s": 0.7494541558524925,
+ "val_auc_clip_max": 0.7162705839882048,
+ "val_classes": 191,
+ "hf_repo": "DBD-research-group/Bird-MAE-Base",
+ "hf_revision": "6cc416d1a7ae2af29b6b866499b3b047a8f01304",
+ "birdmae_files_sha256": {
+  "model.safetensors": "402103ecc81787ca6317ad78377fb38a912b3548f23a18f424d7a0dc31f754c5",
+  "config.json": "f73bd64fcbd214703a06e3c435fbb76b02a0106d50c4eb54bb23aaf32a1a1e1c",
+  "preprocessor_config.json": "07e9042b539bdd3e824a811bdb1eb1f2299d0cdf9adb1e0efe9f417595f5fcfe",
+  "configuration_bird_mae.py": "c3b1b46289a1467843ade4b74237ed50995b745ffea080815350b7d5fbbbecb7",
+  "feature_extractor.py": "c03b310f4c1af43739ade7119d801fd851b89576c060102fe45b97ba3c2158cf",
+  "modeling_bird_mae.py": "f9e474de4a79da5ca47f1954010528155520a7b05afd0116974b722e9879921f"
+ },
+ "transformers_pin": {
+  "transformers": "4.38.0",
+  "tokenizers": "0.15.2",
+  "huggingface_hub": "0.21.4"
+ },
+ "cfg": {
+  "max_seconds": 30,
+  "val_frac": 0.2,
+  "seed": 42,
+  "secondary_weight": 0.5,
+  "loader_clips": 16,
+  "embed_batch": 128,
+  "epochs": 30,
+  "batch_size": 1024,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "preprocess_version": 1
+ },
+ "heads": {
+  "linear": {
+   "first": 0.7494541558524925,
+   "clip_max": 0.7162705839882048,
+   "epoch": 28
+  }
+ }
+}

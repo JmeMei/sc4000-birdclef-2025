@@ -1,0 +1,307 @@
+[{"stream_name":"stderr","time":7.328745205,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.328807726,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.328813935,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.328817206,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.906372038,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.906409688,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.906414068,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.906417118,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.831666406,"data":"device: cpu | torch threads: 4 | os.cpu_count(): 4\n"}
+,{"stream_name":"stdout","time":128.573976226,"data":"Data: /kaggle/input/competitions/birdclef-2025 | M1 index: /kaggle/input/notebooks/jmemei/sc4000-birdclef-m1-make-mels | soundscapes: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-soundscape-embed | perch: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-a2-perch-embed | birdmae: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-a3-birdmae-embed\n"}
+,{"stream_name":"stdout","time":128.908701287,"data":"28564 clips, 206 species | train 22851 | val 5713\n"}
+,{"stream_name":"stdout","time":131.670149965,"data":"[perch] windows: source 106157 | train 85231 | val 20926 | val first-5s 5713 | target 12000\n"}
+,{"stream_name":"stdout","time":136.395003594,"data":"  eig raw source          : min 1.00016 | max 1.61954 | cond 1.61927\n"}
+,{"stream_name":"stdout","time":137.181298481,"data":"  eig raw target          : min 1.00007 | max 2.53039 | cond 2.53022\n"}
+,{"stream_name":"stdout","time":138.068630639,"data":"  eig standardised source : min 1.0117 | max 41.1618 | cond 40.6855\n"}
+,{"stream_name":"stdout","time":138.840255394,"data":"  eig standardised target : min 1.00354 | max 122.666 | cond 122.233\n"}
+,{"stream_name":"stdout","time":139.174545415,"data":"[perch] distances before any transform: {'coral_raw': 3.9674132811159266e-07, 'coral_z': 0.0032688767095526653, 'mean_l2_raw': 1.7547751872581028, 'mean_l2_z': 17.055616056026103}\n"}
+,{"stream_name":"stdout","time":142.453773577,"data":"[perch/control] distances after: {'coral_raw': 3.9674132811159266e-07, 'coral_z': 0.0032688767095526653, 'mean_l2_raw': 1.7547751872581028, 'mean_l2_z': 17.055616056026103}\n"}
+,{"stream_name":"stdout","time":153.81948526,"data":"[perch/control] ep  1/30 | loss 0.4762 | first-5s 0.6363 | 5.8s  \u003c- best\n"}
+,{"stream_name":"stdout","time":159.508397318,"data":"[perch/control] ep  2/30 | loss 0.0313 | first-5s 0.8186 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":165.212666697,"data":"[perch/control] ep  3/30 | loss 0.0161 | first-5s 0.9298 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":170.890069423,"data":"[perch/control] ep  4/30 | loss 0.0122 | first-5s 0.9658 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":176.374431405,"data":"[perch/control] ep  5/30 | loss 0.0105 | first-5s 0.9793 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":181.820387573,"data":"[perch/control] ep  6/30 | loss 0.0095 | first-5s 0.9852 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":187.364412643,"data":"[perch/control] ep  7/30 | loss 0.0089 | first-5s 0.9883 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":192.908460351,"data":"[perch/control] ep  8/30 | loss 0.0084 | first-5s 0.9895 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":198.472562173,"data":"[perch/control] ep  9/30 | loss 0.0080 | first-5s 0.9903 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":204.215425412,"data":"[perch/control] ep 10/30 | loss 0.0076 | first-5s 0.9907 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":209.81635536,"data":"[perch/control] ep 11/30 | loss 0.0073 | first-5s 0.9910 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":215.419345356,"data":"[perch/control] ep 12/30 | loss 0.0071 | first-5s 0.9912 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":220.935790095,"data":"[perch/control] ep 13/30 | loss 0.0069 | first-5s 0.9913 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":226.506440966,"data":"[perch/control] ep 14/30 | loss 0.0067 | first-5s 0.9915 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":230.995687436,"data":"[perch/control] ep 15/30 | loss 0.0065 | first-5s 0.9914 | 4.5s\n"}
+,{"stream_name":"stdout","time":235.558354968,"data":"[perch/control] ep 16/30 | loss 0.0063 | first-5s 0.9914 | 4.6s\n"}
+,{"stream_name":"stdout","time":239.939173603,"data":"[perch/control] ep 17/30 | loss 0.0062 | first-5s 0.9914 | 4.4s\n"}
+,{"stream_name":"stdout","time":244.447379831,"data":"[perch/control] ep 18/30 | loss 0.0061 | first-5s 0.9913 | 4.5s\n"}
+,{"stream_name":"stdout","time":248.894358107,"data":"[perch/control] ep 19/30 | loss 0.0060 | first-5s 0.9914 | 4.4s\n"}
+,{"stream_name":"stdout","time":253.511606051,"data":"[perch/control] ep 20/30 | loss 0.0059 | first-5s 0.9913 | 4.6s\n"}
+,{"stream_name":"stdout","time":257.992369486,"data":"[perch/control] ep 21/30 | loss 0.0058 | first-5s 0.9913 | 4.5s\n"}
+,{"stream_name":"stdout","time":262.447555577,"data":"[perch/control] ep 22/30 | loss 0.0057 | first-5s 0.9913 | 4.5s\n"}
+,{"stream_name":"stdout","time":266.917852919,"data":"[perch/control] ep 23/30 | loss 0.0057 | first-5s 0.9913 | 4.5s\n"}
+,{"stream_name":"stdout","time":271.342772645,"data":"[perch/control] ep 24/30 | loss 0.0056 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":275.699475731,"data":"[perch/control] ep 25/30 | loss 0.0056 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":280.017339591,"data":"[perch/control] ep 26/30 | loss 0.0056 | first-5s 0.9913 | 4.3s\n"}
+,{"stream_name":"stdout","time":284.39755581,"data":"[perch/control] ep 27/30 | loss 0.0055 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":288.754390126,"data":"[perch/control] ep 28/30 | loss 0.0055 | first-5s 0.9913 | 4.3s\n"}
+,{"stream_name":"stdout","time":293.124347104,"data":"[perch/control] ep 29/30 | loss 0.0055 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":297.457485577,"data":"[perch/control] ep 30/30 | loss 0.0055 | first-5s 0.9913 | 4.3s\n"}
+,{"stream_name":"stdout","time":297.743557248,"data":"RESULT [perch/control] first-5s 0.9915 | clip-max 0.9920 | best ep 14 | head 155s | transform+distances 3s\n"}
+,{"stream_name":"stdout","time":297.746905228,"data":"[perch] control first-5s 0.9915 vs saved 0.9916 | diff 0.0001\n"}
+,{"stream_name":"stdout","time":297.750770809,"data":"TIMING guard | projected notebook total 28.1 min (limit 60)\n"}
+,{"stream_name":"stdout","time":302.346676639,"data":"[perch/meanstd] distances after: {'coral_raw': 3.5105475203130283e-07, 'coral_z': 0.002770962122027132, 'mean_l2_raw': 3.902306719222393e-10, 'mean_l2_z': 3.952733984363254e-09}\n"}
+,{"stream_name":"stdout","time":308.537116279,"data":"[perch/meanstd] ep  1/30 | loss 0.4762 | first-5s 0.6363 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":314.074767534,"data":"[perch/meanstd] ep  2/30 | loss 0.0313 | first-5s 0.8186 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":319.524378197,"data":"[perch/meanstd] ep  3/30 | loss 0.0161 | first-5s 0.9298 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":325.157660785,"data":"[perch/meanstd] ep  4/30 | loss 0.0122 | first-5s 0.9658 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":330.514305158,"data":"[perch/meanstd] ep  5/30 | loss 0.0105 | first-5s 0.9793 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":336.009209437,"data":"[perch/meanstd] ep  6/30 | loss 0.0095 | first-5s 0.9852 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":341.538999882,"data":"[perch/meanstd] ep  7/30 | loss 0.0089 | first-5s 0.9883 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":347.018815229,"data":"[perch/meanstd] ep  8/30 | loss 0.0084 | first-5s 0.9895 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":352.462466512,"data":"[perch/meanstd] ep  9/30 | loss 0.0080 | first-5s 0.9903 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":358.067491376,"data":"[perch/meanstd] ep 10/30 | loss 0.0076 | first-5s 0.9907 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":363.59233894,"data":"[perch/meanstd] ep 11/30 | loss 0.0073 | first-5s 0.9910 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":369.113397593,"data":"[perch/meanstd] ep 12/30 | loss 0.0071 | first-5s 0.9912 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":374.641358387,"data":"[perch/meanstd] ep 13/30 | loss 0.0069 | first-5s 0.9913 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":380.198633925,"data":"[perch/meanstd] ep 14/30 | loss 0.0067 | first-5s 0.9915 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":384.731761211,"data":"[perch/meanstd] ep 15/30 | loss 0.0065 | first-5s 0.9914 | 4.5s\n"}
+,{"stream_name":"stdout","time":389.07069007,"data":"[perch/meanstd] ep 16/30 | loss 0.0063 | first-5s 0.9914 | 4.3s\n"}
+,{"stream_name":"stdout","time":393.556346934,"data":"[perch/meanstd] ep 17/30 | loss 0.0062 | first-5s 0.9914 | 4.5s\n"}
+,{"stream_name":"stdout","time":397.975074268,"data":"[perch/meanstd] ep 18/30 | loss 0.0061 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":402.348375322,"data":"[perch/meanstd] ep 19/30 | loss 0.0060 | first-5s 0.9914 | 4.4s\n"}
+,{"stream_name":"stdout","time":406.68951781,"data":"[perch/meanstd] ep 20/30 | loss 0.0059 | first-5s 0.9913 | 4.3s\n"}
+,{"stream_name":"stdout","time":411.091354578,"data":"[perch/meanstd] ep 21/30 | loss 0.0058 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":415.582298011,"data":"[perch/meanstd] ep 22/30 | loss 0.0057 | first-5s 0.9913 | 4.5s\n"}
+,{"stream_name":"stdout","time":419.961349363,"data":"[perch/meanstd] ep 23/30 | loss 0.0057 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":424.373814779,"data":"[perch/meanstd] ep 24/30 | loss 0.0056 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":428.716573598,"data":"[perch/meanstd] ep 25/30 | loss 0.0056 | first-5s 0.9913 | 4.3s\n"}
+,{"stream_name":"stdout","time":433.055882136,"data":"[perch/meanstd] ep 26/30 | loss 0.0056 | first-5s 0.9913 | 4.3s\n"}
+,{"stream_name":"stdout","time":437.453968965,"data":"[perch/meanstd] ep 27/30 | loss 0.0055 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":441.879704399,"data":"[perch/meanstd] ep 28/30 | loss 0.0055 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":446.314501361,"data":"[perch/meanstd] ep 29/30 | loss 0.0055 | first-5s 0.9913 | 4.4s\n"}
+,{"stream_name":"stdout","time":450.584352813,"data":"[perch/meanstd] ep 30/30 | loss 0.0055 | first-5s 0.9913 | 4.3s\n"}
+,{"stream_name":"stdout","time":450.859346924,"data":"RESULT [perch/meanstd] first-5s 0.9915 | clip-max 0.9920 | best ep 14 | head 149s | transform+distances 5s\n"}
+,{"stream_name":"stdout","time":460.910490849,"data":"[perch/coral_raw] distances after: {'coral_raw': 3.0823085913387826e-07, 'coral_z': 0.0025809083763199125, 'mean_l2_raw': 4.001842365623673e-10, 'mean_l2_z': 4.345037372365674e-09}\n"}
+,{"stream_name":"stdout","time":460.929656311,"data":"[perch/coral_raw] ||A - I||_F / ||I||_F = 0.019537\n"}
+,{"stream_name":"stdout","time":467.247346615,"data":"[perch/coral_raw] ep  1/30 | loss 0.4770 | first-5s 0.6077 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":472.88061354,"data":"[perch/coral_raw] ep  2/30 | loss 0.0328 | first-5s 0.7860 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":478.268217862,"data":"[perch/coral_raw] ep  3/30 | loss 0.0163 | first-5s 0.9158 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":483.81564216,"data":"[perch/coral_raw] ep  4/30 | loss 0.0122 | first-5s 0.9609 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":489.151354153,"data":"[perch/coral_raw] ep  5/30 | loss 0.0105 | first-5s 0.9779 | 5.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":494.676402381,"data":"[perch/coral_raw] ep  6/30 | loss 0.0095 | first-5s 0.9850 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":499.954329606,"data":"[perch/coral_raw] ep  7/30 | loss 0.0089 | first-5s 0.9883 | 5.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":505.457156282,"data":"[perch/coral_raw] ep  8/30 | loss 0.0084 | first-5s 0.9897 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":510.819434434,"data":"[perch/coral_raw] ep  9/30 | loss 0.0079 | first-5s 0.9905 | 5.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":516.309373095,"data":"[perch/coral_raw] ep 10/30 | loss 0.0076 | first-5s 0.9909 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":521.586562821,"data":"[perch/coral_raw] ep 11/30 | loss 0.0073 | first-5s 0.9913 | 5.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":527.022802552,"data":"[perch/coral_raw] ep 12/30 | loss 0.0071 | first-5s 0.9914 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":532.370342669,"data":"[perch/coral_raw] ep 13/30 | loss 0.0069 | first-5s 0.9915 | 5.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":537.856589487,"data":"[perch/coral_raw] ep 14/30 | loss 0.0067 | first-5s 0.9916 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":542.204409218,"data":"[perch/coral_raw] ep 15/30 | loss 0.0065 | first-5s 0.9916 | 4.3s\n"}
+,{"stream_name":"stdout","time":546.643354962,"data":"[perch/coral_raw] ep 16/30 | loss 0.0063 | first-5s 0.9916 | 4.4s\n"}
+,{"stream_name":"stdout","time":552.024493467,"data":"[perch/coral_raw] ep 17/30 | loss 0.0062 | first-5s 0.9917 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":556.532427126,"data":"[perch/coral_raw] ep 18/30 | loss 0.0061 | first-5s 0.9916 | 4.5s\n"}
+,{"stream_name":"stdout","time":561.057230654,"data":"[perch/coral_raw] ep 19/30 | loss 0.0060 | first-5s 0.9916 | 4.5s\n"}
+,{"stream_name":"stdout","time":565.695579594,"data":"[perch/coral_raw] ep 20/30 | loss 0.0059 | first-5s 0.9916 | 4.6s\n"}
+,{"stream_name":"stdout","time":570.063418463,"data":"[perch/coral_raw] ep 21/30 | loss 0.0058 | first-5s 0.9915 | 4.4s\n"}
+,{"stream_name":"stdout","time":574.561198983,"data":"[perch/coral_raw] ep 22/30 | loss 0.0057 | first-5s 0.9915 | 4.5s\n"}
+,{"stream_name":"stdout","time":578.96857874,"data":"[perch/coral_raw] ep 23/30 | loss 0.0057 | first-5s 0.9915 | 4.4s\n"}
+,{"stream_name":"stdout","time":583.468335577,"data":"[perch/coral_raw] ep 24/30 | loss 0.0056 | first-5s 0.9915 | 4.5s\n"}
+,{"stream_name":"stdout","time":587.86928792,"data":"[perch/coral_raw] ep 25/30 | loss 0.0056 | first-5s 0.9915 | 4.4s\n"}
+,{"stream_name":"stdout","time":592.286848553,"data":"[perch/coral_raw] ep 26/30 | loss 0.0056 | first-5s 0.9915 | 4.4s\n"}
+,{"stream_name":"stdout","time":596.682996177,"data":"[perch/coral_raw] ep 27/30 | loss 0.0055 | first-5s 0.9915 | 4.4s\n"}
+,{"stream_name":"stdout","time":601.207906016,"data":"[perch/coral_raw] ep 28/30 | loss 0.0055 | first-5s 0.9915 | 4.5s\n"}
+,{"stream_name":"stdout","time":605.86912571,"data":"[perch/coral_raw] ep 29/30 | loss 0.0055 | first-5s 0.9915 | 4.6s\n"}
+,{"stream_name":"stdout","time":610.432811427,"data":"[perch/coral_raw] ep 30/30 | loss 0.0055 | first-5s 0.9915 | 4.6s\n"}
+,{"stream_name":"stdout","time":610.724966737,"data":"RESULT [perch/coral_raw] first-5s 0.9917 | clip-max 0.9920 | best ep 17 | head 150s | transform+distances 10s\n"}
+,{"stream_name":"stdout","time":621.75060143,"data":"[perch/coral_std] distances after: {'coral_raw': 1.8457515664911434e-08, 'coral_z': 0.00016729003459372747, 'mean_l2_raw': 3.839785507832423e-10, 'mean_l2_z': 3.769000718426361e-09}\n"}
+,{"stream_name":"stdout","time":621.76231711,"data":"[perch/coral_std] ||A - I||_F / ||I||_F = 0.289167\n"}
+,{"stream_name":"stdout","time":628.11159309,"data":"[perch/coral_std] ep  1/30 | loss 0.4529 | first-5s 0.4884 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":633.877737862,"data":"[perch/coral_std] ep  2/30 | loss 0.0404 | first-5s 0.6153 | 5.8s  \u003c- best\n"}
+,{"stream_name":"stdout","time":639.332219906,"data":"[perch/coral_std] ep  3/30 | loss 0.0234 | first-5s 0.7872 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":644.928353235,"data":"[perch/coral_std] ep  4/30 | loss 0.0163 | first-5s 0.8688 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":650.367802479,"data":"[perch/coral_std] ep  5/30 | loss 0.0129 | first-5s 0.9189 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":656.087924903,"data":"[perch/coral_std] ep  6/30 | loss 0.0111 | first-5s 0.9509 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":661.649350413,"data":"[perch/coral_std] ep  7/30 | loss 0.0101 | first-5s 0.9688 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":667.386629046,"data":"[perch/coral_std] ep  8/30 | loss 0.0093 | first-5s 0.9778 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":672.988473664,"data":"[perch/coral_std] ep  9/30 | loss 0.0087 | first-5s 0.9831 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":678.631356221,"data":"[perch/coral_std] ep 10/30 | loss 0.0083 | first-5s 0.9856 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":684.115288194,"data":"[perch/coral_std] ep 11/30 | loss 0.0079 | first-5s 0.9869 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":689.843389767,"data":"[perch/coral_std] ep 12/30 | loss 0.0076 | first-5s 0.9882 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":695.557408071,"data":"[perch/coral_std] ep 13/30 | loss 0.0073 | first-5s 0.9887 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":701.077722873,"data":"[perch/coral_std] ep 14/30 | loss 0.0071 | first-5s 0.9891 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":706.636033703,"data":"[perch/coral_std] ep 15/30 | loss 0.0069 | first-5s 0.9894 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":712.062713341,"data":"[perch/coral_std] ep 16/30 | loss 0.0067 | first-5s 0.9895 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":717.448466125,"data":"[perch/coral_std] ep 17/30 | loss 0.0065 | first-5s 0.9898 | 5.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":721.881644024,"data":"[perch/coral_std] ep 18/30 | loss 0.0064 | first-5s 0.9897 | 4.4s\n"}
+,{"stream_name":"stdout","time":727.527818657,"data":"[perch/coral_std] ep 19/30 | loss 0.0063 | first-5s 0.9899 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":733.07265896,"data":"[perch/coral_std] ep 20/30 | loss 0.0061 | first-5s 0.9899 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":737.521365399,"data":"[perch/coral_std] ep 21/30 | loss 0.0061 | first-5s 0.9899 | 4.4s\n"}
+,{"stream_name":"stdout","time":743.186370682,"data":"[perch/coral_std] ep 22/30 | loss 0.0060 | first-5s 0.9900 | 5.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":748.769665375,"data":"[perch/coral_std] ep 23/30 | loss 0.0059 | first-5s 0.9900 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":753.239387964,"data":"[perch/coral_std] ep 24/30 | loss 0.0059 | first-5s 0.9900 | 4.5s\n"}
+,{"stream_name":"stdout","time":758.788358178,"data":"[perch/coral_std] ep 25/30 | loss 0.0058 | first-5s 0.9901 | 5.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":764.356832771,"data":"[perch/coral_std] ep 26/30 | loss 0.0058 | first-5s 0.9901 | 5.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":768.73236995,"data":"[perch/coral_std] ep 27/30 | loss 0.0058 | first-5s 0.9900 | 4.4s\n"}
+,{"stream_name":"stdout","time":773.234335008,"data":"[perch/coral_std] ep 28/30 | loss 0.0058 | first-5s 0.9901 | 4.5s\n"}
+,{"stream_name":"stdout","time":777.673534737,"data":"[perch/coral_std] ep 29/30 | loss 0.0058 | first-5s 0.9901 | 4.4s\n"}
+,{"stream_name":"stdout","time":782.114339566,"data":"[perch/coral_std] ep 30/30 | loss 0.0058 | first-5s 0.9901 | 4.4s\n"}
+,{"stream_name":"stdout","time":782.392757705,"data":"RESULT [perch/coral_std] first-5s 0.9901 | clip-max 0.9911 | best ep 26 | head 161s | transform+distances 11s\n"}
+,{"stream_name":"stdout","time":784.798927513,"data":"[birdmae] windows: source 106157 | train 85231 | val 20926 | val first-5s 5713 | target 12000\n"}
+,{"stream_name":"stdout","time":786.288774996,"data":"  eig raw source          : min 1 | max 4.57821 | cond 4.57821\n"}
+,{"stream_name":"stdout","time":786.414436916,"data":"  eig raw target          : min 1 | max 3.87925 | cond 3.87925\n"}
+,{"stream_name":"stdout","time":786.556695705,"data":"  eig standardised source : min 1 | max 54.5108 | cond 54.5108\n"}
+,{"stream_name":"stdout","time":786.679462264,"data":"  eig standardised target : min 1 | max 107.945 | cond 107.945\n"}
+,{"stream_name":"stdout","time":786.728028504,"data":"[birdmae] distances before any transform: {'coral_raw': 5.124459238525046e-06, 'coral_z': 0.01096545101236857, 'mean_l2_raw': 3.1135203172258255, 'mean_l2_z': 19.858155209322458}\n"}
+,{"stream_name":"stdout","time":787.759910119,"data":"[birdmae/control] distances after: {'coral_raw': 5.124459238525046e-06, 'coral_z': 0.01096545101236857, 'mean_l2_raw': 3.1135203172258255, 'mean_l2_z': 19.858155209322458}\n"}
+,{"stream_name":"stdout","time":792.121348659,"data":"[birdmae/control] ep  1/30 | loss 0.2760 | first-5s 0.5215 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":796.151567699,"data":"[birdmae/control] ep  2/30 | loss 0.0294 | first-5s 0.7554 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":800.1801372,"data":"[birdmae/control] ep  3/30 | loss 0.0214 | first-5s 0.8855 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":804.30129278,"data":"[birdmae/control] ep  4/30 | loss 0.0179 | first-5s 0.9331 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":808.317357891,"data":"[birdmae/control] ep  5/30 | loss 0.0160 | first-5s 0.9520 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":812.300775262,"data":"[birdmae/control] ep  6/30 | loss 0.0148 | first-5s 0.9609 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":816.199706413,"data":"[birdmae/control] ep  7/30 | loss 0.0138 | first-5s 0.9657 | 3.9s  \u003c- best\n"}
+,{"stream_name":"stdout","time":820.222373494,"data":"[birdmae/control] ep  8/30 | loss 0.0131 | first-5s 0.9688 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":824.329062704,"data":"[birdmae/control] ep  9/30 | loss 0.0125 | first-5s 0.9697 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":828.282565256,"data":"[birdmae/control] ep 10/30 | loss 0.0120 | first-5s 0.9713 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":832.415688926,"data":"[birdmae/control] ep 11/30 | loss 0.0115 | first-5s 0.9719 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":835.66840572,"data":"[birdmae/control] ep 12/30 | loss 0.0111 | first-5s 0.9709 | 3.3s\n"}
+,{"stream_name":"stdout","time":839.773345957,"data":"[birdmae/control] ep 13/30 | loss 0.0108 | first-5s 0.9723 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":843.816399062,"data":"[birdmae/control] ep 14/30 | loss 0.0105 | first-5s 0.9737 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":847.094548712,"data":"[birdmae/control] ep 15/30 | loss 0.0101 | first-5s 0.9730 | 3.3s\n"}
+,{"stream_name":"stdout","time":850.399361623,"data":"[birdmae/control] ep 16/30 | loss 0.0098 | first-5s 0.9736 | 3.3s\n"}
+,{"stream_name":"stdout","time":854.509473088,"data":"[birdmae/control] ep 17/30 | loss 0.0096 | first-5s 0.9739 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":857.614338248,"data":"[birdmae/control] ep 18/30 | loss 0.0093 | first-5s 0.9734 | 3.1s\n"}
+,{"stream_name":"stdout","time":861.777351464,"data":"[birdmae/control] ep 19/30 | loss 0.0091 | first-5s 0.9743 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":865.92185228,"data":"[birdmae/control] ep 20/30 | loss 0.0089 | first-5s 0.9744 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":869.023415149,"data":"[birdmae/control] ep 21/30 | loss 0.0087 | first-5s 0.9744 | 3.1s\n"}
+,{"stream_name":"stdout","time":873.030634004,"data":"[birdmae/control] ep 22/30 | loss 0.0085 | first-5s 0.9745 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":877.051080619,"data":"[birdmae/control] ep 23/30 | loss 0.0084 | first-5s 0.9749 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":880.218684369,"data":"[birdmae/control] ep 24/30 | loss 0.0082 | first-5s 0.9748 | 3.2s\n"}
+,{"stream_name":"stdout","time":884.173547924,"data":"[birdmae/control] ep 25/30 | loss 0.0082 | first-5s 0.9749 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":888.195183189,"data":"[birdmae/control] ep 26/30 | loss 0.0081 | first-5s 0.9749 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":891.518370339,"data":"[birdmae/control] ep 27/30 | loss 0.0080 | first-5s 0.9749 | 3.3s\n"}
+,{"stream_name":"stdout","time":894.869618161,"data":"[birdmae/control] ep 28/30 | loss 0.0080 | first-5s 0.9749 | 3.4s\n"}
+,{"stream_name":"stdout","time":897.99006597,"data":"[birdmae/control] ep 29/30 | loss 0.0080 | first-5s 0.9748 | 3.1s\n"}
+,{"stream_name":"stdout","time":901.15929447,"data":"[birdmae/control] ep 30/30 | loss 0.0079 | first-5s 0.9748 | 3.2s\n"}
+,{"stream_name":"stdout","time":901.369360291,"data":"RESULT [birdmae/control] first-5s 0.9749 | clip-max 0.9748 | best ep 26 | head 114s | transform+distances 1s\n"}
+,{"stream_name":"stdout","time":901.371045721,"data":"[birdmae] control first-5s 0.9749 vs saved 0.9749 | diff 0.0000\n"}
+,{"stream_name":"stdout","time":901.372514191,"data":"TIMING guard | projected notebook total 21.9 min (limit 60)\n"}
+,{"stream_name":"stdout","time":903.139774892,"data":"[birdmae/meanstd] distances after: {'coral_raw': 3.225601130797783e-06, 'coral_z': 0.007660956717954799, 'mean_l2_raw': 3.421343684351634e-09, 'mean_l2_z': 6.5608685127631514e-09}\n"}
+,{"stream_name":"stdout","time":907.70235084,"data":"[birdmae/meanstd] ep  1/30 | loss 0.2760 | first-5s 0.5215 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":911.952998007,"data":"[birdmae/meanstd] ep  2/30 | loss 0.0294 | first-5s 0.7554 | 4.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":916.164668603,"data":"[birdmae/meanstd] ep  3/30 | loss 0.0214 | first-5s 0.8857 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":920.298834609,"data":"[birdmae/meanstd] ep  4/30 | loss 0.0179 | first-5s 0.9335 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":924.527779616,"data":"[birdmae/meanstd] ep  5/30 | loss 0.0160 | first-5s 0.9517 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":928.614398801,"data":"[birdmae/meanstd] ep  6/30 | loss 0.0148 | first-5s 0.9608 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":932.764817437,"data":"[birdmae/meanstd] ep  7/30 | loss 0.0138 | first-5s 0.9654 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":936.720405731,"data":"[birdmae/meanstd] ep  8/30 | loss 0.0131 | first-5s 0.9691 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":940.844001157,"data":"[birdmae/meanstd] ep  9/30 | loss 0.0125 | first-5s 0.9701 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":944.951907163,"data":"[birdmae/meanstd] ep 10/30 | loss 0.0120 | first-5s 0.9713 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":949.162469569,"data":"[birdmae/meanstd] ep 11/30 | loss 0.0115 | first-5s 0.9719 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":952.385639189,"data":"[birdmae/meanstd] ep 12/30 | loss 0.0111 | first-5s 0.9707 | 3.2s\n"}
+,{"stream_name":"stdout","time":956.425040535,"data":"[birdmae/meanstd] ep 13/30 | loss 0.0108 | first-5s 0.9725 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":960.608974601,"data":"[birdmae/meanstd] ep 14/30 | loss 0.0105 | first-5s 0.9735 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":964.731359256,"data":"[birdmae/meanstd] ep 15/30 | loss 0.0101 | first-5s 0.9736 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":968.888797672,"data":"[birdmae/meanstd] ep 16/30 | loss 0.0098 | first-5s 0.9739 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":972.111096256,"data":"[birdmae/meanstd] ep 17/30 | loss 0.0095 | first-5s 0.9732 | 3.2s\n"}
+,{"stream_name":"stdout","time":975.296642449,"data":"[birdmae/meanstd] ep 18/30 | loss 0.0093 | first-5s 0.9730 | 3.2s\n"}
+,{"stream_name":"stdout","time":979.402490093,"data":"[birdmae/meanstd] ep 19/30 | loss 0.0091 | first-5s 0.9741 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":983.53934837,"data":"[birdmae/meanstd] ep 20/30 | loss 0.0089 | first-5s 0.9743 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":987.574311303,"data":"[birdmae/meanstd] ep 21/30 | loss 0.0087 | first-5s 0.9744 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":991.682332647,"data":"[birdmae/meanstd] ep 22/30 | loss 0.0085 | first-5s 0.9745 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":995.736350195,"data":"[birdmae/meanstd] ep 23/30 | loss 0.0084 | first-5s 0.9747 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":999.637330153,"data":"[birdmae/meanstd] ep 24/30 | loss 0.0082 | first-5s 0.9747 | 3.9s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1003.641334364,"data":"[birdmae/meanstd] ep 25/30 | loss 0.0082 | first-5s 0.9747 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1007.699755861,"data":"[birdmae/meanstd] ep 26/30 | loss 0.0081 | first-5s 0.9748 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1010.927448173,"data":"[birdmae/meanstd] ep 27/30 | loss 0.0080 | first-5s 0.9747 | 3.2s\n"}
+,{"stream_name":"stdout","time":1014.248385152,"data":"[birdmae/meanstd] ep 28/30 | loss 0.0080 | first-5s 0.9748 | 3.3s\n"}
+,{"stream_name":"stdout","time":1017.368355522,"data":"[birdmae/meanstd] ep 29/30 | loss 0.0080 | first-5s 0.9747 | 3.1s\n"}
+,{"stream_name":"stdout","time":1020.589683747,"data":"[birdmae/meanstd] ep 30/30 | loss 0.0079 | first-5s 0.9747 | 3.2s\n"}
+,{"stream_name":"stdout","time":1020.782569706,"data":"RESULT [birdmae/meanstd] first-5s 0.9748 | clip-max 0.9747 | best ep 26 | head 118s | transform+distances 2s\n"}
+,{"stream_name":"stdout","time":1023.882083692,"data":"[birdmae/coral_raw] distances after: {'coral_raw': 1.4915777071587913e-06, 'coral_z': 0.004317453285686352, 'mean_l2_raw': 4.388070153291521e-09, 'mean_l2_z': 7.724056269247016e-09}\n"}
+,{"stream_name":"stdout","time":1023.883047432,"data":"[birdmae/coral_raw] ||A - I||_F / ||I||_F = 0.033703\n"}
+,{"stream_name":"stdout","time":1028.193165763,"data":"[birdmae/coral_raw] ep  1/30 | loss 0.2757 | first-5s 0.4995 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1032.264573757,"data":"[birdmae/coral_raw] ep  2/30 | loss 0.0299 | first-5s 0.7375 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1036.459510329,"data":"[birdmae/coral_raw] ep  3/30 | loss 0.0213 | first-5s 0.8834 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1040.481344245,"data":"[birdmae/coral_raw] ep  4/30 | loss 0.0177 | first-5s 0.9336 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1044.731527862,"data":"[birdmae/coral_raw] ep  5/30 | loss 0.0157 | first-5s 0.9530 | 4.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1048.733196464,"data":"[birdmae/coral_raw] ep  6/30 | loss 0.0144 | first-5s 0.9622 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1052.849797955,"data":"[birdmae/coral_raw] ep  7/30 | loss 0.0135 | first-5s 0.9669 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1056.947506102,"data":"[birdmae/coral_raw] ep  8/30 | loss 0.0128 | first-5s 0.9696 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1060.994345352,"data":"[birdmae/coral_raw] ep  9/30 | loss 0.0122 | first-5s 0.9709 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1064.959308454,"data":"[birdmae/coral_raw] ep 10/30 | loss 0.0117 | first-5s 0.9722 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1069.13462714,"data":"[birdmae/coral_raw] ep 11/30 | loss 0.0112 | first-5s 0.9725 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1072.399702403,"data":"[birdmae/coral_raw] ep 12/30 | loss 0.0107 | first-5s 0.9721 | 3.3s\n"}
+,{"stream_name":"stdout","time":1076.631720415,"data":"[birdmae/coral_raw] ep 13/30 | loss 0.0104 | first-5s 0.9732 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1080.907597805,"data":"[birdmae/coral_raw] ep 14/30 | loss 0.0101 | first-5s 0.9735 | 4.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1085.105171406,"data":"[birdmae/coral_raw] ep 15/30 | loss 0.0098 | first-5s 0.9736 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1088.40310231,"data":"[birdmae/coral_raw] ep 16/30 | loss 0.0095 | first-5s 0.9735 | 3.3s\n"}
+,{"stream_name":"stdout","time":1091.60239874,"data":"[birdmae/coral_raw] ep 17/30 | loss 0.0092 | first-5s 0.9735 | 3.2s\n"}
+,{"stream_name":"stdout","time":1095.767408459,"data":"[birdmae/coral_raw] ep 18/30 | loss 0.0090 | first-5s 0.9736 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1099.879517588,"data":"[birdmae/coral_raw] ep 19/30 | loss 0.0087 | first-5s 0.9739 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1103.939352322,"data":"[birdmae/coral_raw] ep 20/30 | loss 0.0085 | first-5s 0.9742 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1107.09034144,"data":"[birdmae/coral_raw] ep 21/30 | loss 0.0084 | first-5s 0.9742 | 3.2s\n"}
+,{"stream_name":"stdout","time":1110.244413367,"data":"[birdmae/coral_raw] ep 22/30 | loss 0.0082 | first-5s 0.9740 | 3.2s\n"}
+,{"stream_name":"stdout","time":1114.236402553,"data":"[birdmae/coral_raw] ep 23/30 | loss 0.0081 | first-5s 0.9742 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1118.318719566,"data":"[birdmae/coral_raw] ep 24/30 | loss 0.0080 | first-5s 0.9743 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1121.470293004,"data":"[birdmae/coral_raw] ep 25/30 | loss 0.0079 | first-5s 0.9742 | 3.1s\n"}
+,{"stream_name":"stdout","time":1124.630350332,"data":"[birdmae/coral_raw] ep 26/30 | loss 0.0078 | first-5s 0.9741 | 3.2s\n"}
+,{"stream_name":"stdout","time":1127.730506081,"data":"[birdmae/coral_raw] ep 27/30 | loss 0.0077 | first-5s 0.9742 | 3.1s\n"}
+,{"stream_name":"stdout","time":1131.011835475,"data":"[birdmae/coral_raw] ep 28/30 | loss 0.0077 | first-5s 0.9741 | 3.3s\n"}
+,{"stream_name":"stdout","time":1134.139488673,"data":"[birdmae/coral_raw] ep 29/30 | loss 0.0077 | first-5s 0.9741 | 3.1s\n"}
+,{"stream_name":"stdout","time":1137.192459534,"data":"[birdmae/coral_raw] ep 30/30 | loss 0.0076 | first-5s 0.9741 | 3.1s\n"}
+,{"stream_name":"stdout","time":1137.399586788,"data":"RESULT [birdmae/coral_raw] first-5s 0.9743 | clip-max 0.9742 | best ep 24 | head 114s | transform+distances 3s\n"}
+,{"stream_name":"stdout","time":1140.734229071,"data":"[birdmae/coral_std] distances after: {'coral_raw': 6.444111729417412e-08, 'coral_z': 0.00016330452258671527, 'mean_l2_raw': 3.1230137054748507e-09, 'mean_l2_z': 6.5063950068115915e-09}\n"}
+,{"stream_name":"stdout","time":1140.737235671,"data":"[birdmae/coral_std] ||A - I||_F / ||I||_F = 0.246792\n"}
+,{"stream_name":"stdout","time":1145.221885424,"data":"[birdmae/coral_std] ep  1/30 | loss 0.2660 | first-5s 0.4798 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1149.354655566,"data":"[birdmae/coral_std] ep  2/30 | loss 0.0332 | first-5s 0.6557 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1153.431846679,"data":"[birdmae/coral_std] ep  3/30 | loss 0.0236 | first-5s 0.8208 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1157.305017548,"data":"[birdmae/coral_std] ep  4/30 | loss 0.0192 | first-5s 0.8977 | 3.9s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1161.601910206,"data":"[birdmae/coral_std] ep  5/30 | loss 0.0167 | first-5s 0.9335 | 4.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1165.773545307,"data":"[birdmae/coral_std] ep  6/30 | loss 0.0152 | first-5s 0.9506 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1169.999717846,"data":"[birdmae/coral_std] ep  7/30 | loss 0.0141 | first-5s 0.9585 | 4.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1174.139081438,"data":"[birdmae/coral_std] ep  8/30 | loss 0.0132 | first-5s 0.9636 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1178.234454481,"data":"[birdmae/coral_std] ep  9/30 | loss 0.0126 | first-5s 0.9662 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1182.224346907,"data":"[birdmae/coral_std] ep 10/30 | loss 0.0120 | first-5s 0.9686 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1186.299393421,"data":"[birdmae/coral_std] ep 11/30 | loss 0.0114 | first-5s 0.9696 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1190.115961781,"data":"[birdmae/coral_std] ep 12/30 | loss 0.0110 | first-5s 0.9704 | 3.8s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1194.255771243,"data":"[birdmae/coral_std] ep 13/30 | loss 0.0106 | first-5s 0.9704 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1198.223690419,"data":"[birdmae/coral_std] ep 14/30 | loss 0.0103 | first-5s 0.9721 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1201.464403635,"data":"[birdmae/coral_std] ep 15/30 | loss 0.0100 | first-5s 0.9719 | 3.2s\n"}
+,{"stream_name":"stdout","time":1204.69461658,"data":"[birdmae/coral_std] ep 16/30 | loss 0.0096 | first-5s 0.9716 | 3.2s\n"}
+,{"stream_name":"stdout","time":1208.658545477,"data":"[birdmae/coral_std] ep 17/30 | loss 0.0094 | first-5s 0.9721 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1212.642644562,"data":"[birdmae/coral_std] ep 18/30 | loss 0.0091 | first-5s 0.9725 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1215.827860069,"data":"[birdmae/coral_std] ep 19/30 | loss 0.0089 | first-5s 0.9722 | 3.2s\n"}
+,{"stream_name":"stdout","time":1219.930504672,"data":"[birdmae/coral_std] ep 20/30 | loss 0.0087 | first-5s 0.9726 | 4.1s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1223.104540569,"data":"[birdmae/coral_std] ep 21/30 | loss 0.0086 | first-5s 0.9726 | 3.2s\n"}
+,{"stream_name":"stdout","time":1227.008026047,"data":"[birdmae/coral_std] ep 22/30 | loss 0.0084 | first-5s 0.9728 | 3.9s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1230.977520718,"data":"[birdmae/coral_std] ep 23/30 | loss 0.0083 | first-5s 0.9728 | 4.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1234.14940752,"data":"[birdmae/coral_std] ep 24/30 | loss 0.0082 | first-5s 0.9727 | 3.2s\n"}
+,{"stream_name":"stdout","time":1237.997647637,"data":"[birdmae/coral_std] ep 25/30 | loss 0.0081 | first-5s 0.9728 | 3.8s  \u003c- best\n"}
+,{"stream_name":"stdout","time":1241.169343598,"data":"[birdmae/coral_std] ep 26/30 | loss 0.0080 | first-5s 0.9727 | 3.2s\n"}
+,{"stream_name":"stdout","time":1244.450349945,"data":"[birdmae/coral_std] ep 27/30 | loss 0.0079 | first-5s 0.9727 | 3.3s\n"}
+,{"stream_name":"stdout","time":1247.669442235,"data":"[birdmae/coral_std] ep 28/30 | loss 0.0079 | first-5s 0.9727 | 3.2s\n"}
+,{"stream_name":"stdout","time":1250.926404333,"data":"[birdmae/coral_std] ep 29/30 | loss 0.0079 | first-5s 0.9727 | 3.2s\n"}
+,{"stream_name":"stdout","time":1254.407771333,"data":"[birdmae/coral_std] ep 30/30 | loss 0.0079 | first-5s 0.9727 | 3.5s\n"}
+,{"stream_name":"stdout","time":1254.620044036,"data":"RESULT [birdmae/coral_std] first-5s 0.9728 | clip-max 0.9729 | best ep 25 | head 114s | transform+distances 3s\n"}
+,{"stream_name":"stdout","time":1254.76151648,"data":"\n"}
+,{"stream_name":"stdout","time":1254.76160268,"data":"encoder/variant        | first-5s | clip-max |  ep |   coral_raw before-\u003eafter |     coral_z before-\u003eafter\n"}
+,{"stream_name":"stdout","time":1254.76161539,"data":"perch/control          |   0.9915 |   0.9920 |  14 |   3.967e-07 -\u003e  3.967e-07 |    0.003269 -\u003e   0.003269\n"}
+,{"stream_name":"stdout","time":1254.76162069,"data":"perch/meanstd          |   0.9915 |   0.9920 |  14 |   3.967e-07 -\u003e  3.511e-07 |    0.003269 -\u003e   0.002771\n"}
+,{"stream_name":"stdout","time":1254.76162591,"data":"perch/coral_raw        |   0.9917 |   0.9920 |  17 |   3.967e-07 -\u003e  3.082e-07 |    0.003269 -\u003e   0.002581\n"}
+,{"stream_name":"stdout","time":1254.76163155,"data":"perch/coral_std        |   0.9901 |   0.9911 |  26 |   3.967e-07 -\u003e  1.846e-08 |    0.003269 -\u003e  0.0001673\n"}
+,{"stream_name":"stdout","time":1254.76163626,"data":"birdmae/control        |   0.9749 |   0.9748 |  26 |   5.124e-06 -\u003e  5.124e-06 |     0.01097 -\u003e    0.01097\n"}
+,{"stream_name":"stdout","time":1254.76164137,"data":"birdmae/meanstd        |   0.9748 |   0.9747 |  26 |   5.124e-06 -\u003e  3.226e-06 |     0.01097 -\u003e   0.007661\n"}
+,{"stream_name":"stdout","time":1254.76164671,"data":"birdmae/coral_raw      |   0.9743 |   0.9742 |  24 |   5.124e-06 -\u003e  1.492e-06 |     0.01097 -\u003e   0.004317\n"}
+,{"stream_name":"stdout","time":1254.7616521099999,"data":"birdmae/coral_std      |   0.9728 |   0.9729 |  25 |   5.124e-06 -\u003e  6.444e-08 |     0.01097 -\u003e  0.0001633\n"}
+,{"stream_name":"stdout","time":1254.76165663,"data":"TIMING | perch prep 10s + runs 159/153/160/172s | birdmae prep 4s + runs 115/119/117/117s | notebook total 20.7 min\n"}
+,{"stream_name":"stderr","time":1259.754108404,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1259.754161454,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1259.929439607,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1259.929480807,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1260.875012852,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1260.968080658,"data":"[NbConvertApp] Writing 57790 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1263.670535707,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1264.222312977,"data":"[NbConvertApp] Writing 425114 bytes to __results__.html\n"}
+]

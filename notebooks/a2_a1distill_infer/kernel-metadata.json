@@ -1,0 +1,24 @@
+{
+  "id": "strippedbanana/sc4000-birdclef-m3-a2-a1distill-infer",
+  "title": "sc4000-birdclef-m3-a2-a1distill-infer",
+  "code_file": "sc4000-birdclef-m3-a2-a1distill-infer.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [],
+  "dataset_sources": [
+    "strippedbanana/sc4000-birdclef-m3-perch-onnx"
+  ],
+  "kernel_sources": [
+    "strippedbanana/sc4000-birdclef-m3-a2-a1distill",
+    "strippedbanana/sc4000-birdclef-m3-a2-perch-embed"
+  ],
+  "competition_sources": [
+    "birdclef-2025"
+  ],
+  "model_sources": [],
+  "machine_shape": "None"
+}

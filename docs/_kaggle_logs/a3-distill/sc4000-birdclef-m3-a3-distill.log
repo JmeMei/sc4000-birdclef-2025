@@ -1,0 +1,106 @@
+[{"stream_name":"stderr","time":8.578202083,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.5782654,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.578270736,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.578273921,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.329532701,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.329570702,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.329576896,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.329581308,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.177287577,"data":"device: cpu | torch threads: 4 | os.cpu_count(): 4\n"}
+,{"stream_name":"stdout","time":104.188510455,"data":"Data: /kaggle/input/competitions/birdclef-2025 | M1 index: /kaggle/input/notebooks/jmemei/sc4000-birdclef-m1-make-mels | soundscapes: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-soundscape-embed | perch: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-a2-perch-embed | birdmae: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-a3-birdmae-embed\n"}
+,{"stream_name":"stdout","time":104.698691569,"data":"28564 clips, 206 species | train 22851 | val 5713\n"}
+,{"stream_name":"stdout","time":106.556579544,"data":"Teacher: 12000 windows | fraction non-zero 0.0188 | mean max per window 0.2097 | windows with any label \u003e= 0.5: 1431\n"}
+,{"stream_name":"stdout","time":106.561533386,"data":"   {'species': 'compot1', 'windows_nonzero': 4968, 'windows_ge_0_5': 181, 'sum_soft': 634.0449829101562}\n"}
+,{"stream_name":"stdout","time":106.562625335,"data":"   {'species': 'speowl1', 'windows_nonzero': 4747, 'windows_ge_0_5': 78, 'sum_soft': 589.7827758789062}\n"}
+,{"stream_name":"stdout","time":106.563797598,"data":"   {'species': 'trsowl', 'windows_nonzero': 2637, 'windows_ge_0_5': 1, 'sum_soft': 102.30408477783203}\n"}
+,{"stream_name":"stdout","time":106.564862346,"data":"   {'species': 'roahaw', 'windows_nonzero': 2603, 'windows_ge_0_5': 14, 'sum_soft': 123.19891357421875}\n"}
+,{"stream_name":"stdout","time":106.566102937,"data":"   {'species': '48124', 'windows_nonzero': 2306, 'windows_ge_0_5': 0, 'sum_soft': 80.93681335449219}\n"}
+,{"stream_name":"stdout","time":106.567433893,"data":"   {'species': 'littin1', 'windows_nonzero': 2295, 'windows_ge_0_5': 75, 'sum_soft': 145.40219116210938}\n"}
+,{"stream_name":"stdout","time":106.568346637,"data":"   {'species': 'compau', 'windows_nonzero': 1998, 'windows_ge_0_5': 7, 'sum_soft': 76.56053924560547}\n"}
+,{"stream_name":"stdout","time":106.569237726,"data":"   {'species': '52884', 'windows_nonzero': 1920, 'windows_ge_0_5': 3, 'sum_soft': 93.7375717163086}\n"}
+,{"stream_name":"stdout","time":106.57014783,"data":"   {'species': 'grepot1', 'windows_nonzero': 1250, 'windows_ge_0_5': 1, 'sum_soft': 38.790443420410156}\n"}
+,{"stream_name":"stdout","time":106.570998741,"data":"   {'species': '21211', 'windows_nonzero': 1176, 'windows_ge_0_5': 5, 'sum_soft': 47.184654235839844}\n"}
+,{"stream_name":"stdout","time":109.482651321,"data":"[birdmae] windows: source 106157 | train 85231 | val 20926 | val first-5s 5713 | target 12000\n"}
+,{"stream_name":"stdout","time":112.008096984,"data":"  eig raw source          : min 1 | max 4.57821 | cond 4.57821\n"}
+,{"stream_name":"stdout","time":112.183859869,"data":"  eig raw target          : min 1 | max 3.87925 | cond 3.87925\n"}
+,{"stream_name":"stdout","time":112.384432216,"data":"  eig standardised source : min 1 | max 54.5108 | cond 54.5108\n"}
+,{"stream_name":"stdout","time":112.553164348,"data":"  eig standardised target : min 1 | max 107.945 | cond 107.945\n"}
+,{"stream_name":"stdout","time":114.257249908,"data":"[birdmae/distill] map control: distances before {'coral_raw': 5.124459238525046e-06, 'coral_z': 0.01096545101236857, 'mean_l2_raw': 3.1135203172258255, 'mean_l2_z': 19.858155209322458} | after {'coral_raw': 5.124459238525046e-06, 'coral_z': 0.01096545101236857, 'mean_l2_raw': 3.1135203172258255, 'mean_l2_z': 19.858155209322458}\n"}
+,{"stream_name":"stdout","time":115.184167338,"data":"[birdmae/distill] rows: 97231 (source 85231 + soundscape 12000) | loss weight: source 22851.0, soundscape 6000.0, soundscape share 0.2080\n"}
+,{"stream_name":"stdout","time":128.112610548,"data":"[birdmae/distill] ep  1/30 | loss 0.2481 | first-5s 0.5186 | 6.9s  \u003c- best\n"}
+,{"stream_name":"stdout","time":134.851784731,"data":"[birdmae/distill] ep  2/30 | loss 0.0248 | first-5s 0.7457 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":141.527138997,"data":"[birdmae/distill] ep  3/30 | loss 0.0187 | first-5s 0.8803 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":148.183119722,"data":"[birdmae/distill] ep  4/30 | loss 0.0158 | first-5s 0.9248 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":154.919067594,"data":"[birdmae/distill] ep  5/30 | loss 0.0142 | first-5s 0.9474 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":161.576795524,"data":"[birdmae/distill] ep  6/30 | loss 0.0131 | first-5s 0.9582 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":168.161532,"data":"[birdmae/distill] ep  7/30 | loss 0.0124 | first-5s 0.9645 | 6.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":174.78416199,"data":"[birdmae/distill] ep  8/30 | loss 0.0118 | first-5s 0.9669 | 6.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":181.222597687,"data":"[birdmae/distill] ep  9/30 | loss 0.0113 | first-5s 0.9686 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":187.96121476,"data":"[birdmae/distill] ep 10/30 | loss 0.0108 | first-5s 0.9702 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":194.650769187,"data":"[birdmae/distill] ep 11/30 | loss 0.0105 | first-5s 0.9710 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":201.331131951,"data":"[birdmae/distill] ep 12/30 | loss 0.0102 | first-5s 0.9720 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":207.900115178,"data":"[birdmae/distill] ep 13/30 | loss 0.0099 | first-5s 0.9725 | 6.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":214.617124702,"data":"[birdmae/distill] ep 14/30 | loss 0.0096 | first-5s 0.9726 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":221.264954737,"data":"[birdmae/distill] ep 15/30 | loss 0.0093 | first-5s 0.9739 | 6.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":226.058534759,"data":"[birdmae/distill] ep 16/30 | loss 0.0091 | first-5s 0.9731 | 4.8s\n"}
+,{"stream_name":"stdout","time":232.755126308,"data":"[birdmae/distill] ep 17/30 | loss 0.0089 | first-5s 0.9744 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":237.564410201,"data":"[birdmae/distill] ep 18/30 | loss 0.0087 | first-5s 0.9739 | 4.8s\n"}
+,{"stream_name":"stdout","time":242.430125905,"data":"[birdmae/distill] ep 19/30 | loss 0.0085 | first-5s 0.9743 | 4.8s\n"}
+,{"stream_name":"stdout","time":249.08147935,"data":"[birdmae/distill] ep 20/30 | loss 0.0083 | first-5s 0.9746 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":253.961109373,"data":"[birdmae/distill] ep 21/30 | loss 0.0082 | first-5s 0.9740 | 4.9s\n"}
+,{"stream_name":"stdout","time":260.359505478,"data":"[birdmae/distill] ep 22/30 | loss 0.0081 | first-5s 0.9747 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":266.876683791,"data":"[birdmae/distill] ep 23/30 | loss 0.0079 | first-5s 0.9748 | 6.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":273.558119399,"data":"[birdmae/distill] ep 24/30 | loss 0.0078 | first-5s 0.9749 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":278.299759656,"data":"[birdmae/distill] ep 25/30 | loss 0.0078 | first-5s 0.9749 | 4.8s\n"}
+,{"stream_name":"stdout","time":284.927110136,"data":"[birdmae/distill] ep 26/30 | loss 0.0077 | first-5s 0.9750 | 6.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":291.436941378,"data":"[birdmae/distill] ep 27/30 | loss 0.0076 | first-5s 0.9750 | 6.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":297.897469178,"data":"[birdmae/distill] ep 28/30 | loss 0.0076 | first-5s 0.9750 | 6.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":302.605553665,"data":"[birdmae/distill] ep 29/30 | loss 0.0076 | first-5s 0.9750 | 4.7s\n"}
+,{"stream_name":"stdout","time":307.322138948,"data":"[birdmae/distill] ep 30/30 | loss 0.0076 | first-5s 0.9750 | 4.7s\n"}
+,{"stream_name":"stdout","time":307.561676812,"data":"RESULT [birdmae/distill] first-5s 0.9750 | clip-max 0.9751 | best ep 28 | head 193s | soundscape weight share 0.2080\n"}
+,{"stream_name":"stdout","time":307.562834123,"data":"TIMING guard | projected notebook total 8.9 min (limit 30)\n"}
+,{"stream_name":"stdout","time":312.749871164,"data":"[birdmae/distill_coral] map coral_std: distances before {'coral_raw': 5.124459238525046e-06, 'coral_z': 0.01096545101236857, 'mean_l2_raw': 3.1135203172258255, 'mean_l2_z': 19.858155209322458} | after {'coral_raw': 6.444111729417412e-08, 'coral_z': 0.00016330452258671527, 'mean_l2_raw': 3.1230137054748507e-09, 'mean_l2_z': 6.5063950068115915e-09}\n"}
+,{"stream_name":"stdout","time":313.563466548,"data":"[birdmae/distill_coral] rows: 97231 (source 85231 + soundscape 12000) | loss weight: source 22851.0, soundscape 6000.0, soundscape share 0.2080\n"}
+,{"stream_name":"stdout","time":320.034607839,"data":"[birdmae/distill_coral] ep  1/30 | loss 0.2435 | first-5s 0.4825 | 6.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":326.687608458,"data":"[birdmae/distill_coral] ep  2/30 | loss 0.0284 | first-5s 0.6496 | 6.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":333.279510803,"data":"[birdmae/distill_coral] ep  3/30 | loss 0.0210 | first-5s 0.8044 | 6.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":339.770071916,"data":"[birdmae/distill_coral] ep  4/30 | loss 0.0173 | first-5s 0.8789 | 6.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":346.273577566,"data":"[birdmae/distill_coral] ep  5/30 | loss 0.0152 | first-5s 0.9176 | 6.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":352.586113741,"data":"[birdmae/distill_coral] ep  6/30 | loss 0.0139 | first-5s 0.9415 | 6.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":358.971009943,"data":"[birdmae/distill_coral] ep  7/30 | loss 0.0129 | first-5s 0.9526 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":365.521080799,"data":"[birdmae/distill_coral] ep  8/30 | loss 0.0122 | first-5s 0.9592 | 6.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":371.940108883,"data":"[birdmae/distill_coral] ep  9/30 | loss 0.0116 | first-5s 0.9630 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":378.172562821,"data":"[birdmae/distill_coral] ep 10/30 | loss 0.0111 | first-5s 0.9657 | 6.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":384.589119044,"data":"[birdmae/distill_coral] ep 11/30 | loss 0.0107 | first-5s 0.9685 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":389.174837542,"data":"[birdmae/distill_coral] ep 12/30 | loss 0.0103 | first-5s 0.9685 | 4.6s\n"}
+,{"stream_name":"stdout","time":395.688384346,"data":"[birdmae/distill_coral] ep 13/30 | loss 0.0100 | first-5s 0.9696 | 6.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":401.936113143,"data":"[birdmae/distill_coral] ep 14/30 | loss 0.0097 | first-5s 0.9697 | 6.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":408.3041417,"data":"[birdmae/distill_coral] ep 15/30 | loss 0.0094 | first-5s 0.9708 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":414.740718828,"data":"[birdmae/distill_coral] ep 16/30 | loss 0.0092 | first-5s 0.9713 | 6.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":421.064439736,"data":"[birdmae/distill_coral] ep 17/30 | loss 0.0090 | first-5s 0.9715 | 6.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":427.422165465,"data":"[birdmae/distill_coral] ep 18/30 | loss 0.0088 | first-5s 0.9716 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":432.128111611,"data":"[birdmae/distill_coral] ep 19/30 | loss 0.0086 | first-5s 0.9716 | 4.7s\n"}
+,{"stream_name":"stdout","time":438.351236416,"data":"[birdmae/distill_coral] ep 20/30 | loss 0.0084 | first-5s 0.9720 | 6.2s  \u003c- best\n"}
+,{"stream_name":"stdout","time":444.743118461,"data":"[birdmae/distill_coral] ep 21/30 | loss 0.0083 | first-5s 0.9720 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":451.056702251,"data":"[birdmae/distill_coral] ep 22/30 | loss 0.0082 | first-5s 0.9722 | 6.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":457.35216543,"data":"[birdmae/distill_coral] ep 23/30 | loss 0.0080 | first-5s 0.9723 | 6.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":463.606486934,"data":"[birdmae/distill_coral] ep 24/30 | loss 0.0080 | first-5s 0.9723 | 6.3s  \u003c- best\n"}
+,{"stream_name":"stdout","time":468.098892805,"data":"[birdmae/distill_coral] ep 25/30 | loss 0.0079 | first-5s 0.9723 | 4.5s\n"}
+,{"stream_name":"stdout","time":474.519121985,"data":"[birdmae/distill_coral] ep 26/30 | loss 0.0078 | first-5s 0.9724 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":480.87655465,"data":"[birdmae/distill_coral] ep 27/30 | loss 0.0078 | first-5s 0.9724 | 6.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":485.614609434,"data":"[birdmae/distill_coral] ep 28/30 | loss 0.0077 | first-5s 0.9724 | 4.7s\n"}
+,{"stream_name":"stdout","time":490.157308597,"data":"[birdmae/distill_coral] ep 29/30 | loss 0.0077 | first-5s 0.9724 | 4.5s\n"}
+,{"stream_name":"stdout","time":494.903479537,"data":"[birdmae/distill_coral] ep 30/30 | loss 0.0077 | first-5s 0.9724 | 4.7s\n"}
+,{"stream_name":"stdout","time":495.154122686,"data":"RESULT [birdmae/distill_coral] first-5s 0.9724 | clip-max 0.9724 | best ep 27 | head 182s | soundscape weight share 0.2080\n"}
+,{"stream_name":"stdout","time":495.39553898,"data":"distill        | first-5s 0.9750 | clip-max 0.9751 | best ep 28 | birdmae_head_distill.npz\n"}
+,{"stream_name":"stdout","time":495.395593604,"data":"distill_coral  | first-5s 0.9724 | clip-max 0.9724 | best ep 27 | birdmae_head_distill_coral.npz\n"}
+,{"stream_name":"stdout","time":495.3956079,"data":"TIMING | teacher 2s | prep 6s | runs 195/188s | notebook total 8.0 min\n"}
+,{"stream_name":"stderr","time":499.816707286,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":499.816745515,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":500.016411547,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":500.016446407,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":501.0802242,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":501.188531044,"data":"[NbConvertApp] Writing 44066 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":504.540327673,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":505.295733914,"data":"[NbConvertApp] Writing 421213 bytes to __results__.html\n"}
+]

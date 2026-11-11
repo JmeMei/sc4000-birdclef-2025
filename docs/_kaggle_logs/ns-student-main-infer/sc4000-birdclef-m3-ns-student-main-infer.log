@@ -1,0 +1,60 @@
+[{"stream_name":"stderr","time":11.396029345,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.396087268,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.396092342,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.39609589,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.313025238,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.313103597,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.313282186,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.313390744,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":19.183814466,"data":"torch.cuda.is_available(): False\n"}
+,{"stream_name":"stdout","time":19.183861355,"data":"DEVICE: cpu\n"}
+,{"stream_name":"stdout","time":114.924623222,"data":"model a1_v2s (tf_efficientnetv2_s_in21k, norm zscore_minmax) | backend torch | workers 4 | CPUs 4\n"}
+,{"stream_name":"stdout","time":114.924666577,"data":"Data: /kaggle/input/competitions/birdclef-2025 | model: /kaggle/input/notebooks/strippedbanana/sc4000-birdclef-m3-ns-student-main | Python: 3.13.18\n"}
+,{"stream_name":"stdout","time":114.9246731,"data":"Running on 700 files from train_soundscapes\n"}
+,{"stream_name":"stdout","time":115.043655247,"data":"image package torch: 2.11.0+cpu\n"}
+,{"stream_name":"stdout","time":115.043697921,"data":"image package timm: 1.0.30\n"}
+,{"stream_name":"stdout","time":115.043704993,"data":"image package librosa: 0.11.0\n"}
+,{"stream_name":"stdout","time":115.043708711,"data":"image package soundfile: 0.14.0\n"}
+,{"stream_name":"stdout","time":115.043711886,"data":"image package onnx: 1.23.2\n"}
+,{"stream_name":"stdout","time":115.043714955,"data":"image package onnxruntime: None\n"}
+,{"stream_name":"stdout","time":115.043718186,"data":"image package openvino: None\n"}
+,{"stream_name":"stderr","time":135.658318082,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.658348676,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.658354633,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.65836029,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.65836507,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.658370597,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.658375276,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.658380466,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.860237821,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.860310158,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.860315796,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.860320492,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.860324292,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.860328686,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.860332201,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.860336234,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.860340266,"data":"\n"}
+,{"stream_name":"stderr","time":135.860343765,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.860348012,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.86035207,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.860356296,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.860359822,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.860363929,"data":"  model = create_fn(\n"}
+,{"stream_name":"stderr","time":135.860367896,"data":"/usr/local/lib/python3.13/dist-packages/timm/models/_factory.py:175: UserWarning: Mapping deprecated model name tf_efficientnetv2_s_in21k to current tf_efficientnetv2_s.in21k.\n"}
+,{"stream_name":"stderr","time":135.860371959,"data":"  model = create_fn(\n"}
+,{"stream_name":"stdout","time":608.377565076,"data":"Predictions: (8400, 206) in 493.3s\n"}
+,{"stream_name":"stdout","time":608.40476129,"data":"TIMING | decode 81.0s | mel 261.9s | model 1522.5s (summed over 4 workers)\n"}
+,{"stream_name":"stdout","time":608.404813489,"data":"TIMING | setup 101.2s | export 0.0s | verify 0.0s | worker startup 26.1s (model load 25.8s) | 0.67s per file elapsed\n"}
+,{"stream_name":"stdout","time":608.404820382,"data":"TIMING | projected 700 files: 9.9 min (budget 75) -\u003e OK | measured on 700 files\n"}
+,{"stream_name":"stdout","time":611.10294382,"data":"(8400, 207)\n"}
+,{"stream_name":"stdout","time":611.102992832,"data":"NOTE: submission.csv covers training soundscapes; this was a timing run.\n"}
+,{"stream_name":"stderr","time":616.790847431,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":616.790900342,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":617.006925358,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":617.006965491,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":618.011275868,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":618.112005787,"data":"[NbConvertApp] Writing 34032 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":621.570354959,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":622.360922415,"data":"[NbConvertApp] Writing 357769 bytes to __results__.html\n"}
+]

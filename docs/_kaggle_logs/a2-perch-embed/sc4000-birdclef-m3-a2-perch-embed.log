@@ -1,0 +1,134 @@
+[{"stream_name":"stderr","time":8.738634329,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.738687488,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.738694098,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.738700151,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.440775704,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.440810167,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.440816225,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.440821115,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.965785514,"data":"torch.cuda.is_available(): True\n"}
+,{"stream_name":"stdout","time":17.965826046,"data":"torch.cuda.get_device_name(0): Tesla T4\n"}
+,{"stream_name":"stderr","time":18.738516465,"data":"WARNING: Skipping onnxruntime as it is not installed.\n"}
+,{"stream_name":"stderr","time":18.9412787,"data":"WARNING: Skipping onnxruntime as it is not installed.\n"}
+,{"stream_name":"stderr","time":18.941319611,"data":"\n"}
+,{"stream_name":"stderr","time":18.941324408,"data":"WARNING: Skipping onnxruntime as it is not installed.\n"}
+,{"stream_name":"stdout","time":29.290878968,"data":"torch CUDA: 13.0 | cuDNN: 92700\n"}
+,{"stream_name":"stdout","time":34.409980142,"data":"CPU wheels: ['onnxruntime-1.31.1-cp311-cp311-manylinux_2_28_x86_64.whl', 'onnxruntime-1.31.1-cp312-cp312-manylinux_2_28_x86_64.whl', 'onnxruntime-1.31.1-cp313-cp313-manylinux_2_28_x86_64.whl']\n"}
+,{"stream_name":"stdout","time":89.945874043,"data":"Data: /kaggle/input/competitions/birdclef-2025 | M1 index: /kaggle/input/notebooks/jmemei/sc4000-birdclef-m1-make-mels | device: cuda | ORT 1.31.1 ['TensorrtExecutionProvider', 'CUDAExecutionProvider', 'CPUExecutionProvider']\n"}
+,{"stream_name":"stdout","time":90.581301003,"data":"28564 clips, 206 species | train 22851 | val 5713\n"}
+,{"stream_name":"stdout","time":103.290594132,"data":"downloaded in 3s\n"}
+,{"stream_name":"stderr","time":104.921964652,"data":"\u001b[0;93m2026-11-08 08:06:08.294953058 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":105.124496076,"data":"\u001b[0;93m2026-11-08 08:06:08.294953058 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":105.12452757,"data":"\n"}
+,{"stream_name":"stderr","time":105.124534149,"data":"\u001b[0;93m2026-11-08 08:06:08.294953058 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":105.612657859,"data":"\u001b[0;93m2026-11-08 08:06:08.985642724 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":105.815099475,"data":"\u001b[0;93m2026-11-08 08:06:08.985642724 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":105.815147778,"data":"\n"}
+,{"stream_name":"stderr","time":105.815153116,"data":"\u001b[0;93m2026-11-08 08:06:08.985642724 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stdout","time":114.975427838,"data":"Node kernel time by provider (us): {'CUDAExecutionProvider': 5946139, 'CPUExecutionProvider': 2032653}\n"}
+,{"stream_name":"stdout","time":114.975470041,"data":"CUDA share of node time: 74.5%\n"}
+,{"stream_name":"stdout","time":114.975475688,"data":"placement probe 11s\n"}
+,{"stream_name":"stderr","time":115.404040735,"data":"\u001b[0;93m2026-11-08 08:06:18.776998058 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":115.60635301,"data":"\u001b[0;93m2026-11-08 08:06:18.776998058 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":115.606401344,"data":"\n"}
+,{"stream_name":"stderr","time":115.60640781,"data":"\u001b[0;93m2026-11-08 08:06:18.776998058 [W:onnxruntime:Default, onnxruntime_pybind_state.cc:856 operator()] No registered plugin EP device found for 'CUDAExecutionProvider' with device_id=0\u001b[m\n"}
+,{"stream_name":"stderr","time":115.861791702,"data":"\u001b[0;93m2026-11-08 08:06:19.234762685 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stdout","time":116.062606966,"data":"Active providers: ['CUDAExecutionProvider', 'CPUExecutionProvider']\n"}
+,{"stream_name":"stderr","time":116.081446737,"data":"\u001b[0;93m2026-11-08 08:06:19.234762685 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stderr","time":116.081490303,"data":"\n"}
+,{"stream_name":"stderr","time":116.081495773,"data":"\u001b[0;93m2026-11-08 08:06:19.234762685 [W:onnxruntime:, transformer_memcpy.cc:111 ApplyImpl] 2 Memcpy nodes are added to the graph perch_v2 for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.\u001b[m\n"}
+,{"stream_name":"stdout","time":116.969927627,"data":"8/28564 clips | 0 windows | 1s | ETA 55.3 min | model 0s\n"}
+,{"stream_name":"stdout","time":271.967467678,"data":"1608/28564 clips | 5504 windows | 156s | ETA 43.6 min | model 147s\n"}
+,{"stream_name":"stdout","time":437.500267251,"data":"3208/28564 clips | 11200 windows | 321s | ETA 42.3 min | model 304s\n"}
+,{"stream_name":"stdout","time":618.202957692,"data":"4808/28564 clips | 17472 windows | 502s | ETA 41.4 min | model 476s\n"}
+,{"stream_name":"stdout","time":794.945302741,"data":"6408/28564 clips | 23680 windows | 679s | ETA 39.1 min | model 645s\n"}
+,{"stream_name":"stdout","time":980.579671073,"data":"8008/28564 clips | 30208 windows | 865s | ETA 37.0 min | model 822s\n"}
+,{"stream_name":"stdout","time":1142.512496385,"data":"9608/28564 clips | 35840 windows | 1026s | ETA 33.8 min | model 977s\n"}
+,{"stream_name":"stdout","time":1294.95031669,"data":"11208/28564 clips | 41152 windows | 1179s | ETA 30.4 min | model 1122s\n"}
+,{"stream_name":"stdout","time":1472.832466853,"data":"12808/28564 clips | 47360 windows | 1357s | ETA 27.8 min | model 1292s\n"}
+,{"stream_name":"stdout","time":1642.35754381,"data":"14408/28564 clips | 53312 windows | 1526s | ETA 25.0 min | model 1454s\n"}
+,{"stream_name":"stdout","time":1813.595691533,"data":"16008/28564 clips | 59328 windows | 1698s | ETA 22.2 min | model 1617s\n"}
+,{"stream_name":"stdout","time":1981.215981859,"data":"17608/28564 clips | 65216 windows | 1865s | ETA 19.3 min | model 1777s\n"}
+,{"stream_name":"stdout","time":2136.187958007,"data":"19208/28564 clips | 70656 windows | 2020s | ETA 16.4 min | model 1925s\n"}
+,{"stream_name":"stdout","time":2288.322713257,"data":"20808/28564 clips | 76032 windows | 2172s | ETA 13.5 min | model 2071s\n"}
+,{"stream_name":"stdout","time":2458.879715133,"data":"22408/28564 clips | 82048 windows | 2343s | ETA 10.7 min | model 2234s\n"}
+,{"stream_name":"stdout","time":2632.193100379,"data":"24008/28564 clips | 88192 windows | 2516s | ETA 8.0 min | model 2400s\n"}
+,{"stream_name":"stdout","time":2819.331425217,"data":"25608/28564 clips | 94784 windows | 2703s | ETA 5.2 min | model 2579s\n"}
+,{"stream_name":"stdout","time":2987.332986234,"data":"27208/28564 clips | 100736 windows | 2871s | ETA 2.4 min | model 2739s\n"}
+,{"stream_name":"stdout","time":3139.910503256,"data":"failed decodes: 0 []\n"}
+,{"stream_name":"stdout","time":3140.317340012,"data":"TIMING | 106157 windows, 28564 clips | wall 3024s | model 2884s | 35 windows/s\n"}
+,{"stream_name":"stdout","time":3140.329999604,"data":"embeddings (106157, 1536)\n"}
+,{"stream_name":"stdout","time":3150.260790437,"data":"logreg ep  1 | loss 0.7125 | val AUC first-5s 0.6781 | clip-max 0.6708 | 2.4s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3151.870296326,"data":"logreg ep  2 | loss 0.6605 | val AUC first-5s 0.7902 | clip-max 0.7916 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3153.385294408,"data":"logreg ep  3 | loss 0.6210 | val AUC first-5s 0.8304 | clip-max 0.8312 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3154.903584651,"data":"logreg ep  4 | loss 0.5832 | val AUC first-5s 0.8387 | clip-max 0.8415 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3156.51956488,"data":"logreg ep  5 | loss 0.5492 | val AUC first-5s 0.8643 | clip-max 0.8589 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3158.088102208,"data":"logreg ep  6 | loss 0.5186 | val AUC first-5s 0.8720 | clip-max 0.8683 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3159.652145376,"data":"logreg ep  7 | loss 0.4901 | val AUC first-5s 0.8686 | clip-max 0.8679 | 1.6s\n"}
+,{"stream_name":"stdout","time":3161.255851866,"data":"logreg ep  8 | loss 0.4644 | val AUC first-5s 0.8672 | clip-max 0.8694 | 1.6s\n"}
+,{"stream_name":"stdout","time":3162.835861122,"data":"logreg ep  9 | loss 0.4414 | val AUC first-5s 0.8709 | clip-max 0.8699 | 1.6s\n"}
+,{"stream_name":"stdout","time":3164.376018985,"data":"logreg ep 10 | loss 0.4197 | val AUC first-5s 0.8886 | clip-max 0.8878 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3165.870364283,"data":"logreg ep 11 | loss 0.4003 | val AUC first-5s 0.8831 | clip-max 0.8835 | 1.5s\n"}
+,{"stream_name":"stdout","time":3167.382123613,"data":"logreg ep 12 | loss 0.3829 | val AUC first-5s 0.8864 | clip-max 0.8835 | 1.5s\n"}
+,{"stream_name":"stdout","time":3168.919404437,"data":"logreg ep 13 | loss 0.3675 | val AUC first-5s 0.8943 | clip-max 0.8942 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3170.468124593,"data":"logreg ep 14 | loss 0.3533 | val AUC first-5s 0.8927 | clip-max 0.8923 | 1.5s\n"}
+,{"stream_name":"stdout","time":3172.043160597,"data":"logreg ep 15 | loss 0.3411 | val AUC first-5s 0.8945 | clip-max 0.8962 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3173.61630399,"data":"logreg ep 16 | loss 0.3301 | val AUC first-5s 0.8940 | clip-max 0.8957 | 1.6s\n"}
+,{"stream_name":"stdout","time":3175.193541683,"data":"logreg ep 17 | loss 0.3204 | val AUC first-5s 0.9006 | clip-max 0.9006 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3176.766657035,"data":"logreg ep 18 | loss 0.3123 | val AUC first-5s 0.9009 | clip-max 0.9035 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3178.504093577,"data":"logreg ep 19 | loss 0.3052 | val AUC first-5s 0.9015 | clip-max 0.9053 | 1.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3180.058316584,"data":"logreg ep 20 | loss 0.2990 | val AUC first-5s 0.9044 | clip-max 0.9066 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3181.710088734,"data":"logreg ep 21 | loss 0.2940 | val AUC first-5s 0.9038 | clip-max 0.9077 | 1.7s\n"}
+,{"stream_name":"stdout","time":3183.313484583,"data":"logreg ep 22 | loss 0.2898 | val AUC first-5s 0.9038 | clip-max 0.9083 | 1.6s\n"}
+,{"stream_name":"stdout","time":3184.837808869,"data":"logreg ep 23 | loss 0.2863 | val AUC first-5s 0.9054 | clip-max 0.9095 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3186.404632694,"data":"logreg ep 24 | loss 0.2836 | val AUC first-5s 0.9062 | clip-max 0.9108 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3187.928395828,"data":"logreg ep 25 | loss 0.2815 | val AUC first-5s 0.9066 | clip-max 0.9104 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3189.478196516,"data":"logreg ep 26 | loss 0.2801 | val AUC first-5s 0.9069 | clip-max 0.9110 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3191.003142724,"data":"logreg ep 27 | loss 0.2791 | val AUC first-5s 0.9069 | clip-max 0.9112 | 1.5s\n"}
+,{"stream_name":"stdout","time":3192.551522433,"data":"logreg ep 28 | loss 0.2784 | val AUC first-5s 0.9071 | clip-max 0.9113 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3194.063798329,"data":"logreg ep 29 | loss 0.2783 | val AUC first-5s 0.9069 | clip-max 0.9111 | 1.5s\n"}
+,{"stream_name":"stdout","time":3195.570355589,"data":"logreg ep 30 | loss 0.2781 | val AUC first-5s 0.9069 | clip-max 0.9111 | 1.5s\n"}
+,{"stream_name":"stdout","time":3197.247938929,"data":"mlp    ep  1 | loss 0.4760 | val AUC first-5s 0.6336 | clip-max 0.6335 | 1.7s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3198.827325799,"data":"mlp    ep  2 | loss 0.0313 | val AUC first-5s 0.8203 | clip-max 0.8241 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3200.430839988,"data":"mlp    ep  3 | loss 0.0161 | val AUC first-5s 0.9308 | clip-max 0.9304 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3202.195364537,"data":"mlp    ep  4 | loss 0.0122 | val AUC first-5s 0.9660 | clip-max 0.9639 | 1.8s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3203.801612322,"data":"mlp    ep  5 | loss 0.0105 | val AUC first-5s 0.9796 | clip-max 0.9779 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3205.403803992,"data":"mlp    ep  6 | loss 0.0095 | val AUC first-5s 0.9854 | clip-max 0.9841 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3206.977679129,"data":"mlp    ep  7 | loss 0.0088 | val AUC first-5s 0.9882 | clip-max 0.9872 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3208.585456655,"data":"mlp    ep  8 | loss 0.0084 | val AUC first-5s 0.9896 | clip-max 0.9893 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3210.144593682,"data":"mlp    ep  9 | loss 0.0080 | val AUC first-5s 0.9904 | clip-max 0.9905 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3211.730725698,"data":"mlp    ep 10 | loss 0.0076 | val AUC first-5s 0.9910 | clip-max 0.9913 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3213.307470455,"data":"mlp    ep 11 | loss 0.0073 | val AUC first-5s 0.9912 | clip-max 0.9917 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3214.895218682,"data":"mlp    ep 12 | loss 0.0071 | val AUC first-5s 0.9914 | clip-max 0.9920 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3216.470119527,"data":"mlp    ep 13 | loss 0.0069 | val AUC first-5s 0.9914 | clip-max 0.9921 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3218.084399062,"data":"mlp    ep 14 | loss 0.0067 | val AUC first-5s 0.9915 | clip-max 0.9921 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3219.641652389,"data":"mlp    ep 15 | loss 0.0065 | val AUC first-5s 0.9915 | clip-max 0.9921 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3221.202333004,"data":"mlp    ep 16 | loss 0.0063 | val AUC first-5s 0.9916 | clip-max 0.9921 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":3222.804715348,"data":"mlp    ep 17 | loss 0.0062 | val AUC first-5s 0.9915 | clip-max 0.9921 | 1.6s\n"}
+,{"stream_name":"stdout","time":3224.354290113,"data":"mlp    ep 18 | loss 0.0061 | val AUC first-5s 0.9914 | clip-max 0.9920 | 1.5s\n"}
+,{"stream_name":"stdout","time":3225.913917514,"data":"mlp    ep 19 | loss 0.0060 | val AUC first-5s 0.9914 | clip-max 0.9919 | 1.6s\n"}
+,{"stream_name":"stdout","time":3227.464478931,"data":"mlp    ep 20 | loss 0.0059 | val AUC first-5s 0.9914 | clip-max 0.9919 | 1.5s\n"}
+,{"stream_name":"stdout","time":3229.028572234,"data":"mlp    ep 21 | loss 0.0058 | val AUC first-5s 0.9914 | clip-max 0.9918 | 1.6s\n"}
+,{"stream_name":"stdout","time":3230.582639274,"data":"mlp    ep 22 | loss 0.0057 | val AUC first-5s 0.9914 | clip-max 0.9918 | 1.6s\n"}
+,{"stream_name":"stdout","time":3232.183435134,"data":"mlp    ep 23 | loss 0.0057 | val AUC first-5s 0.9913 | clip-max 0.9918 | 1.6s\n"}
+,{"stream_name":"stdout","time":3233.723871478,"data":"mlp    ep 24 | loss 0.0056 | val AUC first-5s 0.9914 | clip-max 0.9918 | 1.5s\n"}
+,{"stream_name":"stdout","time":3235.318243473,"data":"mlp    ep 25 | loss 0.0056 | val AUC first-5s 0.9913 | clip-max 0.9918 | 1.6s\n"}
+,{"stream_name":"stdout","time":3236.917943928,"data":"mlp    ep 26 | loss 0.0056 | val AUC first-5s 0.9913 | clip-max 0.9918 | 1.6s\n"}
+,{"stream_name":"stdout","time":3238.525769688,"data":"mlp    ep 27 | loss 0.0056 | val AUC first-5s 0.9913 | clip-max 0.9918 | 1.6s\n"}
+,{"stream_name":"stdout","time":3240.093611402,"data":"mlp    ep 28 | loss 0.0055 | val AUC first-5s 0.9913 | clip-max 0.9918 | 1.6s\n"}
+,{"stream_name":"stdout","time":3241.741596221,"data":"mlp    ep 29 | loss 0.0055 | val AUC first-5s 0.9913 | clip-max 0.9918 | 1.6s\n"}
+,{"stream_name":"stdout","time":3243.365023021,"data":"mlp    ep 30 | loss 0.0055 | val AUC first-5s 0.9913 | clip-max 0.9918 | 1.6s\n"}
+,{"stream_name":"stdout","time":3243.367751041,"data":"\n"}
+,{"stream_name":"stdout","time":3243.36779399,"data":"Head   | val AUC first-5s (M1 protocol) | val AUC clip-max | best epoch | classes\n"}
+,{"stream_name":"stdout","time":3243.367803064,"data":"logreg | 0.9071 | 0.9113 | 28 | 191\n"}
+,{"stream_name":"stdout","time":3243.367810324,"data":"mlp    | 0.9916 | 0.9921 | 16 | 191\n"}
+,{"stream_name":"stdout","time":3243.533295145,"data":"best: mlp val AUC 0.9916 | saved perch_head.npz, species.json, head_cfg.json\n"}
+,{"stream_name":"stderr","time":3249.657029193,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3249.657099562,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3249.843523753,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3249.84356896,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3250.712787962,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":3250.806620576,"data":"[NbConvertApp] Writing 42010 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":3253.467721288,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3254.091809183,"data":"[NbConvertApp] Writing 402637 bytes to __results__.html\n"}
+]

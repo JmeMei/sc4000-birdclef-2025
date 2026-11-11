@@ -1,0 +1,52 @@
+[{"stream_name":"stderr","time":9.289607036,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.289651366,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.289656278,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.289660995,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.056469769,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.056504187,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.056510247,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.056514901,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":53.331007176,"data":"Data: /kaggle/input/competitions/birdclef-2025 | model: /kaggle/input/notebooks/jmemei/sc4000-birdclef-m1-train-v2 | CPUs: 4\n"}
+,{"stream_name":"stdout","time":53.331048386,"data":"                  row_id   1139490   1192948   1194042\n"}
+,{"stream_name":"stdout","time":53.331055826,"data":"0   soundscape_8358733_5  0.004854  0.004854  0.004854\n"}
+,{"stream_name":"stdout","time":53.331061836,"data":"1  soundscape_8358733_10  0.004854  0.004854  0.004854\n"}
+,{"stream_name":"stdout","time":53.331067239,"data":"2  soundscape_8358733_15  0.004854  0.004854  0.004854\n"}
+,{"stream_name":"stdout","time":53.453013269,"data":"Profiling 700 soundscapes with 4 worker(s)\n"}
+,{"stream_name":"stdout","time":387.367679844,"data":"Windows: (8400, 128, 313) in 333.9s\n"}
+,{"stream_name":"stdout","time":676.42581587,"data":"Predictions: (8400, 206) in 288.2s\n"}
+,{"stream_name":"stdout","time":676.440263452,"data":"{\n"}
+,{"stream_name":"stdout","time":676.440294756,"data":"  \"n_files_requested\": 700,\n"}
+,{"stream_name":"stdout","time":676.440302284,"data":"  \"n_files_used\": 700,\n"}
+,{"stream_name":"stdout","time":676.440309089,"data":"  \"n_windows\": 8400,\n"}
+,{"stream_name":"stdout","time":676.440315161,"data":"  \"num_workers\": 4,\n"}
+,{"stream_name":"stdout","time":676.440332489,"data":"  \"torch_threads\": 4,\n"}
+,{"stream_name":"stdout","time":676.440339344,"data":"  \"cpu_count\": 4,\n"}
+,{"stream_name":"stdout","time":676.440346154,"data":"  \"batch_size\": 64,\n"}
+,{"stream_name":"stdout","time":676.440351992,"data":"  \"stages_s\": {\n"}
+,{"stream_name":"stdout","time":676.440357613,"data":"    \"setup\": 42.0353,\n"}
+,{"stream_name":"stdout","time":676.440363303,"data":"    \"model_load\": 0.7895,\n"}
+,{"stream_name":"stdout","time":676.440369219,"data":"    \"decode\": 224.0959,\n"}
+,{"stream_name":"stdout","time":676.440374662,"data":"    \"mel\": 1078.2769,\n"}
+,{"stream_name":"stdout","time":676.44038032,"data":"    \"preprocess_elapsed\": 333.8907,\n"}
+,{"stream_name":"stdout","time":676.440385936,"data":"    \"model_forward\": 288.2338,\n"}
+,{"stream_name":"stdout","time":676.440391557,"data":"    \"total_pipeline\": 622.1761,\n"}
+,{"stream_name":"stdout","time":676.440396467,"data":"    \"total_notebook\": 665.0213\n"}
+,{"stream_name":"stdout","time":676.440401925,"data":"  },\n"}
+,{"stream_name":"stdout","time":676.440407456,"data":"  \"per_file_mean_s\": {\n"}
+,{"stream_name":"stdout","time":676.440413126,"data":"    \"decode\": 0.320137,\n"}
+,{"stream_name":"stdout","time":676.440418572,"data":"    \"mel\": 1.540396,\n"}
+,{"stream_name":"stdout","time":676.440438504,"data":"    \"preprocess_elapsed\": 0.476987,\n"}
+,{"stream_name":"stdout","time":676.440443884,"data":"    \"model_forward\": 0.411763,\n"}
+,{"stream_name":"stdout","time":676.44044856,"data":"    \"total_pipeline\": 0.888823\n"}
+,{"stream_name":"stdout","time":676.440453182,"data":"  }\n"}
+,{"stream_name":"stdout","time":676.440457563,"data":"}\n"}
+,{"stream_name":"stdout","time":679.240768019,"data":"(8400, 207)\n"}
+,{"stream_name":"stderr","time":684.506153093,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":684.506191548,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":684.711546514,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":684.711572826,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":685.714758222,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":685.813163682,"data":"[NbConvertApp] Writing 17748 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":689.017529073,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":689.692045717,"data":"[NbConvertApp] Writing 311213 bytes to __results__.html\n"}
+]

@@ -1,0 +1,88 @@
+[{"stream_name":"stderr","time":8.087843026,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.087884224,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.087890258,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.087894411,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.708983237,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.709007821,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.709012382000001,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.709016084,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.239673767,"data":"torch.cuda.is_available(): True\n"}
+,{"stream_name":"stdout","time":17.239715397,"data":"torch.cuda.get_device_name(0): Tesla T4\n"}
+,{"stream_name":"stdout","time":24.267350996,"data":"Wheels: ['huggingface_hub-0.21.4-py3-none-any.whl', 'tokenizers-0.15.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl', 'tokenizers-0.15.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl', 'tokenizers-0.15.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl', 'tokenizers-0.15.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl', 'transformers-4.38.0-py3-none-any.whl']\n"}
+,{"stream_name":"stdout","time":39.055152968,"data":"transformers 4.38.0 from /tmp/bmae_pydeps/transformers/__init__.py\n"}
+,{"stream_name":"stdout","time":39.055186143,"data":"torch 2.11.0+cu130 | torchaudio 2.11.0+cu130\n"}
+,{"stream_name":"stdout","time":72.162060296,"data":"Data: /kaggle/input/birdclef-2025 | M1 index: /kaggle/input/sc4000-birdclef-m1-make-mels | device: cuda\n"}
+,{"stream_name":"stdout","time":72.890389122,"data":"28564 clips, 206 species | train 22851 | val 5713\n"}
+,{"stream_name":"stdout","time":85.804961121,"data":"model files ready in 3s\n"}
+,{"stream_name":"stderr","time":100.003704507,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":100.003745128,"data":"I0000 00:00:1794126744.225021      23 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":100.218981089,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":100.219005265,"data":"I0000 00:00:1794126744.225021      23 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stderr","time":100.219011587,"data":"\n"}
+,{"stream_name":"stderr","time":100.219021338,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":100.219025303,"data":"I0000 00:00:1794126744.225021      23 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":107.353417583,"data":"probe OK: torch.Size([6, 1, 512, 128]) -\u003e torch.Size([6, 768])\n"}
+,{"stream_name":"stdout","time":109.54156368700001,"data":"16/28564 clips | 73 windows | 2s | ETA 65.1 min | model 0s\n"}
+,{"stream_name":"stdout","time":145.564457127,"data":"1616/28564 clips | 5540 windows | 38s | ETA 10.6 min | model 16s\n"}
+,{"stream_name":"stdout","time":182.416281115,"data":"3216/28564 clips | 11281 windows | 75s | ETA 9.9 min | model 34s\n"}
+,{"stream_name":"stdout","time":224.624671449,"data":"4816/28564 clips | 17557 windows | 117s | ETA 9.6 min | model 54s\n"}
+,{"stream_name":"stdout","time":264.244072903,"data":"6416/28564 clips | 23755 windows | 157s | ETA 9.0 min | model 76s\n"}
+,{"stream_name":"stdout","time":306.705774277,"data":"8016/28564 clips | 30281 windows | 199s | ETA 8.5 min | model 98s\n"}
+,{"stream_name":"stdout","time":343.447765103,"data":"9616/28564 clips | 35901 windows | 236s | ETA 7.8 min | model 118s\n"}
+,{"stream_name":"stdout","time":376.806252756,"data":"11216/28564 clips | 41224 windows | 269s | ETA 6.9 min | model 137s\n"}
+,{"stream_name":"stdout","time":417.886031324,"data":"12816/28564 clips | 47438 windows | 311s | ETA 6.4 min | model 158s\n"}
+,{"stream_name":"stdout","time":457.685756435,"data":"14416/28564 clips | 53375 windows | 350s | ETA 5.7 min | model 179s\n"}
+,{"stream_name":"stdout","time":495.895709235,"data":"16016/28564 clips | 59354 windows | 389s | ETA 5.1 min | model 200s\n"}
+,{"stream_name":"stdout","time":534.98168757,"data":"17616/28564 clips | 65291 windows | 428s | ETA 4.4 min | model 221s\n"}
+,{"stream_name":"stdout","time":569.827877701,"data":"19216/28564 clips | 70716 windows | 462s | ETA 3.7 min | model 240s\n"}
+,{"stream_name":"stdout","time":605.089981455,"data":"20816/28564 clips | 76102 windows | 498s | ETA 3.1 min | model 259s\n"}
+,{"stream_name":"stdout","time":644.143481962,"data":"22416/28564 clips | 82145 windows | 537s | ETA 2.5 min | model 280s\n"}
+,{"stream_name":"stdout","time":682.486882469,"data":"24016/28564 clips | 88237 windows | 575s | ETA 1.8 min | model 301s\n"}
+,{"stream_name":"stdout","time":725.990452096,"data":"25616/28564 clips | 94876 windows | 619s | ETA 1.2 min | model 324s\n"}
+,{"stream_name":"stdout","time":763.559697954,"data":"27216/28564 clips | 100765 windows | 656s | ETA 0.5 min | model 344s\n"}
+,{"stream_name":"stdout","time":798.800282531,"data":"failed decodes: 0 []\n"}
+,{"stream_name":"stdout","time":798.947365017,"data":"TIMING | 106157 windows, 28564 clips | wall 691s | model 363s | 154 windows/s\n"}
+,{"stream_name":"stdout","time":798.947405608,"data":"embeddings (106157, 768)\n"}
+,{"stream_name":"stdout","time":807.975154103,"data":"linear ep  1 | loss 0.6929 | val AUC first-5s 0.5184 | clip-max 0.5212 | 2.0s  \u003c- best\n"}
+,{"stream_name":"stdout","time":809.526907605,"data":"linear ep  2 | loss 0.6412 | val AUC first-5s 0.5907 | clip-max 0.5706 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":811.060736109,"data":"linear ep  3 | loss 0.6074 | val AUC first-5s 0.6395 | clip-max 0.6157 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":812.603959149,"data":"linear ep  4 | loss 0.5723 | val AUC first-5s 0.6470 | clip-max 0.6261 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":814.132290164,"data":"linear ep  5 | loss 0.5395 | val AUC first-5s 0.6699 | clip-max 0.6476 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":815.679388556,"data":"linear ep  6 | loss 0.5099 | val AUC first-5s 0.6815 | clip-max 0.6509 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":817.242136173,"data":"linear ep  7 | loss 0.4825 | val AUC first-5s 0.6847 | clip-max 0.6583 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":818.784579156,"data":"linear ep  8 | loss 0.4573 | val AUC first-5s 0.6806 | clip-max 0.6479 | 1.5s\n"}
+,{"stream_name":"stdout","time":820.327215265,"data":"linear ep  9 | loss 0.4350 | val AUC first-5s 0.7083 | clip-max 0.6703 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":821.908369674,"data":"linear ep 10 | loss 0.4139 | val AUC first-5s 0.6932 | clip-max 0.6661 | 1.6s\n"}
+,{"stream_name":"stdout","time":823.457422569,"data":"linear ep 11 | loss 0.3948 | val AUC first-5s 0.7139 | clip-max 0.6796 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":825.005552612,"data":"linear ep 12 | loss 0.3780 | val AUC first-5s 0.7097 | clip-max 0.6767 | 1.5s\n"}
+,{"stream_name":"stdout","time":826.565093392,"data":"linear ep 13 | loss 0.3630 | val AUC first-5s 0.7227 | clip-max 0.6929 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":828.10935081,"data":"linear ep 14 | loss 0.3495 | val AUC first-5s 0.7331 | clip-max 0.6925 | 1.5s  \u003c- best\n"}
+,{"stream_name":"stdout","time":829.691030197,"data":"linear ep 15 | loss 0.3373 | val AUC first-5s 0.7270 | clip-max 0.6955 | 1.6s\n"}
+,{"stream_name":"stdout","time":831.314505376,"data":"linear ep 16 | loss 0.3268 | val AUC first-5s 0.7224 | clip-max 0.6878 | 1.6s\n"}
+,{"stream_name":"stdout","time":832.855694098,"data":"linear ep 17 | loss 0.3175 | val AUC first-5s 0.7318 | clip-max 0.6961 | 1.5s\n"}
+,{"stream_name":"stdout","time":834.413833443,"data":"linear ep 18 | loss 0.3095 | val AUC first-5s 0.7363 | clip-max 0.7035 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":836.041726528,"data":"linear ep 19 | loss 0.3028 | val AUC first-5s 0.7454 | clip-max 0.7091 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":837.587917904,"data":"linear ep 20 | loss 0.2968 | val AUC first-5s 0.7428 | clip-max 0.7074 | 1.5s\n"}
+,{"stream_name":"stdout","time":839.119031471,"data":"linear ep 21 | loss 0.2920 | val AUC first-5s 0.7414 | clip-max 0.7098 | 1.5s\n"}
+,{"stream_name":"stdout","time":840.679596748,"data":"linear ep 22 | loss 0.2880 | val AUC first-5s 0.7494 | clip-max 0.7158 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":842.290135366,"data":"linear ep 23 | loss 0.2846 | val AUC first-5s 0.7484 | clip-max 0.7132 | 1.6s\n"}
+,{"stream_name":"stdout","time":843.768490698,"data":"linear ep 24 | loss 0.2820 | val AUC first-5s 0.7472 | clip-max 0.7144 | 1.5s\n"}
+,{"stream_name":"stdout","time":845.307549597,"data":"linear ep 25 | loss 0.2800 | val AUC first-5s 0.7488 | clip-max 0.7148 | 1.5s\n"}
+,{"stream_name":"stdout","time":846.864851101,"data":"linear ep 26 | loss 0.2788 | val AUC first-5s 0.7473 | clip-max 0.7153 | 1.6s\n"}
+,{"stream_name":"stdout","time":848.409002117,"data":"linear ep 27 | loss 0.2779 | val AUC first-5s 0.7482 | clip-max 0.7159 | 1.5s\n"}
+,{"stream_name":"stdout","time":849.964876856,"data":"linear ep 28 | loss 0.2773 | val AUC first-5s 0.7495 | clip-max 0.7163 | 1.6s  \u003c- best\n"}
+,{"stream_name":"stdout","time":851.552894159,"data":"linear ep 29 | loss 0.2771 | val AUC first-5s 0.7487 | clip-max 0.7161 | 1.6s\n"}
+,{"stream_name":"stdout","time":853.068231441,"data":"linear ep 30 | loss 0.2770 | val AUC first-5s 0.7488 | clip-max 0.7161 | 1.5s\n"}
+,{"stream_name":"stdout","time":853.070185789,"data":"\n"}
+,{"stream_name":"stdout","time":853.070216509,"data":"Head   | val AUC first-5s (M1 protocol) | val AUC clip-max | best epoch | classes\n"}
+,{"stream_name":"stdout","time":853.070222782,"data":"linear | 0.7495 | 0.7163 | 28 | 191\n"}
+,{"stream_name":"stdout","time":853.157324848,"data":"best: linear val AUC 0.7495 | saved birdmae_head.npz, species.json, head_cfg.json\n"}
+,{"stream_name":"stderr","time":858.427518807,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":858.427567841,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":858.601748773,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":858.601805248,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":859.446822925,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":859.531768246,"data":"[NbConvertApp] Writing 38605 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":862.104353412,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":862.704165856,"data":"[NbConvertApp] Writing 400443 bytes to __results__.html\n"}
+]
