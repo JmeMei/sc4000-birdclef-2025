@@ -19,10 +19,9 @@ the time limit.
 
 | Member | Role | Where to look |
 |--------|------|---------------|
-| Member 1 | EDA, baseline (EfficientNet-B0), baseline ablations → baseline v2 | Experiment log; [Member 1: baseline ablations](#member-1-baseline-ablations); `notebooks/member1_*`, `report/` |
-| Member 2 | SED model (frame + attention heads, chunk length, overlap, spectrogram settings) | Experiment log; `notebooks/member2_*`, `report/sections/` |
-| Member 3 | Pretrained models (A1–A3), CPU inference speed, adaptation, distillation, noisy student | [Members 3 & 4](#members-3--4-pretrained-models-adaptation-and-the-final-ensemble); `report/member3-4_pretrained_ensemble/` |
-| Member 4 | Pseudo-labelling, final ensemble (E1–E4) and final submission | [Members 3 & 4](#members-3--4-pretrained-models-adaptation-and-the-final-ensemble); `report/member3-4_pretrained_ensemble/results/ensemble_handoff.md` |
+| Jamie | EDA, baseline (EfficientNet-B0), baseline ablations → baseline v2 | Experiment log; [Jamie: baseline ablations](#jamie-baseline-ablations); `notebooks/jamie_*`, `report/` |
+| Sudhishna | SED model (frame + attention heads, chunk length, overlap, spectrogram settings) | Experiment log; `notebooks/sudhishna_*`, `report/sections/` |
+| Arshiya | Members 3 and 4 roles: pretrained models (A1–A3), CPU inference speed, adaptation, distillation, noisy student / pseudo-labelling, final ensemble (E1–E4) and final submission | [Arshiya: pretrained models, adaptation and the final ensemble](#arshiya-pretrained-models-adaptation-and-the-final-ensemble); `notebooks/arshiya_*`, `report/arshiya_pretrained_ensemble/` |
 
 **Final submission:** E4 (noisy-student CNN 0.4 + Perch head A2d 0.6, temporally smoothed), public 0.88749 / private 0.88029, against 0.763 / 0.789 for baseline v2. How to run it: [Shortest path to the final submission](#shortest-path-to-the-final-submission-e4).
 
@@ -32,15 +31,16 @@ the time limit.
 configs/       experiment configs (yaml)
 data/          competition data (gitignored — download with scripts/download_data.sh)
 datasets/      metadata and small files for the private Kaggle datasets (large files are on Kaggle)
-m1/            copies of the baseline v2 notebooks used as the starting point by Members 3 & 4
+m1/            copies of the baseline v2 notebooks used as the starting point by Arshiya
 models/        trained weights (gitignored)
 notebooks/     one folder per Kaggle notebook (notebook + kernel-metadata.json)
 notes/         research notes (papers, model formats, licences, CLI, citations)
 report/        everything for the written report and the video
-  AAAI_*.docx, figures/, sections/, slides/      Members 1 & 2: report drafts, figures and slides
-  member3-4_pretrained_ensemble/                 Members 3 & 4: paper, presentations, documentation, run logs
+  jamie_AAAI_*.docx                              Jamie: report drafts
+  figures/, sections/, slides/                   Jamie & Sudhishna: figures (jamie_*, sudhishna_*), report sections and slides
+  arshiya_pretrained_ensemble/                   Arshiya: paper, presentations, documentation, run logs
     results/                                     results_table, timing_table, ensemble_handoff, pretrained_models_section
-scripts/       helper scripts (kaggle_run.sh, m1_experiments.py, m2_experiments.py)
+scripts/       helper scripts (kaggle_run.sh, jamie_experiments.py, sudhishna_experiments.py)
 src/           reusable code (dataset, features, models, training)
 submissions/   generated submission CSVs (gitignored)
 ```
@@ -61,13 +61,13 @@ Each notebook lives in its own folder under `notebooks/` with a `kernel-metadata
 
 ```bash
 source .venv/bin/activate
-bash scripts/kaggle_run.sh notebooks/eda
+bash scripts/kaggle_run.sh notebooks/jamie_eda
 ```
 
 This pushes the notebook as a **private** Kaggle kernel, waits for it to finish, and
-downloads the outputs (figures, CSVs, models) to `outputs/eda/` (gitignored).
+downloads the outputs (figures, CSVs, models) to `outputs/jamie_eda/` (gitignored).
 
-To make a new notebook: copy `notebooks/eda/kernel-metadata.json` into a new folder, then change
+To make a new notebook: copy `notebooks/jamie_eda/kernel-metadata.json` into a new folder, then change
 `id`, `title` and `code_file`. Set `"enable_gpu": true` for training. Kaggle gives about 30 GPU hours a week.
 The script refuses to push if `"is_private"` is not `true`.
 
@@ -79,29 +79,29 @@ Record every leaderboard submission here — the report needs baselines and abla
 
 | Date | Who | Experiment | Local CV AUC | Public LB | Notes |
 |------|-----|------------|--------------|-----------|-------|
-| 2026-11-01 | Member 1 | Baseline: EfficientNet-B0 (ImageNet), first 5 s log-mel, primary label only, BCE, no augmentation, 15 epochs (best = epoch 7) | 0.9732 | 0.71681 (private 0.69908) | Rank ~1600/2032 (top 79%). Overfits after epoch 7; large gap between local CV and LB because training clips differ from soundscapes |
-| 2026-11-07 | Member 1 | Ablation `crop`: baseline + random 5 s crops from whole clip (m1-train-crop v1, m1-infer-crop v1) | 0.9818 (epoch 15) | 0.75169 (private 0.75384) | Δ vs baseline LB: +0.0349. No overfitting; still improving at epoch 15 |
-| 2026-11-07 | Member 1 | Ablation `noise`: baseline + soundscape noise (p 0.5, −20 to −3 dB) + mixup (p 0.5) (m1-train-noise v1, m1-infer-noise v1) | 0.9748 (epoch 14) | 0.73232 (private 0.73318) | Δ vs baseline LB: +0.0155. Small local gain, larger LB gain (domain shift) |
-| 2026-11-07 | Member 1 | Ablation `seclabel`: baseline + secondary labels as soft targets 0.5 (m1-train-seclabel v1, m1-infer-seclabel v1) | 0.9692 (epoch 6) | 0.72916 (private 0.73318) | Δ vs baseline LB: +0.0124. No local gain (val scores primary label only), but helps on LB; still overfits after epoch 6 |
-| 2026-11-07 | Member 1 | Ablation `focal`: baseline + focal loss γ = 2 instead of BCE (m1-train-focal v1, m1-infer-focal v1) | 0.9733 (epoch 5) | 0.70528 (private 0.70984) | Δ vs baseline LB: −0.0115 (private +0.0108), i.e. no clear effect. Learns faster but peaks at epoch 5 and overfits |
-| 2026-11-07 | Member 1 | **Baseline v2**: crop + noise/mixup + secondary labels, BCE (m1-train-v2 v1, m1-infer-v2 v1) | 0.9766 (epoch 14) | **0.76299 (private 0.78864)** | Δ vs baseline LB: +0.0462 (private +0.0896). Best private score; 0.014 below top-70% cut-off |
-| 2026-11-07 | Member 1 | Remove-one `v2-nocrop`: v2 without random crop (m1-train-v2-nocrop v1) | 0.9735 (epoch 12) | 0.75280 (private 0.77176) | Δ vs v2: −0.0102 (private −0.0169) |
-| 2026-11-07 | Member 1 | Remove-one `v2-nonoise`: v2 without noise + mixup (m1-train-v2-nonoise v1) | 0.9809 (epoch 10) | 0.76740 (private 0.76030) | Δ vs v2: +0.0044 (private −0.0283). Public and private disagree; noise helps on private |
-| 2026-11-07 | Member 1 | Remove-one `v2-nosec`: v2 without secondary labels (m1-train-v2-nosec v1) | 0.9791 (epoch 15) | 0.73731 (private 0.77243) | Δ vs v2: −0.0257 (private −0.0162). Largest drop |
-| 2026-11-07 | Member 1 | Add-one `v2-focal`: v2 with focal loss γ = 2 instead of BCE (m1-train-v2-focal v1) | 0.9782 (epoch 15) | 0.74281 (private 0.78241) | Δ vs v2: −0.0202 (private −0.0062). Focal still does not help |
-| 2026-11-08 | Member 2 | SED `sed20`: EfficientNet-B0 + GeM + frame and attention heads, 20 s chunks on Member 1's 128-band mels, v2 recipe, 0.5 attention + 0.5 peak BCE, no overlap at inference (m2-train-sed20 v1, m2-infer-sed20 v1) | 0.9699 first 5 s; 0.9860 peak over 20 s (epoch 7) | 0.72631 (private 0.74369) | Δ vs v2: −0.0367 (private −0.0450). Below v2. Weights saved at epoch 7, when the learning rate was still about 0.64 × peak |
-| 2026-11-08 | Member 2 | SED `sed20-overlap`: same weights as `sed20`, chunks every 5 s instead of every 20 s, predictions averaged (m2-infer-sed20-overlap v1) | same as `sed20` | 0.73212 (private 0.75164) | Δ vs `sed20`: +0.0058 (private +0.0080). Both up but under 0.01, so treated as a tie. Δ vs v2: −0.0309 (private −0.0370) |
-| 2026-11-08 | Member 2 | SED `sed20-last`: same training as `sed20` (history matches to 4 decimals), but saves the final epoch instead of the highest peak score (m2-train-sed20-last v1, m2-infer-sed20-last v1) | 0.9736 first 5 s; 0.9850 peak over 20 s (epoch 15) | 0.73954 (private 0.74880) | Δ vs `sed20`: +0.0132 (private +0.0051). Δ vs v2: −0.0235 (private −0.0398) |
-| 2026-11-08 | Member 2 | SED `sed20-last-overlap`: `sed20-last` weights with chunks every 5 s (m2-infer-sed20-last-overlap v1) | same as `sed20-last` | 0.74830 (private 0.76338) | Δ vs `sed20-last`: +0.0088 (private +0.0146). Δ vs `sed20`: +0.0220 (private +0.0197). Δ vs v2: −0.0147 (private −0.0253) |
-| 2026-11-08 | Member 2 | SED `sed20-hires`: `sed20-last` on spectrograms with the 1st-place write-up's settings (224 bands, n_fft 4096, hop 1252, 0–16 kHz; m2-make-mels-224 v1, m2-train-sed20-hires v1, m2-infer-sed20-hires v1) | 0.9723 first 5 s; 0.9835 peak over 20 s (epoch 15) | 0.72769 (private 0.75484) | Δ vs `sed20-last`: −0.0119 (private +0.0060). Public and private disagree; no gain |
-| 2026-11-08 | Member 2 | SED `sed20-hires-overlap`: `sed20-hires` weights with chunks every 5 s (m2-infer-sed20-hires-overlap v1) | same as `sed20-hires` | 0.73957 (private 0.76079) | Δ vs `sed20-last-overlap`: −0.0087 (private −0.0026). No gain from the write-up's spectrogram settings |
-| 2026-11-08 | Member 2 | SED `sed5`: `sed20-last` on 5 s chunks (10 time steps of 0.5 s), one chunk per 5 s window, so no overlap (m2-train-sed5 v1, m2-infer-sed5 v1) | 0.9798 (epoch 15; first 5 s and peak are the same for 5 s chunks) | **0.77298 (private 0.78740)** | Δ vs v2: +0.0100 (private −0.0012), i.e. level with v2; best public score so far. Δ vs `sed20-last` (also no overlap): +0.0334 (private +0.0386), so the 20 s chunk, not the SED head, held SED back. CPU estimate 16 min |
+| 2026-11-01 | Jamie | Baseline: EfficientNet-B0 (ImageNet), first 5 s log-mel, primary label only, BCE, no augmentation, 15 epochs (best = epoch 7) | 0.9732 | 0.71681 (private 0.69908) | Rank ~1600/2032 (top 79%). Overfits after epoch 7; large gap between local CV and LB because training clips differ from soundscapes |
+| 2026-11-07 | Jamie | Ablation `crop`: baseline + random 5 s crops from whole clip (m1-train-crop v1, m1-infer-crop v1) | 0.9818 (epoch 15) | 0.75169 (private 0.75384) | Δ vs baseline LB: +0.0349. No overfitting; still improving at epoch 15 |
+| 2026-11-07 | Jamie | Ablation `noise`: baseline + soundscape noise (p 0.5, −20 to −3 dB) + mixup (p 0.5) (m1-train-noise v1, m1-infer-noise v1) | 0.9748 (epoch 14) | 0.73232 (private 0.73318) | Δ vs baseline LB: +0.0155. Small local gain, larger LB gain (domain shift) |
+| 2026-11-07 | Jamie | Ablation `seclabel`: baseline + secondary labels as soft targets 0.5 (m1-train-seclabel v1, m1-infer-seclabel v1) | 0.9692 (epoch 6) | 0.72916 (private 0.73318) | Δ vs baseline LB: +0.0124. No local gain (val scores primary label only), but helps on LB; still overfits after epoch 6 |
+| 2026-11-07 | Jamie | Ablation `focal`: baseline + focal loss γ = 2 instead of BCE (m1-train-focal v1, m1-infer-focal v1) | 0.9733 (epoch 5) | 0.70528 (private 0.70984) | Δ vs baseline LB: −0.0115 (private +0.0108), i.e. no clear effect. Learns faster but peaks at epoch 5 and overfits |
+| 2026-11-07 | Jamie | **Baseline v2**: crop + noise/mixup + secondary labels, BCE (m1-train-v2 v1, m1-infer-v2 v1) | 0.9766 (epoch 14) | **0.76299 (private 0.78864)** | Δ vs baseline LB: +0.0462 (private +0.0896). Best private score; 0.014 below top-70% cut-off |
+| 2026-11-07 | Jamie | Remove-one `v2-nocrop`: v2 without random crop (m1-train-v2-nocrop v1) | 0.9735 (epoch 12) | 0.75280 (private 0.77176) | Δ vs v2: −0.0102 (private −0.0169) |
+| 2026-11-07 | Jamie | Remove-one `v2-nonoise`: v2 without noise + mixup (m1-train-v2-nonoise v1) | 0.9809 (epoch 10) | 0.76740 (private 0.76030) | Δ vs v2: +0.0044 (private −0.0283). Public and private disagree; noise helps on private |
+| 2026-11-07 | Jamie | Remove-one `v2-nosec`: v2 without secondary labels (m1-train-v2-nosec v1) | 0.9791 (epoch 15) | 0.73731 (private 0.77243) | Δ vs v2: −0.0257 (private −0.0162). Largest drop |
+| 2026-11-07 | Jamie | Add-one `v2-focal`: v2 with focal loss γ = 2 instead of BCE (m1-train-v2-focal v1) | 0.9782 (epoch 15) | 0.74281 (private 0.78241) | Δ vs v2: −0.0202 (private −0.0062). Focal still does not help |
+| 2026-11-08 | Sudhishna | SED `sed20`: EfficientNet-B0 + GeM + frame and attention heads, 20 s chunks on Jamie's 128-band mels, v2 recipe, 0.5 attention + 0.5 peak BCE, no overlap at inference (m2-train-sed20 v1, m2-infer-sed20 v1) | 0.9699 first 5 s; 0.9860 peak over 20 s (epoch 7) | 0.72631 (private 0.74369) | Δ vs v2: −0.0367 (private −0.0450). Below v2. Weights saved at epoch 7, when the learning rate was still about 0.64 × peak |
+| 2026-11-08 | Sudhishna | SED `sed20-overlap`: same weights as `sed20`, chunks every 5 s instead of every 20 s, predictions averaged (m2-infer-sed20-overlap v1) | same as `sed20` | 0.73212 (private 0.75164) | Δ vs `sed20`: +0.0058 (private +0.0080). Both up but under 0.01, so treated as a tie. Δ vs v2: −0.0309 (private −0.0370) |
+| 2026-11-08 | Sudhishna | SED `sed20-last`: same training as `sed20` (history matches to 4 decimals), but saves the final epoch instead of the highest peak score (m2-train-sed20-last v1, m2-infer-sed20-last v1) | 0.9736 first 5 s; 0.9850 peak over 20 s (epoch 15) | 0.73954 (private 0.74880) | Δ vs `sed20`: +0.0132 (private +0.0051). Δ vs v2: −0.0235 (private −0.0398) |
+| 2026-11-08 | Sudhishna | SED `sed20-last-overlap`: `sed20-last` weights with chunks every 5 s (m2-infer-sed20-last-overlap v1) | same as `sed20-last` | 0.74830 (private 0.76338) | Δ vs `sed20-last`: +0.0088 (private +0.0146). Δ vs `sed20`: +0.0220 (private +0.0197). Δ vs v2: −0.0147 (private −0.0253) |
+| 2026-11-08 | Sudhishna | SED `sed20-hires`: `sed20-last` on spectrograms with the 1st-place write-up's settings (224 bands, n_fft 4096, hop 1252, 0–16 kHz; m2-make-mels-224 v1, m2-train-sed20-hires v1, m2-infer-sed20-hires v1) | 0.9723 first 5 s; 0.9835 peak over 20 s (epoch 15) | 0.72769 (private 0.75484) | Δ vs `sed20-last`: −0.0119 (private +0.0060). Public and private disagree; no gain |
+| 2026-11-08 | Sudhishna | SED `sed20-hires-overlap`: `sed20-hires` weights with chunks every 5 s (m2-infer-sed20-hires-overlap v1) | same as `sed20-hires` | 0.73957 (private 0.76079) | Δ vs `sed20-last-overlap`: −0.0087 (private −0.0026). No gain from the write-up's spectrogram settings |
+| 2026-11-08 | Sudhishna | SED `sed5`: `sed20-last` on 5 s chunks (10 time steps of 0.5 s), one chunk per 5 s window, so no overlap (m2-train-sed5 v1, m2-infer-sed5 v1) | 0.9798 (epoch 15; first 5 s and peak are the same for 5 s chunks) | **0.77298 (private 0.78740)** | Δ vs v2: +0.0100 (private −0.0012), i.e. level with v2; best public score so far. Δ vs `sed20-last` (also no overlap): +0.0334 (private +0.0386), so the 20 s chunk, not the SED head, held SED back. CPU estimate 16 min |
 
 Leaderboard band cut-offs (public): top 10% ≥ 0.8808, top 30% ≥ 0.8731, top 50% ≥ 0.8102, top 70% ≥ 0.7764. Best: 0.9338.
 
-Members 3 & 4 logged their 19 submissions separately: see [Results summary](#results-summary) below and `report/member3-4_pretrained_ensemble/DOCUMENTATION.md`, section 16.
+Arshiya's 19 submissions are logged separately: see [Results summary](#results-summary) below and `report/arshiya_pretrained_ensemble/DOCUMENTATION.md`, section 16.
 
-## Member 1: baseline ablations
+## Jamie: baseline ablations
 
 Each experiment is the baseline with **one** switch turned on, so a change in score comes from
 that switch alone. Everything else is identical: EfficientNet-B0, AdamW 1e-3 + one-cycle,
@@ -110,8 +110,8 @@ on the first 5 s of each hold-out clip with the primary label only, so the numbe
 
 **Shared input:** `jmemei/sc4000-birdclef-m1-make-mels`, whole-clip log-mels (≤ 30 s,
 stored as uint8 over 120 dB) plus 1,000 unlabelled soundscapes for noise.
-Code: `notebooks/member1_train/train.ipynb` (master), copied into the per-experiment folders by
-`python3 scripts/m1_experiments.py`.
+Code: `notebooks/jamie_train/train.ipynb` (master), copied into the per-experiment folders by
+`python3 scripts/jamie_experiments.py`.
 
 | Experiment | Switch (vs baseline) | Problem targeted | Training kernel | Inference kernel |
 |---|---|---|---|---|
@@ -129,23 +129,23 @@ Kernel names are short for `jmemei/sc4000-birdclef-<name>`.
 **Running one experiment** (e.g. `crop`):
 
 ```bash
-bash scripts/kaggle_run.sh notebooks/member1_train_crop    # GPU training, ~20 min
-bash scripts/kaggle_run.sh notebooks/member1_infer_crop    # CPU inference dry run
+bash scripts/kaggle_run.sh notebooks/jamie_train_crop    # GPU training, ~20 min
+bash scripts/kaggle_run.sh notebooks/jamie_infer_crop    # CPU inference dry run
 kaggle competitions submit birdclef-2025 -k jmemei/sc4000-birdclef-m1-infer-crop -v <version> \
   -f submission.csv -m "M1 crop" --wait
 ```
 
 The local CV is printed at the end of the training log
-(`[crop] best val macro ROC-AUC: ...`) and saved in `outputs/member1_train_crop/cfg.json`
+(`[crop] best val macro ROC-AUC: ...`) and saved in `outputs/jamie_train_crop/cfg.json`
 as `best_val_auc`.
 
 **Row template** to append to the experiment log above after each submission:
 
 ```
-| YYYY-MM-DD | Member 1 | Ablation `crop`: baseline + random 5 s crops (kernel m1-train-crop vN) | 0.9xxx (epoch N) | 0.xxxxx (private 0.xxxxx) | Δ vs baseline LB: +0.0xxx |
+| YYYY-MM-DD | Jamie | Ablation `crop`: baseline + random 5 s crops (kernel m1-train-crop vN) | 0.9xxx (epoch N) | 0.xxxxx (private 0.xxxxx) | Δ vs baseline LB: +0.0xxx |
 ```
 
-## Members 3 & 4: pretrained models, adaptation and the final ensemble
+## Arshiya: pretrained models, adaptation and the final ensemble
 
 ### Overview
 
@@ -165,12 +165,12 @@ Everything builds on our team's baseline model (v2): [`sc4000-birdclef-m1-make-m
 
 **Deliverables:**
 
-- `report/member3-4_pretrained_ensemble/NOTEBOOKS.md`: catalogue of the 40 notebooks, 2 private datasets and the upstream inputs.
-- `report/member3-4_pretrained_ensemble/DOCUMENTATION.md`: technical documentation (17 sections; section 16 lists all submissions, section 17 the compute and limitations).
-- `report/member3-4_pretrained_ensemble/paper/`: AAAI-27 paper (`main.tex`, `references.bib`, `paper.docx`, `figures/`), plus `report/member3-4_pretrained_ensemble/paper_overleaf.zip` for Overleaf.
-- `report/member3-4_pretrained_ensemble/results/`: `results_table.md`, `timing_table.md`, `ensemble_handoff.md`, `pretrained_models_section.md`.
+- `report/arshiya_pretrained_ensemble/NOTEBOOKS.md`: catalogue of the 40 notebooks, 2 private datasets and the upstream inputs.
+- `report/arshiya_pretrained_ensemble/DOCUMENTATION.md`: technical documentation (17 sections; section 16 lists all submissions, section 17 the compute and limitations).
+- `report/arshiya_pretrained_ensemble/paper/`: AAAI-27 paper (`main.tex`, `references.bib`, `paper.docx`, `figures/`), plus `report/arshiya_pretrained_ensemble/paper_overleaf.zip` for Overleaf.
+- `report/arshiya_pretrained_ensemble/results/`: `results_table.md`, `timing_table.md`, `ensemble_handoff.md`, `pretrained_models_section.md`.
 
-**Not done.** We did not export the CNN to ONNX/OpenVINO (the submitted CNNs run with torch on CPU; E4 takes 32.3 min measured). The paper has not been compiled locally (no LaTeX on the laptop), so it should be compiled on Overleaf. Sharing the private Kaggle notebooks and datasets with teammates has to be done by hand in the Kaggle UI (steps in `report/member3-4_pretrained_ensemble/results/ensemble_handoff.md`).
+**Not done.** We did not export the CNN to ONNX/OpenVINO (the submitted CNNs run with torch on CPU; E4 takes 32.3 min measured). The paper has not been compiled locally (no LaTeX on the laptop), so it should be compiled on Overleaf. Sharing the private Kaggle notebooks and datasets with teammates has to be done by hand in the Kaggle UI (steps in `report/arshiya_pretrained_ensemble/results/ensemble_handoff.md`).
 
 ### Results summary
 
@@ -191,7 +191,7 @@ Reference: v2 public 0.763 / private 0.789; grading cut-off 0.776 public; team g
 | E3 = E2 + ABLATION, 1/3 each | 58198886 | 0.88058 | 0.87522 | +0.1176 | 39.9 measured |
 | **E4 = MAIN 0.4 + A2d 0.6, smoothed (selected by public LB; E2 is within noise)** | 58198889 | **0.88749** | **0.88029** | **+0.1245** | **32.3 measured** |
 
-All 19 submissions (including the AdaBN and CORAL variants, which all scored below their unadapted parents) are in `report/member3-4_pretrained_ensemble/DOCUMENTATION.md`, section 16. Public differences below 0.01 are treated as noise.
+All 19 submissions (including the AdaBN and CORAL variants, which all scored below their unadapted parents) are in `report/arshiya_pretrained_ensemble/DOCUMENTATION.md`, section 16. Public differences below 0.01 are treated as noise.
 
 ### Folder structure
 
@@ -199,15 +199,14 @@ All 19 submissions (including the AdaBN and CORAL variants, which all scored bel
 README.md
 datasets/            metadata and small files for the private Kaggle datasets (large files are on Kaggle)
   perch-onnx/  ns-pseudo-labels/
-report/member3-4_pretrained_ensemble/
+report/arshiya_pretrained_ensemble/
   NOTEBOOKS.md             catalogue of the 40 Kaggle notebooks, datasets, upstream inputs
   DOCUMENTATION.md         technical documentation, sections 1-17
-  IMPLEMENTATION_GUIDE.md  earlier guide (8 Nov), superseded by DOCUMENTATION.md
   LOG.md                   chronological run log
   paper/                   AAAI-27 paper: main.tex, references.bib, paper.docx, figures/, UNVERIFIED_REFS.md
   paper_overleaf.zip       paper upload for Overleaf
-  paper_v2/, paper_v2_overleaf.zip   earlier Bird-MAE-centred paper version
-  presentation/, presentation_v2/    Beamer slides and speaker scripts (earlier versions)
+  presentation/            Beamer slides and speaker scripts (earlier version)
+  archive/                 old versions, do not edit: paper_v2/, presentation_v2/, paper_v2_overleaf.zip, IMPLEMENTATION_GUIDE.md
   _kaggle_logs/            downloaded run logs and CLI output used as evidence
   results/                 results_table.md, timing_table.md, ensemble_handoff.md, pretrained_models_section.md
 m1/                  our team's baseline v2 notebooks
@@ -217,7 +216,7 @@ notes/               research notes (papers, model formats, licences, CLI, citat
 
 ### How to reproduce
 
-Requirements: a Kaggle account that has accepted the BirdCLEF+ 2025 competition rules, and read access to the private items under `strippedbanana` (all notebooks and datasets are private). Each notebook's inputs are listed in `report/member3-4_pretrained_ensemble/NOTEBOOKS.md` and in its `kernel-metadata.json` under `notebooks/<folder>/`. GPU notebooks need a T4 and print or raise a GPU guard if none is available. All inference notebooks are CPU-only with internet off.
+Requirements: a Kaggle account that has accepted the BirdCLEF+ 2025 competition rules, and read access to the private items under `strippedbanana` (all notebooks and datasets are private). Each notebook's inputs are listed in `report/arshiya_pretrained_ensemble/NOTEBOOKS.md` and in its `kernel-metadata.json` under `notebooks/<folder>/`. GPU notebooks need a T4 and print or raise a GPU guard if none is available. All inference notebooks are CPU-only with internet off.
 
 Private datasets to attach (both under `strippedbanana`):
 
@@ -242,14 +241,14 @@ Run order by phase (notebook names omit the prefix `sc4000-birdclef-m3-`; the ac
 | 4. Noisy student | [`ns-perch-all`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-perch-all) (T4); [`ns-a1-all`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-a1-all) (T4); [`ns-pseudo-labels`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-pseudo-labels) (CPU); [`ns-mel-check`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-mel-check) (T4); [`ns-student-main`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-student-main) (T4); [`ns-student-ablation`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-student-ablation) (T4); [`ns-student-main-infer`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-student-main-infer) (CPU); [`ns-student-ablation-infer`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-student-ablation-infer) (CPU); [`ns-head-seeds`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ns-head-seeds) (CPU) |
 | 5. Final ensemble | [`ens-e1`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e1) (CPU); [`ens-e2`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e2) (CPU); [`ens-e3`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e3) (CPU); [`ens-e4`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e4) (CPU) |
 
-Approximate GPU use (all on a T4, from `report/member3-4_pretrained_ensemble/DOCUMENTATION.md` section 17): about 5.6 h in total against a 30 h weekly quota. The largest runs are `ns-student-main` (1.18 h), `ns-student-ablation` (1.10 h), `ns-perch-all` (0.91 h) and `a2-perch-embed` (about 0.9 h); `a1-v2s-train` took about 0.5 h and `a3-birdmae-embed` about 0.3 h. Everything else ran on Kaggle CPU.
+Approximate GPU use (all on a T4, from `report/arshiya_pretrained_ensemble/DOCUMENTATION.md` section 17): about 5.6 h in total against a 30 h weekly quota. The largest runs are `ns-student-main` (1.18 h), `ns-student-ablation` (1.10 h), `ns-perch-all` (0.91 h) and `a2-perch-embed` (about 0.9 h); `a1-v2s-train` took about 0.5 h and `a3-birdmae-embed` about 0.3 h. Everything else ran on Kaggle CPU.
 
 
 #### Shortest path to the final submission (E4)
 
 Retraining is not needed: the weights that scored are the kernel outputs listed below.
 
-1. Open [`ens-e4`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e4), choose Copy & Edit, and attach the inputs listed in `report/member3-4_pretrained_ensemble/results/ensemble_handoff.md`:
+1. Open [`ens-e4`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e4), choose Copy & Edit, and attach the inputs listed in `report/arshiya_pretrained_ensemble/results/ensemble_handoff.md`:
    - competition data `birdclef-2025`;
    - kernel output `ns-student-main` (CNN weights);
    - kernel output `a2-a1distill` (Perch head);
@@ -276,17 +275,17 @@ The four ensemble notebooks differ only in the line `VARIANT = "E..."`.
 - "Projected" CPU times scale a 20-file dry run and may be pessimistic; the scored runtime is not available from the Kaggle CLI.
 - A1 is a backbone change from B0 to EfficientNetV2-S, not a weights-only swap.
 - ONNX Runtime / OpenVINO export of the CNN was not done.
-- Some references could be only partly verified; see `report/member3-4_pretrained_ensemble/paper/UNVERIFIED_REFS.md`.
+- Some references could be only partly verified; see `report/arshiya_pretrained_ensemble/paper/UNVERIFIED_REFS.md`.
 
 ### Other docs
 
-- [`report/member3-4_pretrained_ensemble/NOTEBOOKS.md`](report/member3-4_pretrained_ensemble/NOTEBOOKS.md): the 40 notebooks, with links, inputs, results and paste-ready descriptions.
-- [`report/member3-4_pretrained_ensemble/DOCUMENTATION.md`](report/member3-4_pretrained_ensemble/DOCUMENTATION.md): full technical documentation.
-- [`report/member3-4_pretrained_ensemble/paper/`](report/member3-4_pretrained_ensemble/paper/): AAAI-27 paper source, `paper.docx`, figures and [`UNVERIFIED_REFS.md`](report/member3-4_pretrained_ensemble/paper/UNVERIFIED_REFS.md); [`report/member3-4_pretrained_ensemble/paper_overleaf.zip`](report/member3-4_pretrained_ensemble/paper_overleaf.zip) for Overleaf.
-- [`report/member3-4_pretrained_ensemble/IMPLEMENTATION_GUIDE.md`](report/member3-4_pretrained_ensemble/IMPLEMENTATION_GUIDE.md): the earlier 8 Nov guide, superseded by `DOCUMENTATION.md`.
-- [`report/member3-4_pretrained_ensemble/LOG.md`](report/member3-4_pretrained_ensemble/LOG.md): chronological log.
-- [`report/member3-4_pretrained_ensemble/results/results_table.md`](report/member3-4_pretrained_ensemble/results/results_table.md), [`report/member3-4_pretrained_ensemble/results/timing_table.md`](report/member3-4_pretrained_ensemble/results/timing_table.md), [`report/member3-4_pretrained_ensemble/results/ensemble_handoff.md`](report/member3-4_pretrained_ensemble/results/ensemble_handoff.md), [`report/member3-4_pretrained_ensemble/results/pretrained_models_section.md`](report/member3-4_pretrained_ensemble/results/pretrained_models_section.md).
-- Earlier versions: `report/member3-4_pretrained_ensemble/paper_v2/` (a Bird-MAE-centred reframing of the same results), `report/member3-4_pretrained_ensemble/presentation/`, `report/member3-4_pretrained_ensemble/presentation_v2/`.
+- [`report/arshiya_pretrained_ensemble/NOTEBOOKS.md`](report/arshiya_pretrained_ensemble/NOTEBOOKS.md): the 40 notebooks, with links, inputs, results and paste-ready descriptions.
+- [`report/arshiya_pretrained_ensemble/DOCUMENTATION.md`](report/arshiya_pretrained_ensemble/DOCUMENTATION.md): full technical documentation.
+- [`report/arshiya_pretrained_ensemble/paper/`](report/arshiya_pretrained_ensemble/paper/): AAAI-27 paper source, `paper.docx`, figures and [`UNVERIFIED_REFS.md`](report/arshiya_pretrained_ensemble/paper/UNVERIFIED_REFS.md); [`report/arshiya_pretrained_ensemble/paper_overleaf.zip`](report/arshiya_pretrained_ensemble/paper_overleaf.zip) for Overleaf.
+- [`report/arshiya_pretrained_ensemble/archive/IMPLEMENTATION_GUIDE.md`](report/arshiya_pretrained_ensemble/archive/IMPLEMENTATION_GUIDE.md): the earlier 8 Nov guide, superseded by `DOCUMENTATION.md`.
+- [`report/arshiya_pretrained_ensemble/LOG.md`](report/arshiya_pretrained_ensemble/LOG.md): chronological log.
+- [`report/arshiya_pretrained_ensemble/results/results_table.md`](report/arshiya_pretrained_ensemble/results/results_table.md), [`report/arshiya_pretrained_ensemble/results/timing_table.md`](report/arshiya_pretrained_ensemble/results/timing_table.md), [`report/arshiya_pretrained_ensemble/results/ensemble_handoff.md`](report/arshiya_pretrained_ensemble/results/ensemble_handoff.md), [`report/arshiya_pretrained_ensemble/results/pretrained_models_section.md`](report/arshiya_pretrained_ensemble/results/pretrained_models_section.md).
+- Earlier versions: `report/arshiya_pretrained_ensemble/archive/paper_v2/` (a Bird-MAE-centred reframing of the same results), `report/arshiya_pretrained_ensemble/presentation/`, `report/arshiya_pretrained_ensemble/archive/presentation_v2/`.
 
 ## References / acknowledgements
 

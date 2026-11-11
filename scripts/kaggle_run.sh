@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Push a notebook folder to Kaggle, wait for it to finish, and download its outputs.
 #
-# Usage:   bash scripts/kaggle_run.sh notebooks/eda
+# Usage:   bash scripts/kaggle_run.sh notebooks/jamie_eda
 #
 # The folder must contain the notebook and a kernel-metadata.json
 # (copy one from an existing folder). Keep "is_private": true —

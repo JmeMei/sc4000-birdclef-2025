@@ -1,8 +1,8 @@
 # Methodology
 
-> **For assembly (Member 4):** written by Sudhishna (Member 2). About 1.5 AAAI pages with
-> Figure `m2_sed_architecture.png` (full width, `figure*`). Jamie's draft
-> (`AAAI_baseline_ablations_draft.docx`) also describes the spectrogram pipeline and the four
+> **For assembly (Arshiya):** written by Sudhishna (Sudhishna). About 1.5 AAAI pages with
+> Figure `sudhishna_sed_architecture.png` (full width, `figure*`). Jamie's draft
+> (`jamie_AAAI_baseline_ablations_draft.docx`) also describes the spectrogram pipeline and the four
 > baseline changes; keep the pipeline paragraph in one place only (here, or in Jamie's section)
 > so the page budget is not spent twice. Section numbers below are placeholders.
 
@@ -111,13 +111,13 @@ shared spectrograms (224 mel bands, FFT 4096, hop 1252, 0–16 kHz), which gives
 1.25 s per 20 s chunk. We built a second spectrogram cache with these settings to test whether
 they matter for our model (Section X).
 
-![SED architecture](../figures/m2_sed_architecture.png)
+![SED architecture](../figures/sudhishna_sed_architecture.png)
 
 *Figure 1: The SED model. Blue numbers are tensor shapes for one 20 s chunk (channels ×
 frequency × time). The blue boxes are the layers added to EfficientNet-B0; the orange boxes are
 the two pooled scores used in the training loss. At test time only the species scores are used.*
 
-## References (Member 2)
+## References (Sudhishna)
 
 Babych, N. 2025. 1st Place Solution: Multi-Iterative Noisy Student Is All You Need. BirdCLEF+ 2025
 competition write-up, Kaggle.

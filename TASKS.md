@@ -4,12 +4,12 @@ SC4000 BirdCLEF+ 2025 group project, 4 members. Updated 3 Nov 2026.
 
 **Deadline: Fri 13 Nov 2026, 11:59pm.** Hand in on NTULearn: report (AAAI, max 10 pages), video link (.txt), and the submission file.
 
-## Already done (Member 1)
+## Already done (Jamie)
 
 | Done |
 |---|
 | Private GitHub repo and VS Code → Kaggle workflow (`scripts/kaggle_run.sh`) |
-| EDA notebook and 7 report figures (`notebooks/eda`, `report/figures`) |
+| EDA notebook and 7 report figures (`notebooks/jamie_eda`, `report/figures`) |
 | Baseline model: EfficientNet-B0 on first-5 s mel spectrograms (local val AUC 0.9732) |
 | CPU/offline inference notebook (about 25 min, under the 90 min limit) |
 | First submission: **public 0.71681**, rank about 1600 / 2032 (top 79%) |
@@ -34,11 +34,11 @@ These are targets, not guarantees. Submit and log every experiment, even ones th
 
 | Hand-off | From → to | By |
 |---|---|---|
-| Saved-spectrogram Kaggle dataset (optional speed-up; others can start without it) | Member 1 → everyone | 5 Nov |
-| Trained model weights for the ensemble | Members 1, 2, 3 → Member 4 | 8 Nov |
-| Report sections for assembly into the AAAI template | everyone → Member 4 | 11 Nov |
+| Saved-spectrogram Kaggle dataset (optional speed-up; others can start without it) | Jamie → everyone | 5 Nov |
+| Trained model weights for the ensemble | Jamie, Sudhishna, Arshiya → Arshiya | 8 Nov |
+| Report sections for assembly into the AAAI template | everyone → Arshiya (Member 4 role) | 11 Nov |
 
-Member 4 can start pseudo-labelling now using the existing baseline model as the teacher, then swap in a better model after 8 Nov.
+Arshiya (Member 4 role) can start pseudo-labelling now using the existing baseline model as the teacher, then swap in a better model after 8 Nov.
 
 Only the end is sequential: final ensemble → report results → video → hand-in.
 
@@ -48,17 +48,17 @@ The times below are hands-on work. Kaggle runs add waiting time on top: about 30
 
 | Member | Hands-on hours |
 |---|---|
-| Member 1 | about 15 h (lighter, since Member 1 already did the setup and baseline) |
-| Member 2 | about 18 h |
-| Member 3 | about 18 h |
-| Member 4 | about 19 h |
+| Jamie | about 15 h (lighter, since Jamie already did the setup and baseline) |
+| Sudhishna | about 18 h |
+| Arshiya (Member 3 role) | about 18 h |
+| Arshiya (Member 4 role) | about 19 h |
 
 ## The split
 
 Each person owns **one modelling track** and **one share of the report and video**.
 
-### Member 1: improve the baseline (ablations)
-Branch: `member1/baseline-ablations`. Notebooks go in `notebooks/member1_*`.
+### Jamie: improve the baseline (ablations)
+Branch: `member1/baseline-ablations`. Notebooks go in `notebooks/jamie_*`.
 
 | # | Task | Time |
 |---|---|---|
@@ -78,15 +78,15 @@ Branch: `member1/baseline-ablations`. Notebooks go in `notebooks/member1_*`.
 - A v2 model scoring **≥ 0.776** public (target).
 - The Experiments section, about 1.5 pages.
 
-### Member 2: SED model
-Branch: `member2/sed-model`. Notebooks go in `notebooks/member2_*`.
+### Sudhishna: SED model
+Branch: `member2/sed-model`. Notebooks go in `notebooks/sudhishna_*`.
 
 | # | Task | Time |
 |---|---|---|
 | 1 | Build a sound event detection (SED) model on 20 s chunks; it predicts when a call happens inside the clip. Re-implement it from the 1st-place *write-up* only, never their code, and cite it. | 6 h |
 | 2 | Train it on Kaggle and tune it | 2 h |
 | 3 | Write a CPU inference notebook that finishes in under 90 min, and submit it | 3 h |
-| 4 | Hand the trained model weights to Member 4 by **8 Nov** | 15 min |
+| 4 | Hand the trained model weights to Arshiya (Member 4 role) by **8 Nov** | 15 min |
 | 5 | Report: **Methodology** section (preprocessing, CNN baseline, SED model), with the reason for each choice | 4 h |
 | 6 | Video: make the slide deck everyone presents from | 3 h |
 
@@ -96,8 +96,8 @@ Branch: `member2/sed-model`. Notebooks go in `notebooks/member2_*`.
 - A diagram or short description of the SED architecture.
 - The Methodology section (about 1.5 pages) and the slide deck.
 
-### Member 3: pretrained audio model and inference speed
-Branch: `member3/birdmae-speed`. Notebooks go in `notebooks/member3_*`.
+### Arshiya (Member 3 role): pretrained audio model and inference speed
+Branch: `member3/birdmae-speed`. Notebooks go in `notebooks/arshiya_*`.
 
 | # | Task | Time |
 |---|---|---|
@@ -113,8 +113,8 @@ Branch: `member3/birdmae-speed`. Notebooks go in `notebooks/member3_*`.
 - A faster inference notebook (target: **at least 2× faster**).
 - The Introduction and References, and the finished video uploaded.
 
-### Member 4: pseudo-labelling, ensemble and final submission
-Branch: `member4/pseudolabel-ensemble`. Notebooks go in `notebooks/member4_*`.
+### Arshiya (Member 4 role): pseudo-labelling, ensemble and final submission
+Branch: `member4/pseudolabel-ensemble`. Notebooks go in `notebooks/arshiya_*`.
 
 | # | Task | Time |
 |---|---|---|
@@ -140,12 +140,12 @@ Branch: `member4/pseudolabel-ensemble`. Notebooks go in `notebooks/member4_*`.
 
 | Date | Milestone |
 |---|---|
-| 3–4 Nov | Switch to your branch and start. Member 1 adds collaborators. |
-| 5 Nov | Member 1 shares the saved-spectrogram dataset. |
+| 3–4 Nov | Switch to your branch and start. Jamie adds collaborators. |
+| 5 Nov | Jamie shares the saved-spectrogram dataset. |
 | 5–7 Nov | Modelling tracks run in parallel; submit each experiment. |
-| **8 Nov** | **Merge all model branches into `main`.** Hand weights to Member 4. |
+| **8 Nov** | **Merge all model branches into `main`.** Hand weights to Arshiya (Member 4 role). |
 | 9–10 Nov | Pseudo-labelling round and ensemble. **Final submission locked on 10 Nov.** |
-| 10–11 Nov | Report sections merged into `main`; Member 4 assembles the AAAI draft. |
+| 10–11 Nov | Report sections merged into `main`; Arshiya (Member 4 role) assembles the AAAI draft. |
 | 12 Nov | Record and upload the video. Final read-through and format check. |
 | **13 Nov** | **Submit on NTULearn before 11:59pm.** |
 
@@ -155,10 +155,10 @@ Each person works on their own branch and merges into `main` through a pull requ
 
 | Person | Branch |
 |---|---|
-| Member 1 | `member1/baseline-ablations` |
-| Member 2 | `member2/sed-model` |
-| Member 3 | `member3/birdmae-speed` |
-| Member 4 | `member4/pseudolabel-ensemble` |
+| Jamie | `member1/baseline-ablations` |
+| Sudhishna | `member2/sed-model` |
+| Arshiya (Member 3 role) | `member3/birdmae-speed` |
+| Arshiya (Member 4 role) | `member4/pseudolabel-ensemble` |
 
 **First time: get the repo and switch to your branch**
 
@@ -183,7 +183,7 @@ git push
 
 **Avoiding merge conflicts**
 - Only edit files in your own `notebooks/member<N>_*` folders.
-- Write report sections as separate files in `report/sections/`: `01-introduction.md`, `02-methodology.md`, `03-experiments.md`, `04-conclusion.md`. Member 4 assembles them into the AAAI template.
+- Write report sections as separate files in `report/sections/`: `01-introduction.md`, `02-methodology.md`, `03-experiments.md`, `04-conclusion.md`. Arshiya (Member 4 role) assembles them into the AAAI template.
 - In the README experiment log, only **add rows at the bottom**.
 - Never commit data, model weights or `kaggle.json`; the `.gitignore` already blocks them.
 
