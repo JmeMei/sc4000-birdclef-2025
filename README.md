@@ -51,7 +51,7 @@ All 19 submissions (including the AdaBN and CORAL variants, which all scored bel
 ```
 README.md
 datasets/            metadata and small files for the private Kaggle datasets (large files are on Kaggle)
-  perch-onnx/  birdmae-base/  ns-pseudo-labels/
+  perch-onnx/  ns-pseudo-labels/
 docs/
   NOTEBOOKS.md             catalogue of the 40 Kaggle notebooks, datasets, upstream inputs
   DOCUMENTATION.md         technical documentation, sections 1-17
@@ -80,7 +80,7 @@ Private datasets to attach (both under `strippedbanana`):
 Large files are not stored in this repository. Get them from these private Kaggle datasets:
 
 - `datasets/perch-onnx/perch_v2.onnx` (390 MB): [`sc4000-birdclef-m3-perch-onnx`](https://www.kaggle.com/datasets/strippedbanana/sc4000-birdclef-m3-perch-onnx).
-- `datasets/birdmae-base/model.safetensors` (326 MB): [`sc4000-birdclef-m3-birdmae-base`](https://www.kaggle.com/datasets/strippedbanana/sc4000-birdclef-m3-birdmae-base).
+- Bird-MAE-Base weights and config, including `model.safetensors` (326 MB): [`sc4000-birdclef-m3-birdmae-base`](https://www.kaggle.com/datasets/strippedbanana/sc4000-birdclef-m3-birdmae-base).
 - `datasets/ns-pseudo-labels/pseudo_main.npy` and `pseudo_ablation.npy` (92 MB each): [`sc4000-birdclef-m3-ns-pseudo-labels`](https://www.kaggle.com/datasets/strippedbanana/sc4000-birdclef-m3-ns-pseudo-labels).
 
 Upstream: our team's baseline notebooks `make-mels` and `train-v2` notebooks, and the public dataset [`vladimirsydor/bird-clef-2025-all-pretrained-models`](https://www.kaggle.com/datasets/vladimirsydor/bird-clef-2025-all-pretrained-models).
