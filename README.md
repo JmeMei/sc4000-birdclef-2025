@@ -307,14 +307,6 @@ The four ensemble notebooks differ only in the line `VARIANT = "E..."`.
 - ONNX Runtime / OpenVINO export of the CNN was not done.
 - Some references could be only partly verified; see `report/arshiya_pretrained_ensemble/paper/UNVERIFIED_REFS.md`.
 
-#### Other docs
-
-- [`report/arshiya_pretrained_ensemble/NOTEBOOKS.md`](report/arshiya_pretrained_ensemble/NOTEBOOKS.md): the 40 notebooks, with links, inputs, results and paste-ready descriptions.
-- [`report/arshiya_pretrained_ensemble/DOCUMENTATION.md`](report/arshiya_pretrained_ensemble/DOCUMENTATION.md): full technical documentation.
-- [`report/arshiya_pretrained_ensemble/paper/`](report/arshiya_pretrained_ensemble/paper/): AAAI-27 paper source, `paper.docx`, figures and [`UNVERIFIED_REFS.md`](report/arshiya_pretrained_ensemble/paper/UNVERIFIED_REFS.md); [`report/arshiya_pretrained_ensemble/paper_overleaf.zip`](report/arshiya_pretrained_ensemble/paper_overleaf.zip) for Overleaf.
-- [`report/arshiya_pretrained_ensemble/LOG.md`](report/arshiya_pretrained_ensemble/LOG.md): chronological log.
-- [`report/arshiya_pretrained_ensemble/results/results_table.md`](report/arshiya_pretrained_ensemble/results/results_table.md), [`report/arshiya_pretrained_ensemble/results/timing_table.md`](report/arshiya_pretrained_ensemble/results/timing_table.md), [`report/arshiya_pretrained_ensemble/results/ensemble_handoff.md`](report/arshiya_pretrained_ensemble/results/ensemble_handoff.md), [`report/arshiya_pretrained_ensemble/results/pretrained_models_section.md`](report/arshiya_pretrained_ensemble/results/pretrained_models_section.md).
-
 ## References
 
 1. Cañas, J. S. et al. Overview of BirdCLEF+ 2025: Multi-Taxonomic Sound Identification in the Middle Magdalena, Colombia. CLEF 2025 Working Notes.
