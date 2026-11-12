@@ -42,7 +42,7 @@ Passive acoustic monitoring lets ecologists survey biodiversity by leaving recor
 
 \paragraph{Challenges.} Our data analysis (Section~\ref{sec:data}) found four difficulties: (i) severe class imbalance (2 to 990 clips per species); (ii) weak labels, one label per recording while predictions are per 5\,s window; (iii) a domain shift from clean, close-up focal recordings to noisy soundscapes, with no labelled soundscapes for validation; and (iv) incomplete labels for background species.
 
-\paragraph{What we did.} We followed one rule throughout: keep the data split, recipe and inference protocol fixed and change one component at a time, so that every score difference can be attributed. Starting from a spectrogram CNN baseline, we (1) tested one targeted fix per difficulty and combined the helpful ones into baseline v2; (2) re-implemented an SED model and isolated the effect of its chunk length; (3) compared three pretraining paradigms, a supervised bird CNN, frozen multi-taxa Perch 2.0 embeddings and a frozen self-supervised Bird-MAE; (4) studied label-free adaptation on the unlabelled soundscapes; and (5) ensembled complementary models within the CPU budget. The novel parts of our solution are: \emph{cross-family distillation}, in which a Perch head learns from a weaker CNN teacher on pseudo-labelled soundscapes and still improves; a \emph{noisy-student} CNN trained on pseudo-labels from a CNN+Perch teacher; a controlled finding that \emph{statistics-level alignment hurts while content-level adaptation helps} on this task; and a rank-average ensemble with temporal smoothing that fits easily in the time limit.
+\paragraph{What we did.} We followed one rule throughout: keep the data split, recipe and inference protocol fixed and change one component at a time, so that every score difference can be attributed. Starting from a spectrogram CNN baseline, we (1) tested one targeted fix per difficulty and combined the helpful ones into baseline v2; (2) re-implemented an SED model and isolated the effect of its chunk length; (3) compared three pretraining paradigms, a supervised bird CNN, frozen multi-taxa Perch 2.0 embeddings and a frozen self-supervised Bird-MAE; (4) studied label-free adaptation on the unlabelled soundscapes; and (5) ensembled complementary models within the CPU budget. The novel parts of our solution are: \emph{cross-family distillation}, in which a Perch head learns from a weaker CNN teacher on pseudo-labelled soundscapes and still improves (an idea related to the cross-lineage teachers of \citet{farazi2026crossmutated}, which we arrived at independently for BirdCLEF+ 2025); a \emph{noisy-student} CNN trained on pseudo-labels from a CNN+Perch teacher; a controlled finding that \emph{statistics-level alignment hurts while content-level adaptation helps} on this task; and a rank-average ensemble with temporal smoothing that fits easily in the time limit.
 
 \paragraph{Results.} The final ensemble (E4) scores 0.88749 public and 0.88029 private. Our submissions are late (the competition closed in June 2025) and therefore unranked; placing 0.88749 in the public leaderboard gives position 73 of 2,032, a relative ranking of 3.6\% (top-10\% band). Table~\ref{tab:roles} lists the role and contributions of each of the four members.
 
@@ -56,7 +56,7 @@ Member & Role and contributions \\
 Jamie Gonzales Esguerra & Repository and Kaggle workflow; exploratory data analysis and figures; baseline training and CPU inference; whole-clip spectrogram pipeline; four baseline improvements and ten ablation submissions; baseline v2; report assembly. \\
 Dhanapalan Swaminathan Sudhishna Janavi & SED model re-implemented from a written description; training and CPU inference notebooks; seven SED submissions incl.\ chunk-length, overlap, checkpoint and spectrogram-resolution ablations. \\
 Arshiya Jawahar Ali Sirajudeen & Pretrained models A1--A3; CPU speed-up of the inference pipeline; adaptation study (AdaBN, CORAL, mean/std); distillation and noisy student; final ensembles E1--E4 and final submission (19 submissions). \\
-Modi Khushi & Helped assemble and edit the AAAI report; helped prepare the presentation slides. \\
+Modi Khushi & Helped prepare the presentation slides. \\
 \bottomrule
 \end{tabular}
 \caption{Roles and contributions of each group member.}
@@ -76,7 +76,7 @@ The labelled set (\texttt{train\_audio}) has 28,564 recordings at 32\,kHz, mostl
 
 \emph{Class imbalance.} The most common species has 990 clips, while 30 species have five or fewer and 55 have twenty or fewer (Figure~\ref{fig:imbalance}). Because the metric is a macro average, rare classes weigh as much as common ones.
 \emph{Weak labels.} The median clip lasts 20.5\,s and 8.1\% are shorter than 5\,s, but a label covers the whole clip, so a fixed 5\,s crop may contain no call at all.
-\emph{Domain shift.} Training clips are close-up calls; test soundscapes contain rain, insects, overlapping calls and distant sources. The unlabelled soundscapes come from the test recorders and are therefore valuable for adaptation and pseudo-labelling.
+\emph{Domain shift.} Training clips are close-up calls; test soundscapes (Figure~\ref{fig:soundscape}) contain rain, insects, overlapping calls and distant sources. The unlabelled soundscapes come from the test recorders and are therefore valuable for adaptation and pseudo-labelling.
 \emph{Label noise.} Only 9.3\% of clips list secondary species, so audible background species are often unlabelled, and about 8,000 clips have no quality rating.
 
 \begin{figure}[t]
@@ -85,6 +85,13 @@ The labelled set (\texttt{train\_audio}) has 28,564 recordings at 32\,kHz, mostl
 \caption{Training clips per species, sorted. The long tail of rare species matters because every species counts equally in macro ROC-AUC.}
 \label{fig:imbalance}
 \end{figure}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/soundscape_windows.png}
+\caption{An unlabelled 60\,s training soundscape from a field recorder, split into the twelve 5\,s windows that must each be scored. Unlike the close-up focal training clips, calls are faint and short against continuous background noise.}
+\label{fig:soundscape}
+\end{figure*}
 
 \section{Methodology}
 \label{sec:method}
@@ -146,7 +153,24 @@ No soundscape labels exist, so all adaptation uses unlabelled \texttt{train\_sou
 Each model's probabilities are smoothed within a file, $p'_t = 0.25\,p_{t-1} + 0.5\,p_t + 0.25\,p_{t+1}$ (renormalised at the ends), because calls often span window borders. Models are then combined by a per-class weighted rank average, $s_{r,c}=\sum_m w_m\,\mathrm{rank}_c(p^{(m)}_{r,c})/\sum_m w_m$, with ranks scaled to $[0,1]$. ROC-AUC depends only on the order within a class, so averaging ranks removes the different probability scales of a CNN and an MLP head. To fit two models into 90 CPU minutes we profiled v2's inference and found mel computation to be the largest cost; the fast pipeline uses four file-level workers, one mel call per file and one batch per file, which cut v2 from 11.1 to 5.5 minutes for 700 files.
 
 \section{Experiments}
-\paragraph{Protocol.} All runs use v2's split, seed and recipe; training ran on Kaggle T4 GPUs and inference on Kaggle CPU with internet off. Every variant was submitted once, and we report public and private scores. Following our ablations, we treat public differences below 0.01 as noise and select by the public score, because clean focal validation did not predict the leaderboard (Section~\ref{sec:disc}). Variants and selection rules for the adaptation, distillation and ensemble phases were written down before their scores; the exceptions are stated in the Limitations.
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lc}
+\toprule
+Head (frozen encoder) & Val AUC, mean $\pm$ std \\
+\midrule
+A2 Perch head & 0.99163 $\pm$ 0.00029 \\
+A3 Bird-MAE head & 0.97451 $\pm$ 0.00076 \\
+A2d (A1-distilled) & 0.99133 $\pm$ 0.00047 \\
+A3d (A2-distilled) & 0.97506 $\pm$ 0.00012 \\
+\bottomrule
+\end{tabular}
+\caption{Seed repeats of the MLP heads (seeds 42--44, split fixed). Seed noise in validation is at most 0.0008, far smaller than the leaderboard effects we report.}
+\label{tab:seed}
+\end{table}
+
+\paragraph{Protocol.} All runs use v2's split, seed and recipe; training ran on Kaggle T4 GPUs and inference on Kaggle CPU with internet off. Every variant was submitted once, and we report public and private scores. Repeating the small heads over three seeds changed validation AUC by at most 0.0008 (Table~\ref{tab:seed}), so the effects below are not seed noise on the validation side; leaderboard noise could not be measured without repeated submissions. Following our ablations, we treat public differences below 0.01 as noise and select by the public score, because clean focal validation did not predict the leaderboard (Section~\ref{sec:disc}). Variants and selection rules for the adaptation, distillation and ensemble phases were written down before their scores; the exceptions are stated in the Limitations.
 
 \subsection{Baseline and ablations}
 The baseline reaches a validation AUC of 0.973 at epoch 7 and then overfits (0.960 at epoch 15) while training loss falls towards zero. On the leaderboard it scores only 0.71681 public (0.69908 private), the first sign of the domain shift. Table~\ref{tab:ablation} and Figure~\ref{fig:ablation} add one change at a time and then remove one from v2.
@@ -236,7 +260,7 @@ A3 Bird-MAE & 0.975 & 0.776 & 0.780 & .199 & 61.6* \\
 \end{table}
 
 \subsection{Label-free adaptation}
-Table~\ref{tab:adapt} lists every adaptation submission against its unadapted parent. \textbf{Statistics-level alignment lowered the public score in all seven cases}, by 0.024 to 0.160, and the private score by similar amounts, although focal validation AUC barely moved (Perch 0.9916 to 0.9901). The loss was largest for frozen embeddings. A control run of the unadapted A1 through the same fast notebook reproduced its original score exactly, so the AdaBN drop is not a pipeline error. \textbf{Content-level adaptation raised the public score in all four cases}, by 0.012 to 0.036, and narrowed the transfer gap each time. A2d learned from the \emph{weaker} A1 teacher (0.828 vs.\ A2's 0.848) and still improved, becoming our best single model (0.86651 public). Distillation combined with CORAL recovered only part of the CORAL loss, so the damage from the mapping survives pseudo-labels.
+Table~\ref{tab:adapt} lists every adaptation submission against its unadapted parent. \textbf{Statistics-level alignment lowered the public score in all seven cases}, by 0.024 to 0.161, and the private score by similar amounts, although focal validation AUC barely moved (Perch 0.9916 to 0.9901). The loss was largest for frozen embeddings. A control run of the unadapted A1 through the same fast notebook reproduced its original score exactly, so the AdaBN drop is not a pipeline error. \textbf{Content-level adaptation raised the public score in all four cases}, by 0.012 to 0.036, and narrowed the transfer gap each time (Figure~\ref{fig:gap}). A2d learned from the \emph{weaker} A1 teacher (0.828 vs.\ A2's 0.848) and still improved, becoming our best single model (0.86651 public). Distillation combined with CORAL recovered only part of the CORAL loss, so the damage from the mapping survives pseudo-labels.
 
 \begin{table}[t]
 \centering
@@ -264,6 +288,13 @@ A1 & NS ABLATION & 0.840 & $+0.012$ & 0.838 & $+0.022$ \\
 \label{tab:adapt}
 \end{table}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.82\columnwidth]{figures/fig_transfer_gap.pdf}
+\caption{Transfer gap (validation AUC minus leaderboard AUC; dark public, hatched private) of the base models, three statistics-level variants and the four content-level models. Statistics alignment widened the gap; pseudo-labels narrowed it.}
+\label{fig:gap}
+\end{figure}
+
 \paragraph{Noisy student.} MAIN beats ABLATION by $+0.020$ public and $+0.014$ private and gains $+0.032$/$+0.035$ over its initialisation A1 at almost the same CPU cost (9.9 vs.\ 8.0 minutes). The two arms differ in teacher \emph{and} label density (2.50\% vs.\ 0.74\% non-zero labels), so the difference cannot be assigned to the teacher alone. Their validation curves end within 0.002 of each other, so validation could not have chosen between them.
 
 \subsection{Ensemble and final submission}
@@ -288,12 +319,12 @@ E3 & 1/3 each (+ABL.); yes & 0.88058 & 0.87522 & 39.9 \\
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.9\textwidth]{figures/fig_lb_progression.pdf}
-\caption{Public (dark) and private (hatched) leaderboard AUC of the main systems in the order they were built, from baseline v2 to the final ensemble E4. Each value is one late submission.}
+\includegraphics[width=0.9\textwidth]{figures/progression_by_member.png}
+\caption{Public leaderboard AUC (bars) and private AUC (diamonds) of the main systems in the order they were built, coloured by the member who built them: from the baseline (0.717) to the final ensemble E4 (0.887), one change at a time. Each value is one late submission.}
 \label{fig:lb}
 \end{figure*}
 
-\paragraph{Leaderboard position.} Table~\ref{tab:rank} places our main milestones in the public leaderboard of 2,032 teams. Because late submissions are unranked, the position is the rank our score would take; Figures~\ref{fig:score} and~\ref{fig:position} show the score and the corresponding place in the leaderboard. E4 (0.88749) falls between rank 72 (0.88753) and rank 73 (0.88745), a relative ranking of $73/2032 = 3.6\%$, inside the top-10\% band (cut-off 0.8808).
+\paragraph{Leaderboard position.} Table~\ref{tab:rank} places our main milestones in the public leaderboard of 2,032 teams. Because late submissions are unranked, the position is the rank our score would take; Figures~\ref{fig:score} and~\ref{fig:position} show the score and the corresponding place in the leaderboard. E4 (0.88749) falls between rank 72 (0.88753) and rank 73 (0.88745), a relative ranking of $73/2032 = 3.6\%$, inside the top-10\% band (cut-off 0.8808). For reference, the best public score is 0.93376, and on the final (private) leaderboard the winner scored 0.93067 and second place 0.92893; E4 is 0.046 below the best public score and 0.050 below the winning private score.
 
 \begin{table}[t]
 \centering
@@ -323,7 +354,7 @@ A2d (best single) & 0.86651 & 647 & 31.8\% \\
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/kaggle_e4_leaderboard_position.png}
-\caption{Public leaderboard around our score: 0.88749 lies between rank 72 and rank 73 of 2,032.}
+\caption{BirdCLEF+ 2025 public leaderboard, ranks 70--76. The highlighted row, added by us, marks where our late E4 score (0.88749) falls: between rank 72 (0.88753) and rank 73 (0.88745) of 2,032.}
 \label{fig:position}
 \end{figure}
 
@@ -344,12 +375,15 @@ A2d (best single) & 0.86651 & 647 & 31.8\% \\
 
 \paragraph{Bird-MAE and a misleading probe.} A linear probe on Bird-MAE features first reached only 0.750 validation AUC, with a first-epoch loss near $\ln 2$. Initialising the output bias to the class log-prior \citep{lin2017focal}, with nothing else changed, gave 0.963, so the default probe measured its initialisation rather than the features. Even after this fix, Bird-MAE transferred worst; mean-pooling 256 patch tokens may dilute short calls, and a self-supervised, bird-only objective may separate 60 non-bird classes less well. We did not test these hypotheses.
 
-\paragraph{Speed.} In E4 the Perch encoder is about 73\% of the summed CPU time; the whole notebook ran in 32.3 minutes, well under the 90-minute limit, whereas Bird-MAE (61.6 projected minutes) would have left no room for a second model.
+\paragraph{Speed.} In E4 the Perch encoder is about 73\% of the summed CPU time; the whole notebook ran in 32.3 minutes, well under the 90-minute limit, whereas Bird-MAE (61.6 projected minutes) would have left little room for a second model.
 
 \paragraph{Limitations.} We used one split; CNNs were trained once and only the small heads were repeated over seeds (validation standard deviation at most 0.0008). The 0.01 noise threshold was not measured by repeated submissions, and public and private parts disagree on some close calls. The noisy-student MAIN teacher was chosen after the A2d score was known, and the A1 control was requested after the AdaBN score. Perch 2.0 was released in August 2025, after the competition closed, so A2, A2d and the ensemble are not comparable to official entries, and Perch's training data may overlap with \texttt{train\_audio}. Without labelled soundscapes we could not test the domain-shift explanations directly.
 
+\section{Future Work}
+Four directions follow from our results. First, a small labelled soundscape set would give a validation signal that matches the test data, which every part of this project lacked, and would allow per-taxon evaluation of our hypotheses. Second, the first-place solution ran several noisy-student rounds; we ran one, so more rounds, with pseudo-label filtering by confidence or teacher agreement and a density-matched control, would show whether the gain compounds and separate teacher quality from label density. Third, the 5\,s SED model scores level with v2 but is a different kind of model, so adding it, or an SED head on the bird-pretrained backbone, to the ensemble is a cheap next step (16 CPU minutes). Fourth, exporting the CNNs to ONNX or OpenVINO would free CPU time for a third model.
+
 \section{Conclusion}
-Working one change at a time from a spectrogram CNN, we raised the public score of BirdCLEF+ 2025 from 0.717 to 0.887 (private 0.699 to 0.880), a position of 73 of 2,032 (top 3.6\%), within the CPU limit. The most important findings are: data-driven fixes for weak labels and domain shift (random crops, soundscape noise, secondary labels) gave the baseline $+0.046$, while focal loss did not help; an SED head draws level with the CNN only with short chunks; pretraining on bird or multi-taxa audio matters far more than architecture; aligning feature statistics to unlabelled soundscapes hurt in every case, whereas pseudo-labels helped in every case, even from a weaker teacher of another model family; and a rank-average ensemble of a CNN and a Perch head with temporal smoothing combines their complementary errors. Across all stages, clean focal validation was a poor guide, so future work should start with a small labelled soundscape set, more noisy-student rounds and SED heads in the ensemble.
+Working one change at a time from a spectrogram CNN, we raised the public score of BirdCLEF+ 2025 from 0.717 to 0.887 (private 0.699 to 0.880), a position of 73 of 2,032 (top 3.6\%), within the CPU limit. The most important findings are: data-driven fixes for weak labels and domain shift (random crops, soundscape noise, secondary labels) gave the baseline $+0.046$, while focal loss did not help; an SED head draws level with the CNN only with short chunks; pretraining on bird or multi-taxa audio matters far more than architecture; aligning feature statistics to unlabelled soundscapes hurt in every case, whereas pseudo-labels helped in every case, even from a weaker teacher of another model family; and a rank-average ensemble of a CNN and a Perch head with temporal smoothing combines their complementary errors. Across all stages, clean focal validation was a poor guide to the leaderboard, which is the strongest reason to build a labelled soundscape set next.
 
 \section*{Acknowledgements and Use of Existing Code}
 All code is our own. The SED model was re-implemented from the written descriptions in \citet{babych2025first} and \citet{tattaka2021fourth}; no code from them was copied. We used the bird-pretrained EfficientNetV2-S weights released by the second-place team \citep{sydorskyi2025tackling}, the community ONNX conversion of Perch 2.0 \citep{calotriton2025perchonnx}, Bird-MAE-Base weights \citep{rauch2025can} and the timm \citep{wightman2019timm} and librosa \citep{mcfee2015librosa} libraries. We used Claude (Anthropic) as a coding and writing assistant; all experiments, results and design decisions were checked by the authors.
