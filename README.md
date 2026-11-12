@@ -1,31 +1,106 @@
-# SC4000 Course Project — BirdCLEF+ 2025
+# From a Spectrogram CNN to Pseudo-Labelled Ensembles
+
+**Closing the focal-to-soundscape gap in BirdCLEF+ 2025** · SC4000 Machine Learning, NTU · Group 48
 
 > **Private repo.** The course rules say not to release project code publicly. Keep this repository private.
 
-Group project for SC4000/CZ4041/CE4041 Machine Learning (NTU), on the Kaggle competition
-[BirdCLEF+ 2025](https://www.kaggle.com/competitions/birdclef-2025/).
+Our solution to the Kaggle competition [BirdCLEF+ 2025](https://www.kaggle.com/competitions/birdclef-2025/): find which of 206 species (birds, amphibians, insects and mammals) are calling in every 5-second window of one-minute rainforest soundscapes from El Silencio Natural Reserve, Colombia.
 
-**Task:** identify which of 206 species (birds, amphibians, mammals, insects) are calling in each
-5-second window of 1-minute soundscape recordings from El Silencio Natural Reserve, Colombia.
+| | |
+|---|---|
+| **Final submission** | E4: noisy-student CNN (0.4) + distilled Perch 2.0 head (0.6), rank-averaged and temporally smoothed |
+| **Score** | **0.88749 public / 0.88029 private** macro ROC-AUC (first baseline: 0.717 / 0.699) |
+| **Runtime** | 32.3 CPU minutes for about 700 soundscapes (limit 90 min, CPU only, internet off) |
+| **Position** | Would place 73rd of 2,032 teams on the public leaderboard (top 3.6%). Not an official rank: the submissions are late, and Perch 2.0 was released after the competition closed. |
+| **Final report** | [`report/final_report/SC4000_BirdCLEF_report_PREVIEW.pdf`](report/final_report/SC4000_BirdCLEF_report_PREVIEW.pdf) (AAAI format; LaTeX source `main.tex`, Overleaf upload `final_report_overleaf.zip`) |
 
-**Metric:** macro-averaged ROC-AUC (classes with no true positives in the test set are skipped).
+![Public leaderboard AUC rising from 0.717 to 0.887 across eight steps, coloured by team member](report/figures/team_progress.png)
 
-**Submission:** code competition — a Kaggle notebook that runs on **CPU only**, internet off, within
-the time limit.
+## Team
 
-**Deadline:** report + video link + submission file via NTULearn by **13 Nov 2026, 11:59pm**.
+| Member | Contribution | Where to look |
+|---|---|---|
+| **Jamie Gonzales Esguerra** | Exploratory data analysis, EfficientNet-B0 baseline, baseline ablations → baseline v2 (Stage 1) | [Stage 1](#stage-1-baseline-and-data-driven-fixes-jamie), [Jamie: ablation details](#jamie-baseline-ablations), `notebooks/jamie_*` |
+| **Dhanapalan Swaminathan Sudhishna Janavi** | Sound event detection (SED) model (Stage 2) | [Stage 2](#stage-2-sound-event-detection-sudhishna), `notebooks/sudhishna_*`, `report/sections/` |
+| **Arshiya Jawahar Ali Sirajudeen** | Pretrained backbones, CPU inference speed, label-free adaptation, distillation, noisy student, final ensemble and submission (Stages 3–4) | [Stages 3–4](#stage-3-pretrained-backbones-arshiya), [Arshiya: details](#arshiya-pretrained-models-adaptation-and-the-final-ensemble), `notebooks/arshiya_*`, `report/arshiya_pretrained_ensemble/` |
+| **Modi Khushi** | Presentation slides | |
 
-## Team & contributions
+## The problem
 
-| Member | Role | Where to look |
-|--------|------|---------------|
-| Jamie | EDA, baseline (EfficientNet-B0), baseline ablations → baseline v2 | Experiment log; [Jamie: baseline ablations](#jamie-baseline-ablations); `notebooks/jamie_*`, `report/` |
-| Sudhishna | SED model (frame + attention heads, chunk length, overlap, spectrogram settings) | Experiment log; `notebooks/sudhishna_*`, `report/sections/` |
-| Arshiya | Members 3 and 4 roles: pretrained models (A1–A3), CPU inference speed, adaptation, distillation, noisy student / pseudo-labelling, final ensemble (E1–E4) and final submission | [Arshiya: pretrained models, adaptation and the final ensemble](#arshiya-pretrained-models-adaptation-and-the-final-ensemble); `notebooks/arshiya_*`, `report/arshiya_pretrained_ensemble/` |
+- **Training data:** 28,564 clean, close-up focal recordings, each with one weak label for the whole clip.
+- **Test data:** noisy soundscapes from field recorders. No labelled soundscapes are available, so there is nothing in-domain to validate on.
+- **Metric:** macro ROC-AUC, so a rare species counts as much as a common one.
 
-**Final submission:** E4 (noisy-student CNN 0.4 + Perch head A2d 0.6, temporally smoothed), public 0.88749 / private 0.88029, against 0.763 / 0.789 for baseline v2. How to run it: [Shortest path to the final submission](#shortest-path-to-the-final-submission-e4).
+Our data analysis found four difficulties, and each one motivated a change:
 
-## Layout
+| Difficulty | Evidence | What we tried |
+|---|---|---|
+| Class imbalance | 990 clips for the most common species, 2 for the rarest; 30 species have five or fewer | Focal loss |
+| Weak labels | Median clip is 20.5 s, but one label covers the whole clip, so a fixed 5 s crop may hold no call | Random 5 s crops |
+| Domain shift | Clean focal calls in training; rain, insects and overlapping calls in the test soundscapes | Soundscape noise + mixup |
+| Incomplete labels | Only 9.3% of clips list secondary species | Secondary labels as soft targets (0.5) |
+
+![Training clips per species, sorted by count, log scale](report/figures/class_imbalance.png)
+
+## Approach and results
+
+Every stage changes **one thing at a time** against a fixed recipe, split (seed 42, stratified 80/20) and inference protocol, so each gain can be attributed. Public-score differences below 0.01 are treated as noise.
+
+### Stage 1: baseline and data-driven fixes (Jamie)
+
+An ImageNet EfficientNet-B0 on 5 s log-mel spectrograms (public 0.717) was improved by adding one fix per difficulty. Random crops gave the largest gain (+0.035), soundscape noise with mixup (+0.016) and secondary labels (+0.012) also helped, and focal loss did not (−0.012), so it was dropped. Combining the three helpful fixes gives **baseline v2: 0.763 public / 0.789 private**, the recipe every later model starts from. Remove-one ablations confirmed that each fix contributes on the private board.
+
+![Public and private AUC for each single-change ablation and baseline v2](report/figures/jamie_ablation_single.png)
+
+### Stage 2: sound event detection (Sudhishna)
+
+The baseline scores a window as a whole, so it cannot tell *when* a species calls. The SED model (re-implemented from the description in the 1st-place write-up) predicts 206 scores every 0.5 s and pools them into a clip score for training, with loss 0.5·BCE(attention) + 0.5·BCE(peak). It learns call timing from clip-level labels alone.
+
+The key setting was **chunk length**: on 20 s chunks, as in the write-up, SED stayed below v2; on **5 s chunks it gained +0.033 and reached 0.773 public**, level with v2. A likely, untested reason is that 47.9% of the clips are shorter than 20 s, so long chunks are mostly padding. Using the final epoch instead of the best-validation epoch and overlapping chunks at inference both helped; the 1st-place write-up's spectrogram settings did not.
+
+![SED architecture](report/figures/sudhishna_sed_architecture.png)
+
+![Public and private AUC for each SED variant](report/figures/sudhishna_sed_ablation.png)
+
+### Stage 3: pretrained backbones (Arshiya)
+
+Keeping v2's recipe, only the pretrained model was changed: **A1** a bird-pretrained EfficientNetV2-S (0.828 public), **A2** frozen Perch 2.0 with a small head (**0.848**, the best transfer), and **A3** frozen Bird-MAE (0.776, and the slowest on CPU, so it was left out of the final system). Every model kept a gap of about 0.14–0.2 between clean validation and the leaderboard, which motivated Stage 4.
+
+### Stage 4: label-free adaptation and the final ensemble (Arshiya)
+
+Using 9,726 unlabelled soundscapes from the same recorders as the test set, two families were tested:
+
+- **Statistics-level** (AdaBN, CORAL, mean/std matching) change how features are scaled. **All 7 submissions got worse** (−0.024 to −0.161 public). Diagnosis showed no bug: these methods barely moved validation but scrambled the per-species ranking of windows, which is exactly what ROC-AUC scores.
+- **Content-level** (head distillation, noisy student) change what the model is trained on. **All 4 submissions improved** (+0.012 to +0.036). A Perch head distilled from the CNN (A2d, 0.867) became the best single model, and a noisy-student CNN trained on pseudo-labels for 116,712 soundscape windows went from 0.816 to 0.852 private.
+
+![Change in AUC versus the unadapted model for every adaptation run](report/arshiya_pretrained_ensemble/paper/figures/fig_adaptation_delta.png)
+
+The CNN and Perch make different errors (Spearman 0.31), so the final system rank-averages them and smooths each window with its neighbours. Four ensemble variants were fixed before any was scored; **E4 (CNN 0.4 + A2d 0.6, smoothed) was selected: 0.88749 public / 0.88029 private in 32.3 CPU minutes**.
+
+![E4 inference pipeline and CPU time against the 90-minute limit](report/arshiya_pretrained_ensemble/paper/figures/fig_f5_inference_pipeline.png)
+
+![Kaggle submission page for E4: private 0.88029, public 0.88749](report/figures/kaggle_e4_score.png)
+
+### Main lesson: clean validation did not predict the leaderboard
+
+- In the Stage 1 ablations, v2 without noise had the highest validation AUC and the lowest private score.
+- For SED, choosing the epoch by validation cost up to 0.016 public.
+- AdaBN and CORAL barely changed validation but lost up to 0.16 on the leaderboard.
+
+So models were selected by public score, with differences below 0.01 treated as noise.
+
+![Local validation AUC against public leaderboard AUC for the Stage 1 ablations](report/figures/jamie_cv_vs_lb.png)
+
+### Limitations and future work
+
+- One data split, and each CNN was trained only once; the 0.01 noise level was not measured directly.
+- Perch 2.0 post-dates the competition and may overlap with the training data.
+- With no labelled soundscapes, our explanations could not be tested directly.
+- Next steps: a small labelled soundscape set for validation, more noisy-student rounds with pseudo-label filtering, SED models inside the ensemble, and separating teacher quality from label density.
+
+## Repository guide
+
+### Layout
 
 ```
 configs/       experiment configs (yaml)
@@ -36,16 +111,17 @@ models/        trained weights (gitignored)
 notebooks/     one folder per Kaggle notebook (notebook + kernel-metadata.json)
 notes/         research notes (papers, model formats, licences, CLI, citations)
 report/        everything for the written report and the video
+  final_report/                                  FINAL AAAI report: main.tex, references.bib, figures/, PDF preview, Overleaf zip
   jamie_AAAI_*.docx                              Jamie: report drafts
   figures/, sections/, slides/                   Jamie & Sudhishna: figures (jamie_*, sudhishna_*), report sections and slides
   arshiya_pretrained_ensemble/                   Arshiya: paper, presentations, documentation, run logs
     results/                                     results_table, timing_table, ensemble_handoff, pretrained_models_section
-scripts/       helper scripts (kaggle_run.sh, jamie_experiments.py, sudhishna_experiments.py)
+scripts/       helper scripts (kaggle_run.sh, jamie_experiments.py, sudhishna_experiments.py, make_team_progress_figure.py)
 src/           reusable code (dataset, features, models, training)
 submissions/   generated submission CSVs (gitignored)
 ```
 
-## Setup
+### Setup
 
 ```bash
 python3 -m venv .venv
@@ -54,7 +130,7 @@ pip install -r requirements.txt
 bash scripts/download_data.sh
 ```
 
-## Running on Kaggle (no local data or GPU needed)
+### Running on Kaggle (no local data or GPU needed)
 
 Write code in VS Code, then run it on Kaggle where the data is already attached.
 Each notebook lives in its own folder under `notebooks/` with a `kernel-metadata.json`.
@@ -75,7 +151,7 @@ Requires the Kaggle CLI token at `~/.kaggle/access_token`.
 
 ## Experiment log
 
-Record every leaderboard submission here — the report needs baselines and ablations.
+Every leaderboard submission by Jamie and Sudhishna, in order.
 
 | Date | Who | Experiment | Local CV AUC | Public LB | Notes |
 |------|-----|------------|--------------|-----------|-------|
@@ -101,7 +177,9 @@ Leaderboard band cut-offs (public): top 10% ≥ 0.8808, top 30% ≥ 0.8731, top 
 
 Arshiya's 19 submissions are logged separately: see [Results summary](#results-summary) below and `report/arshiya_pretrained_ensemble/DOCUMENTATION.md`, section 16.
 
-## Jamie: baseline ablations
+## Details by member
+
+### Jamie: baseline ablations
 
 Each experiment is the baseline with **one** switch turned on, so a change in score comes from
 that switch alone. Everything else is identical: EfficientNet-B0, AdamW 1e-3 + one-cycle,
@@ -145,21 +223,21 @@ as `best_val_auc`.
 | YYYY-MM-DD | Jamie | Ablation `crop`: baseline + random 5 s crops (kernel m1-train-crop vN) | 0.9xxx (epoch N) | 0.xxxxx (private 0.xxxxx) | Δ vs baseline LB: +0.0xxx |
 ```
 
-## Arshiya: pretrained models, adaptation and the final ensemble
+### Arshiya: pretrained models, adaptation and the final ensemble
 
-### Overview
+#### Overview
 
 Late-submission work for the NTU SC4000 team project on Kaggle BirdCLEF+ 2025. The task is to predict 206 classes (birds, amphibians, insects, mammals) for every 5 s window of about 700 one-minute test soundscapes; the metric is macro ROC-AUC, and the submission notebook must run on CPU in at most 90 min with internet off. Every experiment follows a "v2 + one change" protocol: our team's baseline v2 recipe, split (seed 42, stratified 80/20) and inference protocol stay fixed, and only one component changes.
 
 We compare three pretraining paradigms: a bird-pretrained CNN backbone (A1), Perch 2.0 frozen embeddings (A2) and Bird-MAE-Base frozen features (A3). Label-free statistics-level alignment (AdaBN, CORAL, mean/std matching) hurt every model it was applied to, whereas content-level adaptation (distillation and noisy student on unlabelled soundscapes) helped. The final ensemble E4 scores 0.88749 public / 0.88029 private, against 0.763 / 0.789 for v2.
 
-### Scope of this repository
+#### Scope of this repository
 
 This repository covers our pretrained-model and inference-speed work: pretrained models A1, A2 and A3, CPU inference speed (profiling and a faster pipeline), the adaptation study (AdaBN, CORAL), distillation and noisy student round 1. It also contains the final ensemble, E1 to E4.
 
 Everything builds on our team's baseline model (v2): [`sc4000-birdclef-m1-make-mels`](https://www.kaggle.com/code/jmemei/sc4000-birdclef-m1-make-mels) (spectrogram cache and split) and [`sc4000-birdclef-m1-train-v2`](https://www.kaggle.com/code/jmemei/sc4000-birdclef-m1-train-v2) (trained EfficientNet-B0), plus the inference notebook [`sc4000-birdclef-m1-infer-v2`](https://www.kaggle.com/code/jmemei/sc4000-birdclef-m1-infer-v2). Local copies are in `m1/`.
 
-### Status (as of 10 Nov 2026)
+#### Status (as of 10 Nov 2026)
 
 **Experiments done.** We made 19 late submissions, all scored, from 40 Kaggle notebooks, all COMPLETE and all private.
 
@@ -172,7 +250,7 @@ Everything builds on our team's baseline model (v2): [`sc4000-birdclef-m1-make-m
 
 **Not done.** We did not export the CNN to ONNX/OpenVINO (the submitted CNNs run with torch on CPU; E4 takes 32.3 min measured). The paper has not been compiled locally (no LaTeX on the laptop), so it should be compiled on Overleaf. Sharing the private Kaggle notebooks and datasets with teammates has to be done by hand in the Kaggle UI (steps in `report/arshiya_pretrained_ensemble/results/ensemble_handoff.md`).
 
-### Results summary
+#### Results summary
 
 Reference: v2 public 0.763 / private 0.789; grading cut-off 0.776 public; team goal 0.810. CPU minutes are for 700 one-minute soundscapes; "measured" is a full 700-file run, "projected" is scaled up from a 20-file dry run.
 
@@ -193,7 +271,7 @@ Reference: v2 public 0.763 / private 0.789; grading cut-off 0.776 public; team g
 
 All 19 submissions (including the AdaBN and CORAL variants, which all scored below their unadapted parents) are in `report/arshiya_pretrained_ensemble/DOCUMENTATION.md`, section 16. Public differences below 0.01 are treated as noise.
 
-### Folder structure
+#### Folder structure
 
 ```
 README.md
@@ -214,7 +292,7 @@ notebooks/           40 folders, one per Kaggle notebook (notebook + kernel-meta
 notes/               research notes (papers, model formats, licences, CLI, citations)
 ```
 
-### How to reproduce
+#### How to reproduce
 
 Requirements: a Kaggle account that has accepted the BirdCLEF+ 2025 competition rules, and read access to the private items under `strippedbanana` (all notebooks and datasets are private). Each notebook's inputs are listed in `report/arshiya_pretrained_ensemble/NOTEBOOKS.md` and in its `kernel-metadata.json` under `notebooks/<folder>/`. GPU notebooks need a T4 and print or raise a GPU guard if none is available. All inference notebooks are CPU-only with internet off.
 
@@ -244,7 +322,7 @@ Run order by phase (notebook names omit the prefix `sc4000-birdclef-m3-`; the ac
 Approximate GPU use (all on a T4, from `report/arshiya_pretrained_ensemble/DOCUMENTATION.md` section 17): about 5.6 h in total against a 30 h weekly quota. The largest runs are `ns-student-main` (1.18 h), `ns-student-ablation` (1.10 h), `ns-perch-all` (0.91 h) and `a2-perch-embed` (about 0.9 h); `a1-v2s-train` took about 0.5 h and `a3-birdmae-embed` about 0.3 h. Everything else ran on Kaggle CPU.
 
 
-#### Shortest path to the final submission (E4)
+##### Shortest path to the final submission (E4)
 
 Retraining is not needed: the weights that scored are the kernel outputs listed below.
 
@@ -261,7 +339,7 @@ Retraining is not needed: the weights that scored are the kernel outputs listed 
 
 The four ensemble notebooks differ only in the line `VARIANT = "E..."`.
 
-### Known issues / limitations
+#### Known issues / limitations
 
 - Single validation split (seed 42), inherited from v2; local validation did not predict the leaderboard.
 - Seeds were repeated for the small heads only; the CNNs (A1 and the students) were trained once.
@@ -277,7 +355,7 @@ The four ensemble notebooks differ only in the line `VARIANT = "E..."`.
 - ONNX Runtime / OpenVINO export of the CNN was not done.
 - Some references could be only partly verified; see `report/arshiya_pretrained_ensemble/paper/UNVERIFIED_REFS.md`.
 
-### Other docs
+#### Other docs
 
 - [`report/arshiya_pretrained_ensemble/NOTEBOOKS.md`](report/arshiya_pretrained_ensemble/NOTEBOOKS.md): the 40 notebooks, with links, inputs, results and paste-ready descriptions.
 - [`report/arshiya_pretrained_ensemble/DOCUMENTATION.md`](report/arshiya_pretrained_ensemble/DOCUMENTATION.md): full technical documentation.
@@ -287,6 +365,17 @@ The four ensemble notebooks differ only in the line `VARIANT = "E..."`.
 - [`report/arshiya_pretrained_ensemble/results/results_table.md`](report/arshiya_pretrained_ensemble/results/results_table.md), [`report/arshiya_pretrained_ensemble/results/timing_table.md`](report/arshiya_pretrained_ensemble/results/timing_table.md), [`report/arshiya_pretrained_ensemble/results/ensemble_handoff.md`](report/arshiya_pretrained_ensemble/results/ensemble_handoff.md), [`report/arshiya_pretrained_ensemble/results/pretrained_models_section.md`](report/arshiya_pretrained_ensemble/results/pretrained_models_section.md).
 - Earlier versions: `report/arshiya_pretrained_ensemble/archive/paper_v2/` (a Bird-MAE-centred reframing of the same results), `report/arshiya_pretrained_ensemble/presentation/`, `report/arshiya_pretrained_ensemble/archive/presentation_v2/`.
 
-## References / acknowledgements
+## References
 
-List any public notebooks or code consulted (the course requires acknowledging them in the report).
+1. Cañas, J. S. et al. Overview of BirdCLEF+ 2025: Multi-Taxonomic Sound Identification in the Middle Magdalena, Colombia. CLEF 2025 Working Notes.
+2. Sydorskyi, V. and Gonçalves, F. Tackling Domain Shift in Bird Audio Classification via Transfer Learning and Semi-Supervised Distillation: A Case Study on BirdCLEF+ 2025. CLEF 2025 Working Notes.
+3. van Merriënboer, B. et al. Perch 2.0: The Bittern Lesson for Bioacoustics. 2025.
+4. Rauch, L. et al. Can Masked Autoencoders Also Listen to Birds? 2025.
+5. Tan, M. and Le, Q. EfficientNetV2: Smaller Models and Faster Training. ICML 2021.
+6. Xie, Q., Luong, M.-T., Hovy, E. and Le, Q. V. Self-Training With Noisy Student Improves ImageNet Classification. CVPR 2020.
+7. Li, Y., Wang, N., Shi, J., Hou, X. and Liu, J. Adaptive Batch Normalization for Practical Domain Adaptation. 2018.
+8. Sun, B., Feng, J. and Saenko, K. Return of Frustratingly Easy Domain Adaptation. AAAI 2016.
+9. Hinton, G., Vinyals, O. and Dean, J. Distilling the Knowledge in a Neural Network. 2015.
+10. Zhang, H., Cissé, M., Dauphin, Y. N. and Lopez-Paz, D. mixup: Beyond Empirical Risk Minimization. ICLR 2018.
+
+The SED model was re-implemented from the written description of the BirdCLEF+ 2025 1st-place solution, without using its code. Pretrained bird-audio CNN weights came from the public Kaggle dataset [`vladimirsydor/bird-clef-2025-all-pretrained-models`](https://www.kaggle.com/datasets/vladimirsydor/bird-clef-2025-all-pretrained-models).

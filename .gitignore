@@ -16,6 +16,7 @@ submissions/*.csv
 *.safetensors
 *.zip
 !report/arshiya_pretrained_ensemble/paper_overleaf.zip
+!report/final_report/final_report_overleaf.zip
 !report/arshiya_pretrained_ensemble/archive/paper_v2_overleaf.zip
 
 # --- Local-only notes ---
