@@ -12,6 +12,7 @@ Our solution to the Kaggle competition [BirdCLEF+ 2025](https://www.kaggle.com/c
 | **Score** | **0.88749 public / 0.88029 private** macro ROC-AUC (first baseline: 0.717 / 0.699) |
 | **Runtime** | 32.3 CPU minutes for about 700 soundscapes (limit 90 min, CPU only, internet off) |
 | **Position** | Would place 73rd of 2,032 teams on the public leaderboard (top 3.6%). Not an official rank: the submissions are late, and Perch 2.0 was released after the competition closed. |
+| **Final report** | [`report/final_report/SC4000_BirdCLEF_report_PREVIEW.pdf`](report/final_report/SC4000_BirdCLEF_report_PREVIEW.pdf) (AAAI format; LaTeX source `main.tex`, Overleaf upload `final_report_overleaf.zip`) |
 
 ![Public leaderboard AUC rising from 0.717 to 0.887 across eight steps, coloured by team member](report/figures/team_progress.png)
 
@@ -110,6 +111,7 @@ models/        trained weights (gitignored)
 notebooks/     one folder per Kaggle notebook (notebook + kernel-metadata.json)
 notes/         research notes (papers, model formats, licences, CLI, citations)
 report/        everything for the written report and the video
+  final_report/                                  FINAL AAAI report: main.tex, references.bib, figures/, PDF preview, Overleaf zip
   jamie_AAAI_*.docx                              Jamie: report drafts
   figures/, sections/, slides/                   Jamie & Sudhishna: figures (jamie_*, sudhishna_*), report sections and slides
   arshiya_pretrained_ensemble/                   Arshiya: paper, presentations, documentation, run logs
