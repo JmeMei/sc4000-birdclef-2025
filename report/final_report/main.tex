@@ -59,7 +59,7 @@ Passive acoustic monitoring lets ecologists survey biodiversity by leaving recor
 Member & Role and contributions \\
 \midrule
 Jamie Gonzales Esguerra & Repository and Kaggle workflow; exploratory data analysis and figures; baseline training and CPU inference; whole-clip spectrogram pipeline; four baseline improvements and ten ablation runs (nine submitted); baseline v2; report assembly. \\
-Dhanapalan Swaminathan Sudhishna Janavi & SED model re-implemented from a written description; training and CPU inference notebooks; seven SED submissions incl.\ chunk-length, overlap, checkpoint and spectrogram-resolution ablations. \\
+Dhanapalan Swaminathan Sudhishna Janavi & SED model re-implemented from a written description; training and CPU inference notebooks; 224-band spectrogram cache; seven SED submissions incl.\ chunk-length, overlap, checkpoint and spectrogram-resolution ablations; SED figures and slides. \\
 Arshiya Jawahar Ali Sirajudeen & Pretrained models A1--A3; CPU speed-up of the inference pipeline; adaptation study (AdaBN, CORAL, mean/std); distillation and noisy student; final ensembles E1--E4 and final submission (19 submissions). \\
 Modi Khushi & Helped prepare the presentation slides. \\
 \bottomrule
@@ -127,14 +127,14 @@ Baseline \textbf{v2} combines the changes that raised the public score (crop, no
 \subsection{Sound event detection model}
 The baseline scores each window as a whole and cannot tell \emph{when} in a weakly labelled clip a species calls. An SED model predicts a score for every short time step and pools them into one clip score for training, so it learns call timing from clip labels alone \citep{mesaros2021sound,kong2020panns}. We re-implemented the SED approach described in the first-place write-up \citep{babych2025first}, whose head goes back to a 2021 solution \citep{tattaka2021fourth}, from the written descriptions only.
 
-The input is a 20\,s chunk ($128\times1251$). We keep the v2 EfficientNet-B0 but remove its pooling and classifier, so the time axis survives ($1280\times4\times40$; 0.5\,s per step), which means any change in score comes from the head and chunk length, not a larger backbone. Generalised-mean pooling \citep{radenovic2019finetuning} with $p=3$ collapses frequency: a call fills few bands, so average pooling would dilute it and max pooling would follow noisy peaks. A shared $1\times1$ convolution (512 channels, ReLU, dropout 0.25) feeds two $1\times1$ heads, giving a score and an attention weight (softmax over time) for each species and step (Figure~\ref{fig:sed}). The score bias starts at $-4$ because nearly every species is absent at nearly every step. The loss is $0.5\,\mathrm{BCE}(\text{attention-pooled}) + 0.5\,\mathrm{BCE}(\text{max over time})$; the max term trains the step scores directly, which are what we use at test time. Training applies the full v2 recipe to random 20\,s chunks. At inference, 20\,s chunks start every 5\,s; each window takes its highest step score and averages over the up to four chunks covering it. A second model is trained identically on 5\,s chunks to measure what the long context is worth.
+The input is a 20\,s chunk ($128\times1251$). We use the same ImageNet-pretrained EfficientNet-B0 as v2 but remove its pooling and classifier, so the time axis survives ($1280\times4\times40$; 0.5\,s per step), which means any change in score comes from the head and chunk length, not a larger backbone. Generalised-mean pooling \citep{radenovic2019finetuning} with $p=3$ collapses frequency: a call fills few bands, so average pooling would dilute it and max pooling would follow noisy peaks. A shared $1\times1$ convolution (512 channels, ReLU, dropout 0.25) feeds two $1\times1$ heads, giving a score and an attention weight (softmax over time) for each species and step (Figure~\ref{fig:sed}). The score bias starts at $-4$ because nearly every species is absent at nearly every step. The loss is $0.5\,\mathrm{BCE}(\text{attention-pooled}) + 0.5\,\mathrm{BCE}(\text{max over time})$; the max term trains the step scores directly, which are what we use at test time. Training applies the full v2 recipe to random 20\,s chunks. At inference, 20\,s chunks start every 5\,s; each window takes its highest step score and averages over the up to four chunks covering it. A second model is trained identically on 5\,s chunks to measure what the long context is worth.
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/sudhishna_sed_architecture.png}
+\includegraphics[width=0.85\textwidth]{figures/sudhishna_sed_architecture.png}
 \caption{SED model. Tensor shapes are for one 20\,s chunk (channels $\times$ frequency $\times$ time). The head turns EfficientNet-B0 features into per-step species scores and attention weights; attention- and max-pooled scores form the training loss.}
 \label{fig:sed}
-\end{figure}
+\end{figure*}
 
 \subsection{Pretrained models}
 Keeping v2's recipe, split and inference fixed, we change only the pretrained model.
@@ -214,7 +214,7 @@ v2 + focal loss & 0.978 & 0.743 & 0.782 & $-0.020$ \\
 Random crops give the largest single gain ($+0.035$ public): many first-5\,s windows hold no call, and sampling the whole clip fixes this. They also act as augmentation; the crop and noise runs are still at or near their best at epoch 15 instead of overfitting at epoch 5 to 7. Noise/mixup and secondary labels help less on the hold-out clips than on the leaderboard, as expected for changes that target soundscapes. Focal loss does not help ($-0.012$ public). In the remove-one study, secondary labels matter most once combined ($-0.026$ when removed, against $+0.012$ alone); a likely reason is that random crops often contain background species, and secondary labels give those windows correct targets. Removing noise/mixup raises the public score slightly ($+0.004$, within noise) but costs 0.028 private, so we keep it. v2 reaches 0.763 public, $+0.046$ over the baseline.
 
 \subsection{SED model}
-Table~\ref{tab:sed} lists the SED runs. On 20\,s chunks SED stays below v2; the best 20\,s run is 0.015 public below v2. Keeping the final instead of the best-validation epoch raised the score by 0.013 to 0.016 public: at the validation peak (epoch 7) the one-cycle learning rate was still 64\% of its maximum, so the clean hold-out was again a poor guide. Overlapping chunks helped every time (public $+0.006$ to $+0.012$, all six differences with the same sign) for about 7 extra CPU minutes. The first-place spectrogram settings (224 bands, 1.25\,s steps) did not help. The largest effect was the \textbf{chunk length}: the same model on 5\,s chunks scored $+0.033$ public over 20\,s chunks, drawing level with v2 (0.773 vs.\ 0.763) at an estimated 16 CPU minutes. So the SED head works and the 20\,s chunk held it back, the opposite of the first-place finding. Our likely explanation, untested, is padding: 47.9\% of our clips are shorter than 20\,s, so many 20\,s training chunks are mostly silence, unlike the test soundscapes. Trained only with clip labels, the model's step scores still rise exactly when the species calls on hold-out clips (Figure~\ref{fig:frames}).
+Table~\ref{tab:sed} lists the SED runs. On 20\,s chunks SED stays below v2; the best 20\,s run is 0.015 public below v2. Keeping the final instead of the best-validation epoch raised the score by 0.013 to 0.016 public: at the validation peak (epoch 7) the one-cycle learning rate was still 64\% of its maximum, so the clean hold-out was again a poor guide. Overlapping chunks helped every time (public $+0.006$ to $+0.012$, all six differences with the same sign) for about 7 extra CPU minutes. The first-place spectrogram settings (224 bands, 1.25\,s steps) did not help. The largest effect was the \textbf{chunk length}: the same model on 5\,s chunks scored $+0.033$ public over 20\,s chunks, drawing level with v2 (0.773 vs.\ 0.763) at an estimated 16 CPU minutes. So the SED head works and the 20\,s chunk held it back, the opposite of the first-place finding. Our likely explanation, untested, is padding: 47.9\% of our clips are shorter than 20\,s, so many 20\,s training chunks are mostly silence, unlike the test soundscapes. Trained only with clip labels, the model's step scores still rise exactly when the species calls on a hold-out clip (Figure~\ref{fig:frames}).
 
 \begin{table}[t]
 \centering
@@ -233,7 +233,7 @@ SED 20\,s (best ep.; every 20\,s) & 0.970 & 0.726 & 0.744 \\
 \textbf{SED 5\,s} (final epoch) & 0.980 & \textbf{0.773} & 0.787 \\
 \bottomrule
 \end{tabular}
-\caption{SED runs; all use the v2 recipe. Val is first-5\,s hold-out AUC. ``Overlap'' starts a 20\,s chunk every 5\,s and averages the windows' scores.}
+\caption{SED runs; all use the v2 recipe. Val is first-5\,s hold-out AUC. ``Overlap'' starts a 20\,s chunk every 5\,s and averages the windows' scores. The 224-band rows also keep the final epoch.}
 \label{tab:sed}
 \end{table}
 
