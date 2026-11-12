@@ -34,12 +34,10 @@ The files for the NTULearn submission are collected in [`final_submission/`](fin
 
 | Member | Contribution | Where to look |
 |---|---|---|
-| **Jamie Gonzales Esguerra** | Exploratory data analysis, EfficientNet-B0 baseline, baseline ablations → baseline v2 (Stage 1) | [Stage 1](#stage-1-baseline-and-data-driven-fixes-jamie), [Jamie: ablation details](#jamie-baseline-ablations), `notebooks/jamie_*` |
-| **Dhanapalan Swaminathan Sudhishna Janavi** | Sound event detection (SED) model (Stage 2) | [Stage 2](#stage-2-sound-event-detection-sudhishna), `notebooks/sudhishna_*`, `report/sections/` |
-| **Arshiya Jawahar Ali Sirajudeen** | Pretrained backbones, CPU inference speed, label-free adaptation, distillation, noisy student, final ensemble and submission (Stages 3–4) | [Stages 3–4](#stage-3-pretrained-backbones-arshiya), [Arshiya: details](#arshiya-pretrained-models-adaptation-and-the-final-ensemble), `notebooks/arshiya_*`, `report/arshiya_pretrained_ensemble/` |
+| **Jamie Gonzales Esguerra** | Exploratory data analysis, EfficientNet-B0 baseline, baseline ablations → baseline v2 (Stage 1); co-wrote the AAAI report and helped prepare the presentation slides | [Stage 1](#stage-1-baseline-and-data-driven-fixes-jamie), [Jamie: ablation details](#jamie-baseline-ablations), `notebooks/jamie_*` |
+| **Dhanapalan Swaminathan Sudhishna Janavi** | Sound event detection (SED) model (Stage 2); co-wrote the AAAI report and helped prepare the presentation slides | [Stage 2](#stage-2-sound-event-detection-sudhishna), `notebooks/sudhishna_*`, `report/sections/` |
+| **Arshiya Jawahar Ali Sirajudeen** | Pretrained backbones, CPU inference speed, label-free adaptation, distillation, noisy student, final ensemble and submission (Stages 3–4); co-wrote the AAAI report and helped prepare the presentation slides | [Stages 3–4](#stage-3-pretrained-backbones-arshiya), [Arshiya: details](#arshiya-pretrained-models-adaptation-and-the-final-ensemble), `notebooks/arshiya_*`, `report/arshiya_pretrained_ensemble/` |
 | **Modi Khushi** | Presentation slides | |
-
-Jamie, Sudhishna and Arshiya also wrote the AAAI report together and helped prepare the presentation slides.
 
 ## The problem
 
