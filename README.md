@@ -12,9 +12,23 @@ Our solution to the Kaggle competition [BirdCLEF+ 2025](https://www.kaggle.com/c
 | **Score** | **0.88749 public / 0.88029 private** macro ROC-AUC (first baseline: 0.717 / 0.699) |
 | **Runtime** | 32.3 CPU minutes for about 700 soundscapes (limit 90 min, CPU only, internet off) |
 | **Position** | Would place 73rd of 2,032 teams on the public leaderboard (top 3.6%). Not an official rank: the submissions are late, and Perch 2.0 was released after the competition closed. |
-| **Final report** | [`report/final_report/SC4000_BirdCLEF_report_PREVIEW.pdf`](report/final_report/SC4000_BirdCLEF_report_PREVIEW.pdf) (AAAI format; LaTeX source `main.tex`, Overleaf upload `final_report_overleaf.zip`) |
 
 ![Public leaderboard AUC rising from 0.717 to 0.887 across eight steps, coloured by team member](report/figures/team_progress.png)
+
+## Final deliverables (for markers)
+
+The files for the NTULearn submission are collected in [`final_submission/`](final_submission/):
+
+| What | Where |
+|---|---|
+| **Final report** (AAAI format, 10 pages, PDF) | [`final_submission/SC4000_Group48_Report.pdf`](final_submission/SC4000_Group48_Report.pdf). LaTeX source, figures and Overleaf zip: [`report/final_report/`](report/final_report/) |
+| **Presentation video** | [https://youtu.be/HC1LXxHTjoo](https://youtu.be/HC1LXxHTjoo) (also in [`final_submission/video_link.txt`](final_submission/video_link.txt)) |
+| **Presentation slides** | [`report/slides/BirdCLEF_Group48_final_slides.pptx`](report/slides/BirdCLEF_Group48_final_slides.pptx) |
+| **Prediction file** | [`final_submission/submission.csv`](final_submission/submission.csv), written by the final E4 notebook |
+| **Final notebook** | [`final_submission/sc4000-birdclef-m3-ens-e4.ipynb`](final_submission/sc4000-birdclef-m3-ens-e4.ipynb) (Kaggle: `strippedbanana/sc4000-birdclef-m3-ens-e4`) |
+| **Score screenshot** | [`report/figures/kaggle_e4_score.png`](report/figures/kaggle_e4_score.png): private 0.88029, public 0.88749 |
+
+**About `submission.csv`:** BirdCLEF+ 2025 is a code competition, so Kaggle scores the notebook by re-running it on the hidden test soundscapes, and that scored `submission.csv` cannot be downloaded. The file here is the same notebook's output when run on Kaggle, where the public test folder is empty and it falls back to 700 training soundscapes (8,400 rows × 206 species, all format checks passed). It shows the exact output format; the score above comes from Kaggle's hidden-test run of this notebook.
 
 ## Team
 
@@ -24,6 +38,8 @@ Our solution to the Kaggle competition [BirdCLEF+ 2025](https://www.kaggle.com/c
 | **Dhanapalan Swaminathan Sudhishna Janavi** | Sound event detection (SED) model (Stage 2) | [Stage 2](#stage-2-sound-event-detection-sudhishna), `notebooks/sudhishna_*`, `report/sections/` |
 | **Arshiya Jawahar Ali Sirajudeen** | Pretrained backbones, CPU inference speed, label-free adaptation, distillation, noisy student, final ensemble and submission (Stages 3–4) | [Stages 3–4](#stage-3-pretrained-backbones-arshiya), [Arshiya: details](#arshiya-pretrained-models-adaptation-and-the-final-ensemble), `notebooks/arshiya_*`, `report/arshiya_pretrained_ensemble/` |
 | **Modi Khushi** | Presentation slides | |
+
+Jamie, Sudhishna and Arshiya also wrote the AAAI report together and helped prepare the presentation slides.
 
 ## The problem
 
