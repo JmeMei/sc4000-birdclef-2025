@@ -103,9 +103,8 @@ So models were selected by public score, with differences below 0.01 treated as 
 ### Layout
 
 ```
-configs/       experiment configs (yaml)
 data/          competition data (gitignored — download with scripts/download_data.sh)
-datasets/      metadata and small files for the private Kaggle datasets (large files are on Kaggle)
+datasets/      metadata and small files for the private Kaggle datasets: perch-onnx/, ns-pseudo-labels/ (large files are on Kaggle)
 m1/            copies of the baseline v2 notebooks used as the starting point by Arshiya
 models/        trained weights (gitignored)
 notebooks/     one folder per Kaggle notebook (notebook + kernel-metadata.json)
@@ -114,10 +113,14 @@ report/        everything for the written report and the video
   final_report/                                  FINAL AAAI report: main.tex, references.bib, figures/, PDF preview, Overleaf zip
   jamie_AAAI_*.docx                              Jamie: report drafts
   figures/, sections/, slides/                   Jamie & Sudhishna: figures (jamie_*, sudhishna_*), report sections and slides
-  arshiya_pretrained_ensemble/                   Arshiya: paper, presentations, documentation, run logs
+  arshiya_pretrained_ensemble/                   Arshiya:
+    NOTEBOOKS.md, DOCUMENTATION.md, LOG.md       notebook catalogue, technical documentation, run log
+    paper/, paper_overleaf.zip                   AAAI-27 paper source and Overleaf upload
+    presentation/                                Beamer slides and speaker scripts
     results/                                     results_table, timing_table, ensemble_handoff, pretrained_models_section
+    _kaggle_logs/                                downloaded run logs and CLI output used as evidence
+    archive/                                     old versions, do not edit
 scripts/       helper scripts (kaggle_run.sh, jamie_experiments.py, sudhishna_experiments.py, make_team_progress_figure.py)
-src/           reusable code (dataset, features, models, training)
 submissions/   generated submission CSVs (gitignored)
 ```
 
@@ -217,38 +220,9 @@ The local CV is printed at the end of the training log
 (`[crop] best val macro ROC-AUC: ...`) and saved in `outputs/jamie_train_crop/cfg.json`
 as `best_val_auc`.
 
-**Row template** to append to the experiment log above after each submission:
-
-```
-| YYYY-MM-DD | Jamie | Ablation `crop`: baseline + random 5 s crops (kernel m1-train-crop vN) | 0.9xxx (epoch N) | 0.xxxxx (private 0.xxxxx) | Δ vs baseline LB: +0.0xxx |
-```
-
 ### Arshiya: pretrained models, adaptation and the final ensemble
 
-#### Overview
-
-Late-submission work for the NTU SC4000 team project on Kaggle BirdCLEF+ 2025. The task is to predict 206 classes (birds, amphibians, insects, mammals) for every 5 s window of about 700 one-minute test soundscapes; the metric is macro ROC-AUC, and the submission notebook must run on CPU in at most 90 min with internet off. Every experiment follows a "v2 + one change" protocol: our team's baseline v2 recipe, split (seed 42, stratified 80/20) and inference protocol stay fixed, and only one component changes.
-
-We compare three pretraining paradigms: a bird-pretrained CNN backbone (A1), Perch 2.0 frozen embeddings (A2) and Bird-MAE-Base frozen features (A3). Label-free statistics-level alignment (AdaBN, CORAL, mean/std matching) hurt every model it was applied to, whereas content-level adaptation (distillation and noisy student on unlabelled soundscapes) helped. The final ensemble E4 scores 0.88749 public / 0.88029 private, against 0.763 / 0.789 for v2.
-
-#### Scope of this repository
-
-This repository covers our pretrained-model and inference-speed work: pretrained models A1, A2 and A3, CPU inference speed (profiling and a faster pipeline), the adaptation study (AdaBN, CORAL), distillation and noisy student round 1. It also contains the final ensemble, E1 to E4.
-
 Everything builds on our team's baseline model (v2): [`sc4000-birdclef-m1-make-mels`](https://www.kaggle.com/code/jmemei/sc4000-birdclef-m1-make-mels) (spectrogram cache and split) and [`sc4000-birdclef-m1-train-v2`](https://www.kaggle.com/code/jmemei/sc4000-birdclef-m1-train-v2) (trained EfficientNet-B0), plus the inference notebook [`sc4000-birdclef-m1-infer-v2`](https://www.kaggle.com/code/jmemei/sc4000-birdclef-m1-infer-v2). Local copies are in `m1/`.
-
-#### Status (as of 10 Nov 2026)
-
-**Experiments done.** We made 19 late submissions, all scored, from 40 Kaggle notebooks, all COMPLETE and all private.
-
-**Deliverables:**
-
-- `report/arshiya_pretrained_ensemble/NOTEBOOKS.md`: catalogue of the 40 notebooks, 2 private datasets and the upstream inputs.
-- `report/arshiya_pretrained_ensemble/DOCUMENTATION.md`: technical documentation (17 sections; section 16 lists all submissions, section 17 the compute and limitations).
-- `report/arshiya_pretrained_ensemble/paper/`: AAAI-27 paper (`main.tex`, `references.bib`, `paper.docx`, `figures/`), plus `report/arshiya_pretrained_ensemble/paper_overleaf.zip` for Overleaf.
-- `report/arshiya_pretrained_ensemble/results/`: `results_table.md`, `timing_table.md`, `ensemble_handoff.md`, `pretrained_models_section.md`.
-
-**Not done.** We did not export the CNN to ONNX/OpenVINO (the submitted CNNs run with torch on CPU; E4 takes 32.3 min measured). The paper has not been compiled locally (no LaTeX on the laptop), so it should be compiled on Overleaf. Sharing the private Kaggle notebooks and datasets with teammates has to be done by hand in the Kaggle UI (steps in `report/arshiya_pretrained_ensemble/results/ensemble_handoff.md`).
 
 #### Results summary
 
@@ -270,27 +244,6 @@ Reference: v2 public 0.763 / private 0.789; grading cut-off 0.776 public; team g
 | **E4 = MAIN 0.4 + A2d 0.6, smoothed (selected by public LB; E2 is within noise)** | 58198889 | **0.88749** | **0.88029** | **+0.1245** | **32.3 measured** |
 
 All 19 submissions (including the AdaBN and CORAL variants, which all scored below their unadapted parents) are in `report/arshiya_pretrained_ensemble/DOCUMENTATION.md`, section 16. Public differences below 0.01 are treated as noise.
-
-#### Folder structure
-
-```
-README.md
-datasets/            metadata and small files for the private Kaggle datasets (large files are on Kaggle)
-  perch-onnx/  ns-pseudo-labels/
-report/arshiya_pretrained_ensemble/
-  NOTEBOOKS.md             catalogue of the 40 Kaggle notebooks, datasets, upstream inputs
-  DOCUMENTATION.md         technical documentation, sections 1-17
-  LOG.md                   chronological run log
-  paper/                   AAAI-27 paper: main.tex, references.bib, paper.docx, figures/, UNVERIFIED_REFS.md
-  paper_overleaf.zip       paper upload for Overleaf
-  presentation/            Beamer slides and speaker scripts (earlier version)
-  archive/                 old versions, do not edit: paper_v2/, presentation_v2/, paper_v2_overleaf.zip, IMPLEMENTATION_GUIDE.md
-  _kaggle_logs/            downloaded run logs and CLI output used as evidence
-  results/                 results_table.md, timing_table.md, ensemble_handoff.md, pretrained_models_section.md
-m1/                  our team's baseline v2 notebooks
-notebooks/           40 folders, one per Kaggle notebook (notebook + kernel-metadata.json)
-notes/               research notes (papers, model formats, licences, CLI, citations)
-```
 
 #### How to reproduce
 
@@ -320,7 +273,6 @@ Run order by phase (notebook names omit the prefix `sc4000-birdclef-m3-`; the ac
 | 5. Final ensemble | [`ens-e1`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e1) (CPU); [`ens-e2`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e2) (CPU); [`ens-e3`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e3) (CPU); [`ens-e4`](https://www.kaggle.com/code/strippedbanana/sc4000-birdclef-m3-ens-e4) (CPU) |
 
 Approximate GPU use (all on a T4, from `report/arshiya_pretrained_ensemble/DOCUMENTATION.md` section 17): about 5.6 h in total against a 30 h weekly quota. The largest runs are `ns-student-main` (1.18 h), `ns-student-ablation` (1.10 h), `ns-perch-all` (0.91 h) and `a2-perch-embed` (about 0.9 h); `a1-v2s-train` took about 0.5 h and `a3-birdmae-embed` about 0.3 h. Everything else ran on Kaggle CPU.
-
 
 ##### Shortest path to the final submission (E4)
 
@@ -360,10 +312,8 @@ The four ensemble notebooks differ only in the line `VARIANT = "E..."`.
 - [`report/arshiya_pretrained_ensemble/NOTEBOOKS.md`](report/arshiya_pretrained_ensemble/NOTEBOOKS.md): the 40 notebooks, with links, inputs, results and paste-ready descriptions.
 - [`report/arshiya_pretrained_ensemble/DOCUMENTATION.md`](report/arshiya_pretrained_ensemble/DOCUMENTATION.md): full technical documentation.
 - [`report/arshiya_pretrained_ensemble/paper/`](report/arshiya_pretrained_ensemble/paper/): AAAI-27 paper source, `paper.docx`, figures and [`UNVERIFIED_REFS.md`](report/arshiya_pretrained_ensemble/paper/UNVERIFIED_REFS.md); [`report/arshiya_pretrained_ensemble/paper_overleaf.zip`](report/arshiya_pretrained_ensemble/paper_overleaf.zip) for Overleaf.
-- [`report/arshiya_pretrained_ensemble/archive/IMPLEMENTATION_GUIDE.md`](report/arshiya_pretrained_ensemble/archive/IMPLEMENTATION_GUIDE.md): the earlier 8 Nov guide, superseded by `DOCUMENTATION.md`.
 - [`report/arshiya_pretrained_ensemble/LOG.md`](report/arshiya_pretrained_ensemble/LOG.md): chronological log.
 - [`report/arshiya_pretrained_ensemble/results/results_table.md`](report/arshiya_pretrained_ensemble/results/results_table.md), [`report/arshiya_pretrained_ensemble/results/timing_table.md`](report/arshiya_pretrained_ensemble/results/timing_table.md), [`report/arshiya_pretrained_ensemble/results/ensemble_handoff.md`](report/arshiya_pretrained_ensemble/results/ensemble_handoff.md), [`report/arshiya_pretrained_ensemble/results/pretrained_models_section.md`](report/arshiya_pretrained_ensemble/results/pretrained_models_section.md).
-- Earlier versions: `report/arshiya_pretrained_ensemble/archive/paper_v2/` (a Bird-MAE-centred reframing of the same results), `report/arshiya_pretrained_ensemble/presentation/`, `report/arshiya_pretrained_ensemble/archive/presentation_v2/`.
 
 ## References
 
